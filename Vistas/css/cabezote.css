@@ -1,0 +1,397 @@
+/*===============================================
+TOP
+===============================================*/
+
+#top ul{
+
+    padding-top: 8px;
+
+}
+
+#top ul li{
+
+    display: inline;
+    line-height: 30px;
+    margin: 0px 5px;
+    color: white;
+
+}
+
+.social ul li a i{
+
+    font-size: 18px;
+    margin: 1px;
+
+}
+
+.registro{
+
+    text-align: right;
+    font-size: 12px;
+
+}
+
+/*===============================================
+HEADER
+================================================*/
+
+
+/*
+BloqueCatBus
+*/
+header #bloqueCatBus{
+
+    padding: 0px;
+
+}
+
+header button.backColor:hover, header .hover.backColor:hover{
+
+    background-color: #ee6614;
+    color: wheat;
+
+}
+
+    header #btnCategorias{
+
+        margin: 20px 0;
+
+    }
+
+    /*
+    Buscador
+    */
+
+    header #buscador{
+
+        margin: 20px 0;
+        padding: 0;
+
+    }
+
+    header #buscador input{
+
+        padding: 19px;
+        border-radius: 0;
+
+    }
+
+    header #buscador button{
+
+        padding: 7px;
+        border: 1px solid silver;
+        border-radius: 0;
+
+    }
+
+    /*
+    Carrito
+    */
+    header #carrito{
+
+        margin: 20px 0px;
+        padding: 0px;
+        width: 100%;
+
+    }
+
+    header #carrito p{
+
+        padding: 0px;
+        padding-left: 60px;
+        border: 1px solid #aaa;
+        font-size: 12px;
+
+    }
+
+    /*
+    Categorias
+    */
+
+    header #categorias{
+
+        display: none;
+        margin-top: -10px;
+        position: relative;
+        padding: 30px;
+
+    }
+
+    header #categorias h4{
+
+        margin-top: 20px;
+        margin-bottom: -10px;
+
+    }
+
+    header #categorias hr{
+
+        border: 1px solid rgba(255,255,255,.3);
+
+    }
+
+/*
+Alineacion Vertical
+*/
+.vertical{
+
+    position: relative;
+
+}
+.vertical > *{
+
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+
+}
+
+/*=================================================
+ESCRITORIO GRANDE (LG revisamos en 992px en adelante)
+=================================================*/
+
+@media (min-width: 992px){
+
+    /*Cabezote General*/
+    header .container-fluid{
+
+        padding-left: 0px !important;
+
+    }
+
+    /*
+    Logotipo
+    */
+    header #logotipo img{
+
+        padding: 25px 60px;
+        padding-left: 0px;
+
+    }
+
+    /*
+    BloqueCatBus
+    */
+
+        /*
+        btnCategorias
+        */
+
+        header #btnCategorias{
+
+            margin: 20px 0;
+
+        }
+
+}
+
+/*=================================================
+ESCRITORIO MEDIANO O TABLET HORIZONTAL (MD revisamos en 900px)
+=================================================*/
+
+@media (max-width: 992px) and (min-width:768px){
+
+    /*Cabezote General*/
+
+    header .float-right {
+        float: none!important;
+    }
+
+    header .container-fluid{
+
+        padding-left: 10px !important;
+        padding-right: 0px !important;
+
+    }
+
+    /*
+    Logotipo
+    */
+    header #logotipo img{
+
+        padding: 30px 0px;
+
+    }
+
+    /*
+    BloqueCatBus
+    */
+
+        /*
+        btnCategorias
+        */
+
+        header #btnCategorias p{
+
+            line-height: 40px;
+            margin-bottom: 0px;
+            text-align: center;
+
+        }
+
+}
+
+/*=================================================
+ESCRITORIO CHICO O TABLET VERTICAL (SM revisamos en 700px)
+=================================================*/
+
+@media (min-width: 576px) and (max-width: 768px){
+
+    /*Cabezote General*/
+
+    header .container-fluid{
+
+        width: auto !important;
+
+    }
+
+    header .float-right {
+        float: none!important;
+    }
+
+    header .vertical{
+
+        position: static;
+        width: 100%;
+
+    }
+
+    header .vertical > *{
+
+        position: static;
+        top: auto;
+        margin-top: 0;
+
+    }
+
+    /*
+    Logotipo
+    */
+
+    header #logotipo a{
+
+        display: block;
+        width: 100%;
+        margin: 0px;
+        margin-top: 20px;
+
+    }
+
+    header #logotipo img{
+
+        display:block;
+        margin: auto;
+        max-width: 50px;
+        width: auto;
+        max-width: 150px;
+        padding: 0px;
+
+    }
+
+    /*
+    BloqueCatBus
+    */
+
+    header #bloqueCatBus{
+
+        padding-right: 10px;
+
+    }
+
+        /*
+        btnCategorias
+        */
+
+        header #btnCategorias p{
+
+            line-height: 40px;
+            margin-bottom: 0px;
+            text-align: center;
+
+        }
+
+        /*
+        Carrito
+        */
+
+        header #carrito{
+
+            margin: 10px 0;
+
+        }
+
+}
+
+/*=================================================
+MOVIL (XS revisamos en 320px)
+=================================================*/
+
+@media (max-width: 576px){
+
+    /*Cabezote general*/
+
+    header .container-fluid{
+
+        width: auto !important;
+
+    }
+
+    header .vertical{
+
+        position: static;
+        width: 100%;
+
+    }
+
+    header .vertical > *{
+
+        position: static;
+        top: auto;
+        margin-top: 0;
+
+    }
+
+    /*
+    Logotipo
+    */
+
+    header #logotipo a{
+
+        display: block;
+        width: 100%;
+        margin: 0px;
+        margin-top: 10px;
+
+    }
+
+    header #logotipo img{
+
+        display:block;
+        margin: auto;
+        max-width: 50px;
+        width: auto;
+        max-width: 150px;
+        padding: 0px;
+
+    }
+
+    /*
+    BloqueCatBus
+    */
+
+        /*btnCategorias*/
+        header #btnCategorias{
+
+            margin: 10px 0;
+
+        }
+
+        /*Carrito*/
+
+        header #carrito{
+
+            margin: 5px 0;
+
+        }
+
+}

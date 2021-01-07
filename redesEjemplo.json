@@ -1,0 +1,7 @@
+[
+    {"red":"fa-facebook-f", "estilo": "facebookColor", "url": "http://facebook.com/"},
+    {"red":"fa-youtube", "estilo": "youtubeColor", "url": "http://youtube.com/"},
+    {"red":"fa-twitter", "estilo": "twitterColor", "url": "http://twitter.com/"},
+    {"red":"fa-whatsapp", "estilo": "whatsappColor", "url": "http://whatsapp.com/"},
+    {"red":"fa-linkedin-in", "estilo": "linkedinColor", "url": "http://linkedin.com/"}
+]
