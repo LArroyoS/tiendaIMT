@@ -13,7 +13,6 @@ var btnVerProducto = $("#slide button");
 var detenerIntervalo = false;
 var toogle = false;
 
-console.log(imgProducto);
 $("#slide ul").css({"width": (100*$("#slide ul li").length)+"%"});
 $("#slide ul li").css({"width": (100/$("#slide ul li").length)+"%"});
 
@@ -63,6 +62,9 @@ function avanzar(){
         item++;
 
     }
+
+    interrumpirCiclo = true;
+
     movimientoSlide(item);
 
 }
@@ -104,8 +106,6 @@ function movimientoSlide(item){
     $(itemPaginacion[item]).css({"opacity": 1});
     interrumpirCiclo = true;
 
-    console.log(item);
-    console.log(imgProducto[item]);
     $(imgProducto[item]).animate({"top": (-10)+"%", "opacity": 0},100,"easeOutBounce");
     $(imgProducto[item]).animate({"top": (15)+"%", "opacity": 1},600,"easeOutBounce");
 
@@ -132,6 +132,14 @@ setInterval(function(){
     if(interrumpirCiclo){
 
         interrumpirCiclo = false;
+        detenerIntervalo = false;
+        /*
+        finish: Detiene cualquier animacion existente, 
+        remoeve animacion de cola y completa animacion hasta el final 
+        Con esto se soluciona el error de cambio rapido de pestaña de slide
+        */
+
+        $("#slide ul li").finish();
 
     }
     else{

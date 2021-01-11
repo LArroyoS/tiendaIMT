@@ -1,3 +1,8 @@
+<?php 
+
+    $urlServidor = Ruta:: ctrRutaServidor();
+
+?>
 <!-- ------------------------------------------------
 SLIDE
 ------------------------------------------------- -->
@@ -34,8 +39,8 @@ SLIDE
                     $titulo3 = json_decode($value["titulo3"],true);
 
                     $imgProducto = ((isset($value['imgProducto']) and $value['imgProducto']=="")?
-                                    '<img class="imgProducto">':
-                                    '<img class="imgProducto" src="http://localhost/adminIMT/'.$value['imgProducto'].'"
+                                    '<img class="imgProducto d-none">':
+                                    '<img class="imgProducto" src="'.$urlServidor.$value['imgProducto'].'"
                                         style="
                                             top: '.$estiloImgProducto["top"].'; 
                                             right: '.$estiloImgProducto["right"].';
@@ -45,7 +50,7 @@ SLIDE
 
                     echo    '<li>
 
-                                <img src="http://localhost/adminIMT/'.$value['imgFondo'].'">
+                                <img src="'.$urlServidor.$value['imgFondo'].'">
 
                                 <div class="slideOpciones '.$value['tipoSlide'].'">
 

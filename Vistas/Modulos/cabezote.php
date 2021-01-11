@@ -1,3 +1,9 @@
+<?php 
+
+    $urlServidor = Ruta:: ctrRutaServidor();
+
+?>
+
 <!--=============================================
 TOP
 ===============================================-->
@@ -89,7 +95,7 @@ HEADER
 
                 <a href="#">
 
-                    <img src="http://localhost/adminIMT/<?php echo $social['logo']; ?>" class="img-fluid">
+                    <img src="<?php echo $urlServidor.$social['logo']; ?>" class="img-fluid">
 
                 </a>
 

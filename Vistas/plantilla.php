@@ -11,9 +11,10 @@
 
     <?php 
 
+        $urlServidor = Ruta:: ctrRutaServidor();
         $icono = ControladorPlantilla::ctrEstiloPlantilla();
 
-        echo '<link rel="icon" href="http://localhost/adminIMT/'.$icono['icono'].'">';
+        echo '<link rel="icon" href="'.$urlServidor.$icono['icono'].'">';
 
         /*============================================
         MANTENER LA RUTA FIJA DEL PROJECTO
@@ -121,9 +122,9 @@ else{
 
 ?>
 
-<script src="<?php echo $url; ?>Vistas/js/cabezote.js"></script>
-<script src="<?php echo $url; ?>Vistas/js/plantilla.js"></script>
-<script src="<?php echo $url; ?>Vistas/js/slide.js?1.1"></script>
+<script src="<?php echo $url; ?>Vistas/js/cabezote.js?1.2"></script>
+<script src="<?php echo $url; ?>Vistas/js/plantilla.js?1.2"></script>
+<script src="<?php echo $url; ?>Vistas/js/slide.js?1.2"></script>
 
 </body>
 
