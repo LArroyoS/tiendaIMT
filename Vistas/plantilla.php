@@ -28,16 +28,26 @@
     <meta name="description" content="Refaccionaria IMT">
     <meta name="keywords" content="tortilladoras, masa, mais, refaccionaria">
 
+    <!--============================================
+    PLUGINS DE CSS
+    ============================================-->
     <!--<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>-->
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/plugins/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/plantilla.css?1.2">
-    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/cabezote.css?1.2">
-    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/slide.css?1.4">
+    <!--============================================
+    ESTILOS PERSONALIZADOS
+    ============================================-->
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/plantilla.css?1.0">
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/cabezote.css?1.0">
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/slide.css?1.0">
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/productos.css?1.0">
 
+    <!--============================================
+    PLUGINS DE JAVASCRIPT
+    ============================================-->
     <script src="<?php echo $url; ?>Vistas/js/plugins/all.js"></script>
     <script src="<?php echo $url; ?>Vistas/js/plugins/jquery.min.js"></script>
     <script src="<?php echo $url; ?>Vistas/js/plugins/bootstrap.min.js"></script>
@@ -117,11 +127,15 @@ if(isset($_GET['ruta'])){
 else{
 
     include "Modulos/slide.php";
+    include "Modulos/destacados.php";
 
 }
 
 ?>
 
+<!--============================================
+JAVASCRIPT PERSONALIZADOS
+============================================-->
 <script src="<?php echo $url; ?>Vistas/js/cabezote.js?1.2"></script>
 <script src="<?php echo $url; ?>Vistas/js/plantilla.js?1.2"></script>
 <script src="<?php echo $url; ?>Vistas/js/slide.js?1.2"></script>
