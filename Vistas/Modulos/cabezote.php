@@ -85,70 +85,110 @@ HEADER
 
     <div class="container">
 
-        <div class="row" id="cabezote">
+        <div class="row">
 
-            <!--===================================
-            LOGOTIPO
-            =====================================-->
+            <div class="col-12" id="encabezado">
 
-            <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12" id="logotipo">
+                <div class="row" id="cabezote">
 
-                <a href="#">
+                    <!--===================================
+                    LOGOTIPO
+                    =====================================-->
 
-                    <img src="<?php echo $urlServidor.$social['logo']; ?>" class="img-fluid">
+                    <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12" id="logotipo">
 
-                </a>
+                        <a href="#">
 
-            </div>
+                            <img src="<?php echo $urlServidor.$social['logo']; ?>" class="img-fluid">
 
-            <!--===================================
-            BLOQUE CATEGORIAS Y BUSCADOR
-            =====================================-->
+                        </a>
 
-            <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12" id="bloqueCatBus">
+                    </div>
 
-                <div class="col-12">
+                    <!--===================================
+                    BLOQUE CATEGORIAS Y BUSCADOR
+                    =====================================-->
 
-                    <div class="row ">
-                        <!--===================================
-                        BOTON CATEGORIAS
-                        =====================================-->
-                        <div class="p-0 col-lg-4 col-md-2 col-sm-2 col-xs-12">
-                            
-                            <button class="btn btn-default btn-block backColor hover" id="btnCategorias">
+                    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12" id="bloqueCatBus">
 
-                                <span class="col-sm-0 col-md-0">CATEGORÍAS</span>
+                        <div class="col-12">
 
-                                <span class="float-right">
+                            <div class="row ">
+                                <!--===================================
+                                BOTON CATEGORIAS
+                                =====================================-->
+                                <div class="p-0 col-lg-4 col-md-2 col-sm-2 col-xs-12">
+                                    
+                                    <button class="btn btn-default btn-block backColor hover" id="btnCategorias">
 
-                                    <i class="fa fa-bars" arial-hidden="true"></i>
+                                        <span class="col-sm-0 col-md-0">CATEGORÍAS</span>
 
-                                </span>
+                                        <span class="float-right">
 
-                            </button>
+                                            <i class="fa fa-bars" arial-hidden="true"></i>
 
-                        </div>
-
-                        <!--===================================
-                        BUSCADOR
-                        =====================================-->
-                        <div class="input-group col-lg-8 col-md-10 col-sm-10 col-xs-12" id="buscador">
-
-                            <input type="search" name="buscar" class="form-control" placeholder="Buscar...">
-
-                            <span class="input-group-append">
-
-                                <a href="#">
-
-                                    <button class="btn btn-default backColor" type="submit">
-
-                                        <i class="fa fa-search"></i>
+                                        </span>
 
                                     </button>
 
-                                </a>
+                                </div>
 
-                            </span>
+                                <!--===================================
+                                BUSCADOR
+                                =====================================-->
+                                <div class="input-group col-lg-8 col-md-10 col-sm-10 col-xs-12" id="buscador">
+
+                                    <input type="search" name="buscar" class="form-control" placeholder="Buscar...">
+
+                                    <span class="input-group-append">
+
+                                        <a href="#">
+
+                                            <button class="btn btn-default backColor" type="submit">
+
+                                                <i class="fa fa-search"></i>
+
+                                            </button>
+
+                                        </a>
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--===================================
+                    Carrito
+                    =====================================-->
+
+                    <div class="p-xs-0 col-lg-3 col-md-3 col-sm-4 col-xs-12">
+
+                        <div class="col-12" id="carrito">
+                            
+                                    <a href="#">
+
+                                        <button class="btn btn-default float-left backColor">
+
+                                            <i class="fa fa-shopping-cart" arial-hidden="true"></i>
+
+                                        </button>
+
+                                    </a>
+
+                                    <p>
+
+                                        TU CESTA 
+                                        <span class="cantidadCesta"></span>
+                                        <br>
+                                        MXN $ 
+                                        <span class="sumaCesta"><span>
+
+                            </p>
 
                         </div>
 
@@ -158,91 +198,59 @@ HEADER
 
             </div>
 
-            <!--===================================
-            Carrito
-            =====================================-->
+            <!--=========================================
+            CATEGORIAS
+            ===========================================-->
 
-            <div class="p-xs-0 col-lg-3 col-md-3 col-sm-4 col-xs-12">
+            <div class="col-12 backColor" id="categorias">
 
-                <div class="col-12" id="carrito">
-                    
-                            <a href="#">
+                <div class="row">
 
-                                <button class="btn btn-default float-left backColor">
+                    <?php 
 
-                                    <i class="fa fa-shopping-cart" arial-hidden="true"></i>
+                        $item = null;
+                        $valor = null;
 
-                                </button>
+                        $categorias = ControladorProductos::ctrMostrarCategorias($item,$valor);
 
-                            </a>
+                        foreach($categorias as $key => $value){
 
-                            <p>
+                            echo    '<div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
 
-                                TU CESTA 
-                                <span class="cantidadCesta"></span>
-                                <br>
-                                MXN $ 
-                                <span class="sumaCesta"><span>
+                                        <h4>
 
-                    </p>
+                                            <a href="'.$value['ruta'].'" class="pixelCategorias">'.$value['categoria'].'</a>
+
+                                        </h4>
+
+                                        <hr>
+
+                                        <ul>';
+
+                                            $item = "id_categoria";
+                                            $valor = $value['id'];
+
+                                            $subcategorias = ControladorProductos::ctrMostrarSubCategorias($item,$valor);
+
+                                            foreach($subcategorias as $key => $value){
+
+                                                echo    '<li>
+
+                                                            <a href="'.$value['ruta'].'" class="pixelSubCategorias">'.$value['subcategoria'].'</a>
+
+                                                        </li>';
+
+                                            }
+
+                                    echo '</ul>
+
+                                    </div>';
+
+                        }
+
+                    ?>
 
                 </div>
-
-            </div>
-
-        </div>
-
-        <!--=========================================
-        CATEGORIAS
-        ===========================================-->
-
-        <div class="col-xs-12 backColor" id="categorias">
-
-            <div class="row">
-
-                <?php 
-
-                    $item = null;
-                    $valor = null;
-
-                    $categorias = ControladorProductos::ctrMostrarCategorias($item,$valor);
-
-                    foreach($categorias as $key => $value){
-
-                        echo    '<div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-
-                                    <h4>
-
-                                        <a href="'.$value['ruta'].'" class="pixelCategorias">'.$value['categoria'].'</a>
-
-                                    </h4>
-
-                                    <hr>
-
-                                    <ul>';
-
-                                        $item = "id_categoria";
-                                        $valor = $value['id'];
-
-                                        $subcategorias = ControladorProductos::ctrMostrarSubCategorias($item,$valor);
-
-                                        foreach($subcategorias as $key => $value){
-
-                                            echo    '<li>
-
-                                                        <a href="'.$value['ruta'].'" class="pixelSubCategorias">'.$value['subcategoria'].'</a>
-
-                                                    </li>';
-
-                                        }
-
-                                echo '</ul>
-
-                                </div>';
-
-                    }
-
-                ?>
 
             </div>
 

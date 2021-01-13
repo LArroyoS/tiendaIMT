@@ -58,7 +58,7 @@ btnCategorias
 
 header #btnCategorias{
 
-    margin: 20px 0;
+    margin: 25px 0;
     margin-bottom: 0;
 
 }
@@ -69,7 +69,7 @@ Buscador
 
 header #buscador{
 
-    margin: 20px 0;
+    margin: 25px 0;
     padding: 0;
     margin-bottom: 0;
 
@@ -95,7 +95,7 @@ Carrito
 */
 header #carrito{
 
-    margin: 20px 0px;
+    margin: 25px 0px;
     padding: 0px;
     margin-bottom: 0;
     width: 100%;
@@ -118,7 +118,6 @@ Categorias
 header #categorias{
 
     display: none;
-    margin-top: -10px;
     position: relative;
     padding: 30px;
 
@@ -299,6 +298,26 @@ ESCRITORIO CHICO O TABLET VERTICAL (SM revisamos en 700px)
         text-align: center;
 
     }
+
+    header #carrito{
+
+        margin-bottom: 0px;
+
+    }
+    header #buscador{
+
+        margin-bottom: 0;
+
+    }
+
+    /*btnCategorias*/
+    header #btnCategorias{
+
+        margin-bottom: 0;
+
+    }
+
+
 
 }
 

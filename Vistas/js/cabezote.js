@@ -11,7 +11,7 @@ $('#btnCategorias').on('click',function(e){
     }
     else{
 
-        $('#cabezote').after($('#categorias').slideToggle("fast"));
+        $('#encabezado').after($('#categorias').slideToggle("fast"));
 
     }
 
