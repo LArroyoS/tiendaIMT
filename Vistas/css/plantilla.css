@@ -259,4 +259,10 @@ MOVIL (XS revisamos en 320px)
 
     }
 
+    .p-xs-0{
+
+        padding: 0 !important;
+
+    }
+
 }

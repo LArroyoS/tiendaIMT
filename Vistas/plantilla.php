@@ -40,8 +40,8 @@
     <!--============================================
     ESTILOS PERSONALIZADOS
     ============================================-->
-    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/plantilla.css?1.0">
-    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/cabezote.css?1.0">
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/plantilla.css?1.1">
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/cabezote.css?1.5">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/slide.css?1.0">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/productos.css?1.0">
 

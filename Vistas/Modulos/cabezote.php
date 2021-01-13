@@ -91,7 +91,7 @@ HEADER
             LOGOTIPO
             =====================================-->
 
-            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" id="logotipo">
+            <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12" id="logotipo">
 
                 <a href="#">
 
@@ -105,49 +105,52 @@ HEADER
             BLOQUE CATEGORIAS Y BUSCADOR
             =====================================-->
 
-            <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 vertical" id="bloqueCatBus">
+            <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12" id="bloqueCatBus">
 
-                <div class="row container-fluid">
+                <div class="col-12">
 
-                    <!--===================================
-                    BOTON CATEGORIAS
-                    =====================================-->
-                    <div class="col-lg-4 col-md-2 col-sm-2 col-xs-12 backColor hover" id="btnCategorias">
+                    <div class="row ">
+                        <!--===================================
+                        BOTON CATEGORIAS
+                        =====================================-->
+                        <div class="p-0 col-lg-4 col-md-2 col-sm-2 col-xs-12">
+                            
+                            <button class="btn btn-default btn-block backColor hover" id="btnCategorias">
 
-                        <p>
+                                <span class="col-sm-0 col-md-0">CATEGORÍAS</span>
 
-                            <span class="col-sm-0 col-md-0">CATEGORÍAS</span>
+                                <span class="float-right">
 
-                            <span class="float-right">
+                                    <i class="fa fa-bars" arial-hidden="true"></i>
 
-                                <i class="fa fa-bars" arial-hidden="true"></i>
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <!--===================================
+                        BUSCADOR
+                        =====================================-->
+                        <div class="input-group col-lg-8 col-md-10 col-sm-10 col-xs-12" id="buscador">
+
+                            <input type="search" name="buscar" class="form-control" placeholder="Buscar...">
+
+                            <span class="input-group-append">
+
+                                <a href="#">
+
+                                    <button class="btn btn-default backColor" type="submit">
+
+                                        <i class="fa fa-search"></i>
+
+                                    </button>
+
+                                </a>
 
                             </span>
 
-                        </p>
-
-                    </div>
-
-                    <!--===================================
-                    BUSCADOR
-                    =====================================-->
-                    <div class="input-group mb-3 col-lg-8 col-md-10 col-sm-10 col-xs-12" id="buscador">
-
-                        <input type="search" name="buscar" class="form-control" placeholder="Buscar...">
-
-                        <span class="input-group-append">
-
-                            <a href="#">
-
-                                <button class="btn btn-default backColor" type="submit">
-
-                                    <i class="fa fa-search"></i>
-
-                                </button>
-
-                            </a>
-
-                        </span>
+                        </div>
 
                     </div>
 
@@ -159,33 +162,29 @@ HEADER
             Carrito
             =====================================-->
 
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 vertical" id="carrito">
+            <div class="p-xs-0 col-lg-3 col-md-3 col-sm-4 col-xs-12">
 
-                <div class="row container-fluid">
+                <div class="col-12" id="carrito">
+                    
+                            <a href="#">
 
-                    <div id="carrito">
-                
-                        <a href="#">
+                                <button class="btn btn-default float-left backColor">
 
-                            <button class="btn btn-default float-left backColor">
+                                    <i class="fa fa-shopping-cart" arial-hidden="true"></i>
 
-                                <i class="fa fa-shopping-cart" arial-hidden="true"></i>
+                                </button>
 
-                            </button>
+                            </a>
 
-                        </a>
+                            <p>
 
-                        <p>
+                                TU CESTA 
+                                <span class="cantidadCesta"></span>
+                                <br>
+                                MXN $ 
+                                <span class="sumaCesta"><span>
 
-                            TU CESTA 
-                            <span class="cantidadCesta"></span>
-                            <br>
-                            MXN $ 
-                            <span class="sumaCesta"><span>
-
-                        </p>
-
-                    </div>
+                    </p>
 
                 </div>
 
