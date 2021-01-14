@@ -52,83 +52,89 @@ header button.backColor:hover, header .hover.backColor:hover{
 
 }
 
-    header #btnCategorias{
+/*
+btnCategorias
+*/
 
-        margin: 20px 0;
+header #btnCategorias{
 
-    }
+    margin: 25px 0;
+    margin-bottom: 0;
 
-    /*
-    Buscador
-    */
+}
 
-    header #buscador{
+/*
+Buscador
+*/
 
-        margin: 20px 0;
-        padding: 0;
+header #buscador{
 
-    }
+    margin: 25px 0;
+    padding: 0;
+    margin-bottom: 0;
 
-    header #buscador input{
+}
 
-        padding: 19px;
-        border-radius: 0;
+header #buscador input{
 
-    }
+    padding: 19px;
+    border-radius: 0;
 
-    header #buscador button{
+}
 
-        padding: 7px;
-        border: 1px solid silver;
-        border-radius: 0;
+header #buscador button{
 
-    }
+    padding: 7px;
+    border: 1px solid silver;
+    border-radius: 0;
 
-    /*
-    Carrito
-    */
-    header #carrito{
+}
 
-        margin: 20px 0px;
-        padding: 0px;
-        width: 100%;
+/*
+Carrito
+*/
+header #carrito{
 
-    }
+    margin: 25px 0px;
+    padding: 0px;
+    margin-bottom: 0;
+    width: 100%;
 
-    header #carrito p{
+}
 
-        padding: 0px;
-        padding-left: 60px;
-        border: 1px solid #aaa;
-        font-size: 12px;
+header #carrito p{
 
-    }
+    padding: 0px;
+    padding-left: 60px;
+    border: 1px solid #aaa;
+    font-size: 12px;
 
-    /*
-    Categorias
-    */
+}
 
-    header #categorias{
+/*
+Categorias
+*/
 
-        display: none;
-        margin-top: -10px;
-        position: relative;
-        padding: 30px;
+header #categorias{
 
-    }
+    display: none;
+    position: relative;
+    padding: 30px;
 
-    header #categorias h4{
+}
 
-        margin-top: 20px;
-        margin-bottom: -10px;
+header #categorias h4{
 
-    }
+    margin-top: 20px;
+    margin-bottom: -10px;
 
-    header #categorias hr{
+}
 
-        border: 1px solid rgba(255,255,255,.3);
+header #categorias hr{
 
-    }
+    border: 1px solid rgba(255,255,255,.3);
+
+}
 
 /*
 Alineacion Vertical
@@ -164,24 +170,10 @@ ESCRITORIO GRANDE (LG revisamos en 992px en adelante)
     */
     header #logotipo img{
 
-        padding: 25px 60px;
-        padding-left: 0px;
+        padding: 0px 15px;
+        padding-top: 10px;
 
     }
-
-    /*
-    BloqueCatBus
-    */
-
-        /*
-        btnCategorias
-        */
-
-        header #btnCategorias{
-
-            margin: 20px 0;
-
-        }
 
 }
 
@@ -209,25 +201,22 @@ ESCRITORIO MEDIANO O TABLET HORIZONTAL (MD revisamos en 900px)
     */
     header #logotipo img{
 
-        padding: 30px 0px;
+        padding: 0px 25px;
+        padding-top: 10px;
 
     }
 
     /*
-    BloqueCatBus
+    btnCategorias
     */
 
-        /*
-        btnCategorias
-        */
+    header #btnCategorias p{
 
-        header #btnCategorias p{
+        line-height: 40px;
+        margin-bottom: 0px;
+        text-align: center;
 
-            line-height: 40px;
-            margin-bottom: 0px;
-            text-align: center;
-
-        }
+    }
 
 }
 
@@ -298,27 +287,37 @@ ESCRITORIO CHICO O TABLET VERTICAL (SM revisamos en 700px)
 
     }
 
-        /*
-        btnCategorias
-        */
+    /*
+    btnCategorias
+    */
 
-        header #btnCategorias p{
+    header #btnCategorias p{
 
-            line-height: 40px;
-            margin-bottom: 0px;
-            text-align: center;
+        line-height: 40px;
+        margin-bottom: 0px;
+        text-align: center;
 
-        }
+    }
 
-        /*
-        Carrito
-        */
+    header #carrito{
 
-        header #carrito{
+        margin-bottom: 0px;
 
-            margin: 10px 0;
+    }
+    header #buscador{
 
-        }
+        margin-bottom: 0;
+
+    }
+
+    /*btnCategorias*/
+    header #btnCategorias{
+
+        margin-bottom: 0;
+
+    }
+
+
 
 }
 
@@ -375,23 +374,29 @@ MOVIL (XS revisamos en 320px)
 
     }
 
+    /*btnCategorias*/
+    header #btnCategorias{
+
+        margin: 5px 0;
+
+    }
+
+    /*Carrito*/
+
+    header #carrito{
+
+        margin: 5px 0;
+
+    }
+
     /*
-    BloqueCatBus
+    Buscador
     */
 
-        /*btnCategorias*/
-        header #btnCategorias{
+    header #buscador{
 
-            margin: 10px 0;
+        margin: 0;
 
-        }
-
-        /*Carrito*/
-
-        header #carrito{
-
-            margin: 5px 0;
-
-        }
+    }
 
 }
