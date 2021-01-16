@@ -110,7 +110,7 @@ VITRINA DE PRODUCTOS GRATIS
         <!--==============================================
         VITRINA DE PRODUCTOS EN CUADRICULA
         ===============================================-->
-        <ul class="grid0 row">
+        <ul class="grid0 row" style="display:none">
 
             <!-- Producto1 -->
             <li class="col-md-3 col-sm-6 col-xs-12">
@@ -153,7 +153,7 @@ VITRINA DE PRODUCTOS GRATIS
 
                         <div class="btn-group">
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" id="470"
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
                             data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                 <i class="fa fa-heart" aria-hidden="true"></i>
@@ -163,7 +163,7 @@ VITRINA DE PRODUCTOS GRATIS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver producto">
+                                data-toggle="tooltip" title="Ver Productos">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -221,7 +221,7 @@ VITRINA DE PRODUCTOS GRATIS
 
                         <div class="btn-group">
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" id="470"
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
                             data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                 <i class="fa fa-heart" aria-hidden="true"></i>
@@ -231,7 +231,7 @@ VITRINA DE PRODUCTOS GRATIS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver producto">
+                                data-toggle="tooltip" title="Ver Productos">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -289,7 +289,7 @@ VITRINA DE PRODUCTOS GRATIS
 
                         <div class="btn-group">
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" id="470"
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
                             data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                 <i class="fa fa-heart" aria-hidden="true"></i>
@@ -299,7 +299,7 @@ VITRINA DE PRODUCTOS GRATIS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver producto">
+                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -357,7 +357,7 @@ VITRINA DE PRODUCTOS GRATIS
 
                         <div class="btn-group">
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" id="470"
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
                             data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                 <i class="fa fa-heart" aria-hidden="true"></i>
@@ -367,7 +367,7 @@ VITRINA DE PRODUCTOS GRATIS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver producto">
+                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -383,6 +383,464 @@ VITRINA DE PRODUCTOS GRATIS
                 <!--==========================================-->
 
             </li>
+
+        </ul>
+
+        <!--==============================================
+        VITRINA DE PRODUCTOS EN LISTA
+        ===============================================-->
+
+        <ul class="list0 row">
+
+            <!-- PRODUCTO 1 -->
+
+            <li class="col-12">
+
+                <div class="row">
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+
+                        <figure>
+
+                            <a href="#" class="pixelProducto">
+
+                                <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio04.jpg" class="img-fluid">
+
+                            </a>
+
+                        </figure>
+
+                    </div>
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
+
+                        <h1>
+
+                            <small>
+
+                                <a href="#" class="pixelProducto">Collar de diamantes</a>
+
+                            </small>
+
+                        </h1>
+
+                        <p class="text-muted">
+
+                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+
+                        </p>
+
+                        <h2>
+
+                            <small>
+
+                                GRATIS
+
+                            </small>
+
+                        </h2>
+
+                        <div class="btn-group float-left enlaces">
+
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos"
+                            idProducto="470" data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+
+                            </button>
+
+                            <a href="#" class="pixelProducto">
+
+                                <button type="button" class="btn btn-outline-secondary btn-xs"
+                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                </button>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <!--==============================================-->
+
+                <div class="col-12">
+
+                    <hr>
+
+                </div>
+
+            </li>
+
+            <!--==============================================-->
+
+            <!-- PRODUCTO 2 -->
+
+            <li class="col-12">
+
+                <div class="row">
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+
+                        <figure>
+
+                            <a href="#" class="pixelProducto">
+
+                                <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio03.jpg" class="img-fluid">
+
+                            </a>
+
+                        </figure>
+
+                    </div>
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
+
+                        <h1>
+
+                            <small>
+
+                                <a href="#" class="pixelProducto">Bolso Deportivo Gris</a>
+
+                            </small>
+
+                        </h1>
+
+                        <p class="text-muted">
+
+                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+
+                        </p>
+
+                        <h2>
+
+                            <small>
+
+                                GRATIS
+
+                            </small>
+
+                        </h2>
+
+                        <div class="btn-group float-left enlaces">
+
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos"
+                            idProducto="470" data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+
+                            </button>
+
+                            <a href="#" class="pixelProducto">
+
+                                <button type="button" class="btn btn-outline-secondary btn-xs"
+                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                </button>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <!--==============================================-->
+
+                <div class="col-12">
+
+                    <hr>
+
+                </div>
+
+            </li>
+
+            <!--==============================================-->
+
+            <!-- PRODUCTO 3 -->
+
+            <li class="col-12">
+
+                <div class="row">
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+
+                        <figure>
+
+                            <a href="#" class="pixelProducto">
+
+                                <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio04.jpg" class="img-fluid">
+
+                            </a>
+
+                        </figure>
+
+                    </div>
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
+
+                        <h1>
+
+                            <small>
+
+                                <a href="#" class="pixelProducto">Collar de diamantes</a>
+
+                            </small>
+
+                        </h1>
+
+                        <p class="text-muted">
+
+                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+
+                        </p>
+
+                        <h2>
+
+                            <small>
+
+                                GRATIS
+
+                            </small>
+
+                        </h2>
+
+                        <div class="btn-group float-left enlaces">
+
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos"
+                            idProducto="470" data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+
+                            </button>
+
+                            <a href="#" class="pixelProducto">
+
+                                <button type="button" class="btn btn-outline-secondary btn-xs"
+                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                </button>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <!--==============================================-->
+
+                <div class="col-12">
+
+                    <hr>
+
+                </div>
+
+            </li>
+
+            <!--==============================================-->
+
+            <!-- PRODUCTO 4 -->
+
+            <li class="col-12">
+
+                <div class="row">
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+
+                        <figure>
+
+                            <a href="#" class="pixelProducto">
+
+                                <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio02.jpg" class="img-fluid">
+
+                            </a>
+
+                        </figure>
+
+                    </div>
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
+
+                        <h1>
+
+                            <small>
+
+                                <a href="#" class="pixelProducto">Bolso Militar</a>
+
+                            </small>
+
+                        </h1>
+
+                        <p class="text-muted">
+
+                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+
+                        </p>
+
+                        <h2>
+
+                            <small>
+
+                                GRATIS
+
+                            </small>
+
+                        </h2>
+
+                        <div class="btn-group float-left enlaces">
+
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos"
+                            idProducto="470" data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+
+                            </button>
+
+                            <a href="#" class="pixelProducto">
+
+                                <button type="button" class="btn btn-outline-secondary btn-xs"
+                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                </button>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <!--==============================================-->
+
+                <div class="col-12">
+
+                    <hr>
+
+                </div>
+
+            </li>
+
+            <!--==============================================-->
+
+            <!-- PRODUCTO 4 -->
+
+            <li class="col-12">
+
+                <div class="row">
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+
+                        <figure>
+
+                            <a href="#" class="pixelProducto">
+
+                                <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio01.jpg" class="img-fluid">
+
+                            </a>
+
+                        </figure>
+
+                    </div>
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
+
+                        <h1>
+
+                            <small>
+
+                                <a href="#" class="pixelProducto">Pulsera de Diamantes</a>
+
+                            </small>
+
+                        </h1>
+
+                        <p class="text-muted">
+
+                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+
+                        </p>
+
+                        <h2>
+
+                            <small>
+
+                                GRATIS
+
+                            </small>
+
+                        </h2>
+
+                        <div class="btn-group float-left enlaces">
+
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos"
+                            idProducto="470" data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+
+                            </button>
+
+                            <a href="#" class="pixelProducto">
+
+                                <button type="button" class="btn btn-outline-secondary btn-xs"
+                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                </button>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <!--==============================================-->
+
+                <div class="col-12">
+
+                    <hr>
+
+                </div>
+
+            </li>
+
+            <!--==============================================-->
 
 
         </ul>
@@ -464,7 +922,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
 
                 </div>
 
-             <!--==========================================-->
+            <!--==========================================-->
             </div>
 
             <div class="clearfix"></div>
@@ -476,7 +934,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
         <!--==============================================
         VITRINA DE PRODUCTOS EN CUADRICULA
         ===============================================-->
-        <ul class="grid1 row">
+        <ul class="grid1 row" style="display:none">
 
             <!-- Producto 1 -->
             <li class="col-md-3 col-sm-6 col-xs-12">
@@ -503,9 +961,9 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
 
                                 Flada de Flores<br>
 
-                                <span class="label label-warning fontSize">Nuevo</span>
+                                <span class="badge badge-warning fontSize">Nuevo</span>
 
-                                <span class="label label-warning fontSize">40% off</span>
+                                <span class="badge badge-warning fontSize">40% off</span>
 
                             </a>
 
@@ -533,7 +991,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
 
                         <div class="btn-group">
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" id="470"
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
                             data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                 <i class="fa fa-heart" aria-hidden="true"></i>
@@ -543,7 +1001,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver producto">
+                                data-toggle="tooltip" title="Ver Productos">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -585,7 +1043,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
 
                                 Vestido Jean<br>
 
-                                <span class="label label-warning fontSize">40% off</span>
+                                <span class="badge badge-warning fontSize">40% off</span>
 
                             </a>
 
@@ -613,7 +1071,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
 
                         <div class="btn-group">
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" id="470"
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
                             data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                 <i class="fa fa-heart" aria-hidden="true"></i>
@@ -623,7 +1081,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver producto">
+                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -665,7 +1123,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
 
                                 Vestido Clásico<br>
 
-                                <span class="label label-warning fontSize">40% off</span>
+                                <span class="badge badge-warning fontSize">40% off</span>
 
                             </a>
 
@@ -693,7 +1151,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
 
                         <div class="btn-group">
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" id="470"
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
                             data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                 <i class="fa fa-heart" aria-hidden="true"></i>
@@ -703,7 +1161,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver producto">
+                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -765,7 +1223,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
 
                         <div class="btn-group">
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" id="470"
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
                             data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                 <i class="fa fa-heart" aria-hidden="true"></i>
@@ -775,7 +1233,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver producto">
+                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -792,6 +1250,117 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
 
             </li>
 
+
+        </ul>
+
+        <!--==============================================
+        VITRINA DE PRODUCTOS EN LISTA
+        ===============================================-->
+
+        <ul class="list1 row">
+
+            <!-- PRODUCTO 1 -->
+
+            <li class="col-12">
+
+                <div class="row">
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+
+                        <figure>
+
+                            <a href="#" class="pixelProducto">
+
+                                <img src="<?php echo $urlServidor; ?>Vistas/img/productos/ropa/ropa03.jpg" class="img-fluid">
+
+                            </a>
+
+                        </figure>
+
+                    </div>
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
+
+                        <h1>
+
+                            <small>
+
+                                <a href="#" class="pixelProducto">
+
+                                    FALDA DE Flores
+
+                                    <span class="badge badge-warning">Nuevo</span>
+                                    <span class="badge badge-warning">40% menos</span>
+
+                                </a>
+
+                            </small>
+
+                        </h1>
+
+                        <p class="text-muted">
+
+                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+
+                        </p>
+
+                        <h2>
+
+                            <small>
+
+                                <strong class="oferta">USD $29</strong>
+
+                            </small>
+
+                            <small>
+
+                                $11
+
+                            </small>
+
+                        </h2>
+
+                        <div class="btn-group float-left enlaces">
+
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos"
+                            idProducto="470" data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+
+                            </button>
+
+                            <a href="#" class="pixelProducto">
+
+                                <button type="button" class="btn btn-outline-secondary btn-xs"
+                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                </button>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <!--==============================================-->
+
+                <div class="col-12">
+
+                    <hr>
+
+                </div>
+
+            </li>
+
+            <!--==============================================-->
 
         </ul>
 
@@ -872,7 +1441,7 @@ VITRINA DE PRODUCTOS MÁS VISTOS
 
                 </div>
 
-             <!--==========================================-->
+            <!--==========================================-->
             </div>
 
             <div class="clearfix"></div>
@@ -884,7 +1453,7 @@ VITRINA DE PRODUCTOS MÁS VISTOS
         <!--==============================================
         VITRINA DE PRODUCTOS EN CUADRICULA
         ===============================================-->
-        <ul class="grid2 row">
+        <ul class="grid1 row" style="display:none">
 
             <!-- Producto 1 -->
             <li class="col-md-3 col-sm-6 col-xs-12">
@@ -909,9 +1478,9 @@ VITRINA DE PRODUCTOS MÁS VISTOS
 
                             <a href="#" class="pixelProducto">
 
-                                Curso Bootstrap<br>
+                                Curso de Bootstrap<br>
 
-                                <span class="label label-warning fontSize">90% off</span>
+                                <span class="badge badge-warning fontSize">90% off</span>
 
                             </a>
 
@@ -939,23 +1508,29 @@ VITRINA DE PRODUCTOS MÁS VISTOS
 
                         <div class="btn-group">
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" id="470"
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
                             data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                 <i class="fa fa-heart" aria-hidden="true"></i>
 
                             </button>
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs agregarCarrito" idProducto="404" imagen="Vistas/img/productos/cursos/curso05.jpg" titulo="Curso de Bootstrap" precio="10" tipo="virtual" peso="0" data-toggle="tooltip" title="Agregar a carrito de compras">
+                            <button type="button" class="btn btn-outline-secondary btn-xs agregarCarrito" idProducto="470" 
+                            imagen="<?php echo $urlServidor; ?>Vistas/img/productos/cursos/curso05.jpg"
+                            titulo="Curso de Bootstrap"
+                            precio="10"
+                            tipo="virtual"
+                            peso="0"
+                            data-toggle="tooltip" title="Agregar a carrito de compras">
 
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 
                             </button>
 
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver producto">
+                                data-toggle="tooltip" title="Ver Productos">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -997,7 +1572,7 @@ VITRINA DE PRODUCTOS MÁS VISTOS
 
                                 Curso de Canvas y Javascript<br>
 
-                                <span class="label label-warning fontSize">90% off</span>
+                                <span class="badge badge-warning fontSize">90% off</span>
 
                             </a>
 
@@ -1025,23 +1600,29 @@ VITRINA DE PRODUCTOS MÁS VISTOS
 
                         <div class="btn-group">
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" id="470"
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
                             data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                 <i class="fa fa-heart" aria-hidden="true"></i>
 
                             </button>
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs agregarCarrito" idProducto="404" imagen="Vistas/img/productos/cursos/curso04.jpg" titulo="Curso de Canvas y Javascript" precio="10" tipo="virtual" peso="0" data-toggle="tooltip" title="Agregar a carrito de compras">
+                            <button type="button" class="btn btn-outline-secondary btn-xs agregarCarrito" idProducto="470" 
+                            imagen="<?php echo $urlServidor; ?>Vistas/img/productos/cursos/curso04.jpg"
+                            titulo="Curso de Canvas y Javascript"
+                            precio="10"
+                            tipo="virtual"
+                            peso="0"
+                            data-toggle="tooltip" title="Agregar a carrito de compras">
 
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 
                             </button>
 
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver producto">
+                                data-toggle="tooltip" title="Ver Productos">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -1083,7 +1664,7 @@ VITRINA DE PRODUCTOS MÁS VISTOS
 
                                 Aprende Javascript desde cero<br>
 
-                                <span class="label label-warning fontSize">90% off</span>
+                                <span class="badge badge-warning fontSize">90% off</span>
 
                             </a>
 
@@ -1111,23 +1692,29 @@ VITRINA DE PRODUCTOS MÁS VISTOS
 
                         <div class="btn-group">
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" id="470"
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
                             data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                 <i class="fa fa-heart" aria-hidden="true"></i>
 
                             </button>
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs agregarCarrito" idProducto="404" imagen="Vistas/img/productos/cursos/curso02.jpg" titulo="Aprende Javascript desde cero" precio="10" tipo="virtual" peso="0" data-toggle="tooltip" title="Agregar a carrito de compras">
+                            <button type="button" class="btn btn-outline-secondary btn-xs agregarCarrito" idProducto="470" 
+                            imagen="<?php echo $urlServidor; ?>Vistas/img/productos/cursos/curso02.jpg"
+                            titulo="Aprende Javascript desde cero"
+                            precio="10"
+                            tipo="virtual"
+                            peso="0"
+                            data-toggle="tooltip" title="Agregar a carrito de compras">
 
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 
                             </button>
 
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver producto">
+                                data-toggle="tooltip" title="Ver Productos">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -1169,7 +1756,7 @@ VITRINA DE PRODUCTOS MÁS VISTOS
 
                                 Curso de JQuery<br>
 
-                                <span class="label label-warning fontSize">90% off</span>
+                                <span class="badge badge-warning fontSize">90% off</span>
 
                             </a>
 
@@ -1197,23 +1784,29 @@ VITRINA DE PRODUCTOS MÁS VISTOS
 
                         <div class="btn-group">
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" id="470"
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
                             data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
                                 <i class="fa fa-heart" aria-hidden="true"></i>
 
                             </button>
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs agregarCarrito" idProducto="404" imagen="Vistas/img/productos/cursos/curso03.jpg" titulo="Curso de JQuery" precio="10" tipo="virtual" peso="0" data-toggle="tooltip" title="Agregar a carrito de compras">
+                            <button type="button" class="btn btn-outline-secondary btn-xs agregarCarrito" idProducto="470" 
+                            imagen="<?php echo $urlServidor; ?>Vistas/img/productos/cursos/curso03.jpg"
+                            titulo="Curso de JQuery"
+                            precio="10"
+                            tipo="virtual"
+                            peso="0"
+                            data-toggle="tooltip" title="Agregar a carrito de compras">
 
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 
                             </button>
 
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver producto">
+                                data-toggle="tooltip" title="Ver Productos">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -1230,6 +1823,127 @@ VITRINA DE PRODUCTOS MÁS VISTOS
 
             </li>
 
+        </ul>
+
+        <!--==============================================
+        VITRINA DE PRODUCTOS EN LISTA
+        ===============================================-->
+
+        <ul class="list2 row">
+
+            <!-- PRODUCTO 1 -->
+
+            <li class="col-12">
+
+                <div class="row">
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+
+                        <figure>
+
+                            <a href="#" class="pixelProducto">
+
+                                <img src="<?php echo $urlServidor; ?>Vistas/img/productos/cursos/curso03.jpg" class="img-fluid">
+
+                            </a>
+
+                        </figure>
+
+                    </div>
+
+                    <!--=========================================-->
+
+                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
+
+                        <h1>
+
+                            <small>
+
+                                <a href="#" class="pixelProducto">
+
+                                    Curso de JQuery
+
+                                    <span class="badge badge-warning">90% menos</span>
+
+                                </a>
+
+                            </small>
+
+                        </h1>
+
+                        <p class="text-muted">
+
+                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+
+                        </p>
+
+                        <h2>
+
+                            <small>
+
+                                <strong class="oferta">USD $100</strong>
+
+                            </small>
+
+                            <small>
+
+                                $10
+
+                            </small>
+
+                        </h2>
+
+                        <div class="btn-group float-left enlaces">
+
+                            <button type="button" class="btn btn-outline-secondary btn-xs deseos"
+                            idProducto="470" data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+
+                            </button>
+
+                            <button type="button" class="btn btn-outline-secondary btn-xs agregarCarrito" idProducto="470" 
+                            imagen="<?php echo $urlServidor; ?>Vistas/img/productos/cursos/curso03.jpg"
+                            titulo="Curso de JQuery"
+                            precio="10"
+                            tipo="virtual"
+                            peso="0"
+                            data-toggle="tooltip" title="Agregar a carrito de compras">
+
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+                            </button>
+
+                            <a href="#" class="pixelProducto">
+
+                                <button type="button" class="btn btn-outline-secondary btn-xs"
+                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                </button>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <!--==============================================-->
+
+                <div class="col-12">
+
+                    <hr>
+
+                </div>
+
+            </li>
+
+            <!--==============================================-->
 
         </ul>
 
