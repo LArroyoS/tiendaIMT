@@ -6,7 +6,6 @@ BANNER
 
     position:relative;
     overflow: hidden;
-    height: 260px;
 
 }
 
@@ -194,5 +193,142 @@ VITRINA PRODUCTOS LISTA
 .fontSize{
 
     font-size: 11px;
+
+}
+
+/*=================================================
+ESCRITORIO GRANDE (LG revisamos en 992px en adelante)
+=================================================*/
+
+@media (min-width: 992px){
+
+    .banner{
+
+        height: 260px;
+
+    }
+
+}
+
+/*=================================================
+ESCRITORIO MEDIANO O TABLET HORIZONTAL (MD revisamos en 900)
+=================================================*/
+
+@media (max-width: 992px) and (min-width:768px){
+
+    .banner{
+
+        height: 260px;
+
+    }
+
+}
+
+/*=================================================
+ESCRITORIO CHICO O TABLET VERTICAL (SM revisamos en 700px)
+=================================================*/
+
+@media (min-width: 576px) and (max-width: 768px){
+
+    .banner{
+
+        height: 180px;
+
+    }
+
+    .textoBanner h1{
+
+        font-size: 30px;
+        line-height: 15px;
+
+    }
+
+    .textoBanner h2{
+
+        font-size: 25px;
+        line-height: 15px;
+
+    }
+
+    .textoBanner h3{
+
+        font-size: 25px;
+        line-height: 15px;
+
+    }
+
+    .banner .textoDer,.banner .textoIzq, .banner .textoCentro{
+
+        top: 35px;
+
+    }
+
+}
+
+/*=================================================
+MOVIL (XS revisamos en 320px)
+=================================================*/
+
+@media (max-width: 576px){
+
+    .banner{
+
+        height: 100px;
+
+    }
+
+    .banner .textoDer,.banner .textoCentro,.banner .textoIzq{
+
+        top: 20px;
+        left: 50%;
+        width: 800px;
+        margin-left: -400px;
+        text-align: center;
+        text-shadow: 2px 2px 20px black;
+
+    }
+
+    .textoBanner h1{
+
+        font-size: 20px;
+        line-height: 5px;
+
+    }
+
+    .textoBanner h2{
+
+        font-size: 20px;
+        line-height: 5px;
+
+    }
+
+    .textoBanner h3{
+
+        font-size: 15px;
+        line-height: 5px;
+
+    }
+
+    .tituloDestacado h1{
+
+        text-align: center;
+        font-size: 25px;
+
+    }
+
+    .tituloDestacado button{
+
+        position: absolute;
+        left: 50%;
+        width: 40%;
+        margin-left: -20%;
+
+    }
+
+    .productos ul li h1 small{
+
+        font-size: 16px;
+
+    }
 
 }

@@ -9,7 +9,7 @@ BANNER
 
 <figure class="banner">
 
-    <img src="<?php echo $urlServidor; ?>Vistas/img/banner/default.jpg">
+    <img width="150%" src="<?php echo $urlServidor; ?>Vistas/img/banner/default.jpg">
 
     <div class="textoBanner textoIzq">
 
@@ -19,6 +19,7 @@ BANNER
             <strong>50% menos</strong>
 
         </h2>
+
         <h3 style="color:#fff" >Termina mañana</h3>
 
     </div>
@@ -44,7 +45,7 @@ BARRA PRODUCTOS GRATIS
 
                 </button>
 
-                <button type="button" class="btn btn-outline-secondary btnGrid" id="btnGrid1">
+                <button type="button" class="btn btn-outline-secondary btnList" id="btnList0">
 
                     <i class="fa fa-list" aria-hidden="true"></i>
                     <span class="col-xs-0 float-right">LISTA</span>
@@ -110,7 +111,7 @@ VITRINA DE PRODUCTOS GRATIS
         <!--==============================================
         VITRINA DE PRODUCTOS EN CUADRICULA
         ===============================================-->
-        <ul class="grid0 row" style="display:none">
+        <ul class="grid0 row">
 
             <!-- Producto1 -->
             <li class="col-md-3 col-sm-6 col-xs-12">
@@ -163,7 +164,7 @@ VITRINA DE PRODUCTOS GRATIS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Productos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -231,7 +232,7 @@ VITRINA DE PRODUCTOS GRATIS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Productos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -299,7 +300,7 @@ VITRINA DE PRODUCTOS GRATIS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -367,7 +368,7 @@ VITRINA DE PRODUCTOS GRATIS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -390,7 +391,7 @@ VITRINA DE PRODUCTOS GRATIS
         VITRINA DE PRODUCTOS EN LISTA
         ===============================================-->
 
-        <ul class="list0 row">
+        <ul class="list0 row" style="display:none">
 
             <!-- PRODUCTO 1 -->
 
@@ -456,7 +457,7 @@ VITRINA DE PRODUCTOS GRATIS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -546,7 +547,7 @@ VITRINA DE PRODUCTOS GRATIS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -636,7 +637,7 @@ VITRINA DE PRODUCTOS GRATIS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -726,7 +727,7 @@ VITRINA DE PRODUCTOS GRATIS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -816,7 +817,7 @@ VITRINA DE PRODUCTOS GRATIS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -868,7 +869,7 @@ BARRA PRODUCTOS MÁS VENDIDOS
 
                 </button>
 
-                <button type="button" class="btn btn-outline-secondary btnGrid" id="btnGrid1">
+                <button type="button" class="btn btn-outline-secondary btnList" id="btnList1">
 
                     <i class="fa fa-list" aria-hidden="true"></i>
                     <span class="col-xs-0 float-right">LISTA</span>
@@ -934,7 +935,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
         <!--==============================================
         VITRINA DE PRODUCTOS EN CUADRICULA
         ===============================================-->
-        <ul class="grid1 row" style="display:none">
+        <ul class="grid1 row">
 
             <!-- Producto 1 -->
             <li class="col-md-3 col-sm-6 col-xs-12">
@@ -1001,7 +1002,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Productos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -1081,7 +1082,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -1161,7 +1162,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -1233,7 +1234,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -1257,7 +1258,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
         VITRINA DE PRODUCTOS EN LISTA
         ===============================================-->
 
-        <ul class="list1 row">
+        <ul class="list1 row" style="display:none">
 
             <!-- PRODUCTO 1 -->
 
@@ -1336,7 +1337,7 @@ VITRINA DE PRODUCTOS MÁS VENDIDOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -1387,7 +1388,7 @@ BARRA PRODUCTOS MÁS VISTOS
 
                 </button>
 
-                <button type="button" class="btn btn-outline-secondary btnGrid" id="btnGrid2">
+                <button type="button" class="btn btn-outline-secondary btnList" id="btnList2">
 
                     <i class="fa fa-list" aria-hidden="true"></i>
                     <span class="col-xs-0 float-right">LISTA</span>
@@ -1453,7 +1454,7 @@ VITRINA DE PRODUCTOS MÁS VISTOS
         <!--==============================================
         VITRINA DE PRODUCTOS EN CUADRICULA
         ===============================================-->
-        <ul class="grid1 row" style="display:none">
+        <ul class="grid2 row">
 
             <!-- Producto 1 -->
             <li class="col-md-3 col-sm-6 col-xs-12">
@@ -1530,7 +1531,7 @@ VITRINA DE PRODUCTOS MÁS VISTOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Productos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -1622,7 +1623,7 @@ VITRINA DE PRODUCTOS MÁS VISTOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Productos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -1714,7 +1715,7 @@ VITRINA DE PRODUCTOS MÁS VISTOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Productos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -1806,7 +1807,7 @@ VITRINA DE PRODUCTOS MÁS VISTOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Productos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -1829,7 +1830,7 @@ VITRINA DE PRODUCTOS MÁS VISTOS
         VITRINA DE PRODUCTOS EN LISTA
         ===============================================-->
 
-        <ul class="list2 row">
+        <ul class="list2 row" style="display:none">
 
             <!-- PRODUCTO 1 -->
 
@@ -1919,7 +1920,7 @@ VITRINA DE PRODUCTOS MÁS VISTOS
                             <a href="#" class="pixelProducto">
 
                                 <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                data-toggle="tooltip" title="Ver Producto">
 
                                     <i class="fa fa-eye" aria-hidden="true"></i>
 

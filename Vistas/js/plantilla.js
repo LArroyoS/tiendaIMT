@@ -23,3 +23,79 @@ $.ajax({
     }
 
 });
+
+/*===========================================
+CUADRICULA O LISTA
+============================================*/
+
+var btnList = $(".btnList");
+var i=0;
+
+for(i = 0; i<btnList.length; i++){
+
+    $("#btnGrid"+i).click(function(){
+
+        var numero = $(this).attr("id").substr(-1);
+
+        $(".list"+numero).hide();
+        $(".grid"+numero).show();
+        $(this).addClass("backColor");
+        $("#btnList"+numero).removeClass("backColor");
+
+    });
+
+    $("#btnList"+i).click(function(){
+
+        var numero = $(this).attr("id").substr(-1);
+        $(".list"+numero).show();
+        $(".grid"+numero).hide();
+        $(this).addClass("backColor");
+        $("#btnGrid"+numero).removeClass("backColor");
+
+    });
+
+}
+
+/*===========================================
+EFECTO CON SCROLL
+============================================*/
+
+$(window).scroll(function(){
+
+    var scrollY = window.pageYOffset;
+    //console.log("Scroll: "+ scrollY);
+
+    if(window.matchMedia("(min-width: 768px)").matches){
+
+        if(scrollY < ($(".banner").offset().top)-150){
+
+            //console.log("es menor");
+            $(".banner img").css({"margin-top": (-scrollY/2)+"px"});
+
+        }else{
+
+            scrollY = 0;
+
+        }
+
+    }
+
+});
+
+/*================================================
+SCROLLUP
+================================================*/
+
+$.scrollUp({
+
+    scrollText:"",
+    scrollSpeed: 500,
+    easingType: "easeOutQuint"
+
+});
+
+/*================================================
+HERRAMIENTA TOOLTIP
+================================================*/
+
+$('[data-toggle="tooltip"]').tooltip();

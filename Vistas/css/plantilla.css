@@ -177,6 +177,20 @@ ERROR 404
 
 }
 
+/*================================================
+SCROLLUP
+================================================*/
+
+#scrollUp{
+
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: url(../img/plantilla/flecha.jpg);
+
+}
+
 /*=================================================
 ESCRITORIO GRANDE (LG revisamos en 992px en adelante)
 =================================================*/
