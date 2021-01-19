@@ -114,7 +114,10 @@ if(isset($_GET['ruta'])){
     LISTA BLANCA
     ===============================================*/
 
-    if($ruta != null){
+    if($ruta != null || 
+    $rutas[0] == "articulos-gratis" || 
+    $rutas[0] == "lo-mas-vendido" || 
+    $rutas[0] == "lo-mas-visto"){
 
         include "Modulos/productos.php";
 

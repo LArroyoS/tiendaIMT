@@ -28,5 +28,17 @@
 
         }
 
+        /*=========================================
+        MOSTRAR PRODUCTOS
+        ==========================================*/
+        static public function ctrMostrarPoductos($ordenar,$item,$valor){
+
+            $tabla = "productos";
+
+            $respuesta = ModeloProductos::mdlMostrarProductos($tabla,$ordenar,$item,$valor);
+
+            return $respuesta;
+
+        }
 
     }

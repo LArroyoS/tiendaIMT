@@ -1,5 +1,7 @@
+<h1>PRODUCTOS</h1>
 <?php 
 
+    /*
     $item = "ruta";
     $valor = $rutas[0];
 
@@ -34,5 +36,6 @@
         echo 'Aun no hay productos en esta sección';
 
     }
+    */
 
 ?>

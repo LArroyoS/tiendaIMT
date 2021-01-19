@@ -27,828 +27,331 @@ BANNER
 </figure>
 
 <!--====================================================
-BARRA PRODUCTOS GRATIS
+PRODUCTOS
 ======================================================-->
 
-<div class="container-fluid card card-body bg-light barraProductos">
+<?php 
 
-    <div class="container">
+    $tituloModulos = array("ARTICULOS GRATUITOS","LO MÁS VENDIDOS", "LO MAS VISTO");
+    $rutaModulos = array("articulos-gratis","lo-mas-vendido", "lo-mas-visto");
 
-        <div class="col-12 organizarProductos">
+    $ordenar = "";
 
-            <div class="btn-group float-right">
+    if($tituloModulos[0] == "ARTICULOS GRATUITOS"){
 
-                <button type="button" class="btn btn-outline-secondary btnGrid" id="btnGrid0">
+        $ordenar = "id";
+        $item = "precio";
+        $valor = "0";
 
-                    <i class="fa fa-th" aria-hidden="true"></i>
-                    <span class="col-xs-0 float-right">MOSAICO</span>
+        $gratis = ControladorProductos::ctrMostrarPoductos($ordenar,$item,$valor);
 
-                </button>
+    }
 
-                <button type="button" class="btn btn-outline-secondary btnList" id="btnList0">
+    if($tituloModulos[1] == "LO MÁS VENDIDOS"){
 
-                    <i class="fa fa-list" aria-hidden="true"></i>
-                    <span class="col-xs-0 float-right">LISTA</span>
+        $ordenar = "ventas";
+        $item = null;
+        $valor = null;
+        $ventas = ControladorProductos::ctrMostrarPoductos($ordenar,$item,$valor);
 
-                </button>
+    }
 
-            </div>
+    if($tituloModulos[2] == "LO MAS VISTO"){
 
-        </div>
+        $ordenar = "vistas";
+        $item = null;
+        $valor = null;
+        $vistas = ControladorProductos::ctrMostrarPoductos($ordenar,$item,$valor);
 
-    </div>
+    }
 
-</div>
+    $modulo = array($gratis,$ventas,$vistas);
 
-<!--====================================================
-VITRINA DE PRODUCTOS GRATIS
-======================================================-->
+    for( $i=0 ; $i < count($tituloModulos); $i++){
 
-<div class="container-fluid productos">
+        echo '
 
-    <!--==============================================
-    BARRA TITULO
-    ===============================================-->
-    <div class="container tituloDestacado mt-3">
+            <div class="container-fluid">
 
-        <div class="row">
+                <!--====================================================
+                BARRA PRODUCTOS
+                ======================================================-->
 
-            <!--==========================================-->
+                <div class="col-12 card card-body bg-light barraProductos">
 
-            <div class="col-sm-6 col-xs-12">
+                    <div class="container">
 
-                <h1><small>ARTÍCULOS GRATUITOS</small></h1>
+                        <div class="col-12 organizarProductos">
 
-            </div>
+                            <div class="btn-group float-right">
 
-            <!--==========================================-->
+                                <button type="button" class="btn btn-outline-secondary btnGrid" id="btnGrid'.$i.'">
 
-            <!--==========================================-->
-
-            <div class="col-sm-6 col-xs-12">
-
-                <a href="articulos-gratis">
-
-                    <button class="btn btn-outline-secondary backColor float-right">
-
-                        VER MÁS <span class="fa fa-chevron-right"></span>
-
-                    </button>
-
-                </a>
-
-            </div>
-
-            <!--==========================================-->
-            </div>
-
-            <div class="clearfix"></div>
-
-            <hr>
-
-        </div>
-
-        <!--==============================================
-        VITRINA DE PRODUCTOS EN CUADRICULA
-        ===============================================-->
-        <ul class="grid0 row">
-
-            <!-- Producto1 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-
-                <!--==========================================-->
-                <figure>
-
-                    <a href="#" class="pixelProducto">
-
-                        <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio04.jpg" class="img-fluid">
-
-                    </a>
-
-                </figure>
-                <!--==========================================-->
-                <div class="row">
-
-                    <!--==========================================-->
-                    <h4 class="col-12">
-
-                        <small>
-
-                            <a href="#" class="pixelProducto">
-
-                                Collar de diamentes<br><br>
-
-                            </a>
-
-                        </small>
-
-                    </h4>
-                    <!--==========================================-->
-                    <div class="col-6 precio">
-
-                        <h2><small>GRATIS</small></h2>
-
-                    </div>
-                    <!--==========================================-->
-                    <div class="col-6 enlaces">
-
-                        <div class="btn-group">
-
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
-                            data-toggle="tooltip" title="Agregar a mi lista de deseos">
-
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-
-                            </button>
-
-                            <a href="#" class="pixelProducto">
-
-                                <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Producto">
-
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                    <i class="fa fa-th" aria-hidden="true"></i>
+                                    <span class="col-xs-0 float-right">MOSAICO</span>
 
                                 </button>
 
-                            </a>
+                                <button type="button" class="btn btn-outline-secondary btnList" id="btnList'.$i.'">
+
+                                    <i class="fa fa-list" aria-hidden="true"></i>
+                                    <span class="col-xs-0 float-right">LISTA</span>
+
+                                </button>
+
+                            </div>
 
                         </div>
 
                     </div>
 
-                </div>
-                <!--==========================================-->
+                </div>';
 
-            </li>
+        echo '
 
-            <!-- Producto2 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
+                <!--====================================================
+                VITRINA DE PRODUCTOS
+                ======================================================-->
 
-                <!--==========================================-->
-                <figure>
+                <div class="container-fluid productos">
 
-                    <a href="#" class="pixelProducto">
+                    <!--==============================================
+                    BARRA TITULO
+                    ===============================================-->
+                    <div class="container tituloDestacado mt-3">
 
-                        <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio03.jpg" class="img-fluid">
+                        <div class="row">
 
-                    </a>
+                            <!--==========================================-->
 
-                </figure>
-                <!--==========================================-->
-                <div class="row">
+                            <div class="col-sm-6 col-xs-12">
 
-                    <!--==========================================-->
-                    <h4 class="col-12">
+                                <h1><small>'.$tituloModulos[$i].'</small></h1>
 
-                        <small>
+                            </div>
 
-                            <a href="#" class="pixelProducto">
+                            <!--==========================================-->
 
-                                BOLSO DEPORTIVO GRIS<br><br>
+                            <!--==========================================-->
 
-                            </a>
+                            <div class="col-sm-6 col-xs-12">
 
-                        </small>
+                                <a href="'.$rutaModulos[$i].'">
 
-                    </h4>
-                    <!--==========================================-->
-                    <div class="col-6 precio">
+                                    <button class="btn btn-outline-secondary backColor float-right">
 
-                        <h2><small>GRATIS</small></h2>
+                                        VER MÁS <span class="fa fa-chevron-right"></span>
 
-                    </div>
-                    <!--==========================================-->
-                    <div class="col-6 enlaces">
+                                    </button>
 
-                        <div class="btn-group">
+                                </a>
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
-                            data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                            </div>
 
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-
-                            </button>
-
-                            <a href="#" class="pixelProducto">
-
-                                <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Producto">
-
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-
-                                </button>
-
-                            </a>
+                            <!--==========================================-->
 
                         </div>
 
                     </div>
 
-                </div>
-                <!--==========================================-->
-
-            </li>
-
-            <!-- Producto3 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-
-                <!--==========================================-->
-                <figure>
-
-                    <a href="#" class="pixelProducto">
-
-                        <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio02.jpg" class="img-fluid">
-
-                    </a>
-
-                </figure>
-                <!--==========================================-->
-                <div class="row">
-
-                    <!--==========================================-->
-                    <h4 class="col-12">
-
-                        <small>
-
-                            <a href="#" class="pixelProducto">
-
-                                BOLSO MILITAR<br><br>
-
-                            </a>
-
-                        </small>
-
-                    </h4>
-                    <!--==========================================-->
-                    <div class="col-6 precio">
-
-                        <h2><small>GRATIS</small></h2>
-
-                    </div>
-                    <!--==========================================-->
-                    <div class="col-6 enlaces">
-
-                        <div class="btn-group">
-
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
-                            data-toggle="tooltip" title="Agregar a mi lista de deseos">
-
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-
-                            </button>
-
-                            <a href="#" class="pixelProducto">
-
-                                <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Producto">
-
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-
-                                </button>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <!--==========================================-->
-
-            </li>
-
-            <!-- Producto4 -->
-            <li class="col-md-3 col-sm-6 col-xs-12">
-
-                <!--==========================================-->
-                <figure>
-
-                    <a href="#" class="pixelProducto">
-
-                        <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio01.jpg" class="img-fluid">
-
-                    </a>
-
-                </figure>
-                <!--==========================================-->
-                <div class="row">
-
-                    <!--==========================================-->
-                    <h4 class="col-12">
-
-                        <small>
-
-                            <a href="#" class="pixelProducto">
-
-                                PULCERA DE DIAMANTES<br><br>
-
-                            </a>
-
-                        </small>
-
-                    </h4>
-                    <!--==========================================-->
-                    <div class="col-6 precio">
-
-                        <h2><small>GRATIS</small></h2>
-
-                    </div>
-                    <!--==========================================-->
-                    <div class="col-6 enlaces">
-
-                        <div class="btn-group">
-
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="470"
-                            data-toggle="tooltip" title="Agregar a mi lista de deseos">
-
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-
-                            </button>
-
-                            <a href="#" class="pixelProducto">
-
-                                <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Producto">
-
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-
-                                </button>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <!--==========================================-->
-
-            </li>
-
-        </ul>
-
-        <!--==============================================
-        VITRINA DE PRODUCTOS EN LISTA
-        ===============================================-->
-
-        <ul class="list0 row" style="display:none">
-
-            <!-- PRODUCTO 1 -->
-
-            <li class="col-12">
-
-                <div class="row">
-
-                    <!--=========================================-->
-
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-
-                        <figure>
-
-                            <a href="#" class="pixelProducto">
-
-                                <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio04.jpg" class="img-fluid">
-
-                            </a>
-
-                        </figure>
-
-                    </div>
-
-                    <!--=========================================-->
-
-                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
-
-                        <h1>
-
-                            <small>
-
-                                <a href="#" class="pixelProducto">Collar de diamantes</a>
-
-                            </small>
-
-                        </h1>
-
-                        <p class="text-muted">
-
-                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-
-                        </p>
-
-                        <h2>
-
-                            <small>
-
-                                GRATIS
-
-                            </small>
-
-                        </h2>
-
-                        <div class="btn-group float-left enlaces">
-
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos"
-                            idProducto="470" data-toggle="tooltip" title="Agregar a mi lista de deseos">
-
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-
-                            </button>
-
-                            <a href="#" class="pixelProducto">
-
-                                <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Producto">
-
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-
-                                </button>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            <!--==============================================-->
-
-                <div class="col-12">
+                    <div class="clearfix"></div>
 
                     <hr>
 
-                </div>
+                </div>';
 
-            </li>
+        echo '
 
-            <!--==============================================-->
+                <!--==============================================
+                VITRINA DE PRODUCTOS EN CUADRICULA
+                ===============================================-->
+                <ul class="grid'.$i.' row">';
 
-            <!-- PRODUCTO 2 -->
+                foreach($modulo[$i] as $key => $value){
 
-            <li class="col-12">
+                    echo '
 
-                <div class="row">
+                        <!-- Producto -->
+                        <li class="col-md-3 col-sm-6 col-xs-12">
 
-                    <!--=========================================-->
+                            <!--==========================================-->
+                            <figure>
 
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                                <a href="'.$value['ruta'].'" class="pixelProducto">
 
-                        <figure>
+                                    <img src="'.$urlServidor.$value["portada"].'" class="img-fluid">
 
-                            <a href="#" class="pixelProducto">
+                                </a>
 
-                                <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio03.jpg" class="img-fluid">
+                            </figure>
+                            <!--==========================================-->
+                            <div class="row">
 
-                            </a>
+                                <!--==========================================-->
+                                <h4 class="col-12">
 
-                        </figure>
+                                    <small>
 
-                    </div>
+                                        <a href="#" class="pixelProducto">
 
-                    <!--=========================================-->
+                                            '.$value['titulo'].'<br><br>
 
-                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
+                                        </a>
 
-                        <h1>
+                                    </small>
 
-                            <small>
+                                </h4>
+                                <!--==========================================-->
+                                <div class="col-6 precio">
 
-                                <a href="#" class="pixelProducto">Bolso Deportivo Gris</a>
+                                    <h2><small>'.$value['precio'].'</small></h2>
 
-                            </small>
+                                </div>
+                                <!--==========================================-->
+                                <div class="col-6 enlaces">
 
-                        </h1>
+                                    <div class="btn-group">
 
-                        <p class="text-muted">
+                                        <button type="button" class="btn btn-outline-secondary btn-xs deseos" idProducto="'.$value['id'].'"
+                                        data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
-                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+                                            <i class="fa fa-heart" aria-hidden="true"></i>
 
-                        </p>
+                                        </button>
 
-                        <h2>
+                                        <a href="#" class="pixelProducto">
 
-                            <small>
+                                            <button type="button" class="btn btn-outline-secondary btn-xs"
+                                            data-toggle="tooltip" title="Ver Producto">
 
-                                GRATIS
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
 
-                            </small>
+                                            </button>
 
-                        </h2>
+                                        </a>
 
-                        <div class="btn-group float-left enlaces">
+                                    </div>
 
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos"
-                            idProducto="470" data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                </div>
 
-                                <i class="fa fa-heart" aria-hidden="true"></i>
+                            </div>
+                            <!--==========================================-->
 
-                            </button>
+                        </li>';
 
-                            <a href="#" class="pixelProducto">
+                }
 
-                                <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Producto">
+        echo '
 
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                </ul>';
+
+        /*
+        echo '
+
+            <!--==============================================
+            VITRINA DE PRODUCTOS EN LISTA
+            ===============================================-->
+
+            <ul class="list'.$i.' row" style="display:none">
+
+                <!-- PRODUCTO 1 -->
+
+                <li class="col-12">
+
+                    <div class="row">
+
+                        <!--=========================================-->
+
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+
+                            <figure>
+
+                                <a href="#" class="pixelProducto">
+
+                                    <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio04.jpg" class="img-fluid">
+
+                                </a>
+
+                            </figure>
+
+                        </div>
+
+                        <!--=========================================-->
+
+                        <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
+
+                            <h1>
+
+                                <small>
+
+                                    <a href="#" class="pixelProducto">Collar de diamantes</a>
+
+                                </small>
+
+                            </h1>
+
+                            <p class="text-muted">
+
+                            Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+
+                            </p>
+
+                            <h2>
+
+                                <small>
+
+                                    GRATIS
+
+                                </small>
+
+                            </h2>
+
+                            <div class="btn-group float-left enlaces">
+
+                                <button type="button" class="btn btn-outline-secondary btn-xs deseos"
+                                idProducto="470" data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
 
                                 </button>
 
-                            </a>
+                                <a href="#" class="pixelProducto">
+
+                                    <button type="button" class="btn btn-outline-secondary btn-xs"
+                                    data-toggle="tooltip" title="Ver Producto">
+
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                    </button>
+
+                                </a>
+
+                            </div>
 
                         </div>
 
                     </div>
 
-                </div>
+                    <!--==============================================-->
 
-            <!--==============================================-->
+                    <div class="col-12">
 
-                <div class="col-12">
-
-                    <hr>
-
-                </div>
-
-            </li>
-
-            <!--==============================================-->
-
-            <!-- PRODUCTO 3 -->
-
-            <li class="col-12">
-
-                <div class="row">
-
-                    <!--=========================================-->
-
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-
-                        <figure>
-
-                            <a href="#" class="pixelProducto">
-
-                                <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio04.jpg" class="img-fluid">
-
-                            </a>
-
-                        </figure>
+                        <hr>
 
                     </div>
 
-                    <!--=========================================-->
+                </li>
 
-                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
+            </ul>';
+        */
 
-                        <h1>
+        echo '
 
-                            <small>
+            </div>';
 
-                                <a href="#" class="pixelProducto">Collar de diamantes</a>
+    }
 
-                            </small>
-
-                        </h1>
-
-                        <p class="text-muted">
-
-                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-
-                        </p>
-
-                        <h2>
-
-                            <small>
-
-                                GRATIS
-
-                            </small>
-
-                        </h2>
-
-                        <div class="btn-group float-left enlaces">
-
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos"
-                            idProducto="470" data-toggle="tooltip" title="Agregar a mi lista de deseos">
-
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-
-                            </button>
-
-                            <a href="#" class="pixelProducto">
-
-                                <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Producto">
-
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-
-                                </button>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            <!--==============================================-->
-
-                <div class="col-12">
-
-                    <hr>
-
-                </div>
-
-            </li>
-
-            <!--==============================================-->
-
-            <!-- PRODUCTO 4 -->
-
-            <li class="col-12">
-
-                <div class="row">
-
-                    <!--=========================================-->
-
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-
-                        <figure>
-
-                            <a href="#" class="pixelProducto">
-
-                                <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio02.jpg" class="img-fluid">
-
-                            </a>
-
-                        </figure>
-
-                    </div>
-
-                    <!--=========================================-->
-
-                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
-
-                        <h1>
-
-                            <small>
-
-                                <a href="#" class="pixelProducto">Bolso Militar</a>
-
-                            </small>
-
-                        </h1>
-
-                        <p class="text-muted">
-
-                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-
-                        </p>
-
-                        <h2>
-
-                            <small>
-
-                                GRATIS
-
-                            </small>
-
-                        </h2>
-
-                        <div class="btn-group float-left enlaces">
-
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos"
-                            idProducto="470" data-toggle="tooltip" title="Agregar a mi lista de deseos">
-
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-
-                            </button>
-
-                            <a href="#" class="pixelProducto">
-
-                                <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Producto">
-
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-
-                                </button>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            <!--==============================================-->
-
-                <div class="col-12">
-
-                    <hr>
-
-                </div>
-
-            </li>
-
-            <!--==============================================-->
-
-            <!-- PRODUCTO 4 -->
-
-            <li class="col-12">
-
-                <div class="row">
-
-                    <!--=========================================-->
-
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-
-                        <figure>
-
-                            <a href="#" class="pixelProducto">
-
-                                <img src="<?php echo $urlServidor; ?>Vistas/img/productos/accesorios/accesorio01.jpg" class="img-fluid">
-
-                            </a>
-
-                        </figure>
-
-                    </div>
-
-                    <!--=========================================-->
-
-                    <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
-
-                        <h1>
-
-                            <small>
-
-                                <a href="#" class="pixelProducto">Pulsera de Diamantes</a>
-
-                            </small>
-
-                        </h1>
-
-                        <p class="text-muted">
-
-                        Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-
-                        </p>
-
-                        <h2>
-
-                            <small>
-
-                                GRATIS
-
-                            </small>
-
-                        </h2>
-
-                        <div class="btn-group float-left enlaces">
-
-                            <button type="button" class="btn btn-outline-secondary btn-xs deseos"
-                            idProducto="470" data-toggle="tooltip" title="Agregar a mi lista de deseos">
-
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-
-                            </button>
-
-                            <a href="#" class="pixelProducto">
-
-                                <button type="button" class="btn btn-outline-secondary btn-xs"
-                                data-toggle="tooltip" title="Ver Producto">
-
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-
-                                </button>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            <!--==============================================-->
-
-                <div class="col-12">
-
-                    <hr>
-
-                </div>
-
-            </li>
-
-            <!--==============================================-->
-
-
-        </ul>
-
-    </div>
-
-</div>
+?>
 
 <!--====================================================
 BARRA PRODUCTOS MÁS VENDIDOS
