@@ -128,7 +128,7 @@ VITRINA PRODUCTOS CUA
 
 .productos ul li h4 small a{
 
-    color: #777;
+    color: #777 !important;
 
 }
 
@@ -178,7 +178,7 @@ VITRINA PRODUCTOS LISTA
 
 .productos ul li h1 small a{
 
-    color: #777;
+    color: #777 !important;
 
 }
 
