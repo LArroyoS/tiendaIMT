@@ -1,7 +1,7 @@
 <h1>PRODUCTOS</h1>
 <?php 
 
-    /*
+
     $item = "ruta";
     $valor = $rutas[0];
 
@@ -27,15 +27,17 @@
     }
 
     $ordenar = 'id';
-    $productos = ControladorProductos::ctrMostrarProductos($ordenar,$itemP,$valorP);
+    $base = 0;
+    $tope = 12;
 
-    var_dump($productos);
+    $productos = ControladorProductos::ctrMostrarProductos($ordenar,$itemP,$valorP,$base,$tope);
+
+    var_dump(count($productos));
 
     if(!$productos){
 
         echo 'Aun no hay productos en esta sección';
 
     }
-    */
 
 ?>

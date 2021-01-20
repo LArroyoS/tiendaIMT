@@ -74,6 +74,7 @@ CONTENIDO DINAMICO
 
 $rutas = array();
 $ruta = null;
+$infoProducto = null;
 
 if(isset($_GET['ruta'])){
 
@@ -88,7 +89,7 @@ if(isset($_GET['ruta'])){
 
     $rutaCategorias = ControladorProductos::ctrMostrarCategorias($item,$valor);
 
-    if($valor == (is_array($rutaCategorias)? $rutaCategorias['ruta']:null)){
+    if($valor == (is_array($rutaCategorias)? $rutaCategorias['ruta']:null) ){
 
         $ruta = $valor;
 
@@ -111,6 +112,18 @@ if(isset($_GET['ruta'])){
     }
 
     /*=============================================  
+    URL's AMIGABLES PRODUCTOS
+    ===============================================*/
+
+    $rutaProductos = ControladorProductos::ctrMostrarInfoProducto($item,$valor);
+
+    if($valor == (is_array($rutaProductos)? $rutaProductos["ruta"]: null) ){
+
+        $infoProducto = $valor;
+
+    }
+
+    /*=============================================  
     LISTA BLANCA
     ===============================================*/
 
@@ -120,6 +133,11 @@ if(isset($_GET['ruta'])){
     $rutas[0] == "lo-mas-visto"){
 
         include "Modulos/productos.php";
+
+    }
+    else if($infoProducto != null){
+
+        include "Modulos/infoproducto.php";
 
     }
     else{

@@ -1,6 +1,7 @@
 <?php 
 
-    $urlServidor = Ruta:: ctrRutaServidor();
+    $urlServidor = Ruta::ctrRutaServidor();
+    $urlTienda = Ruta::ctrRuta();
 
 ?>
 
@@ -97,7 +98,7 @@ HEADER
 
                     <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12" id="logotipo">
 
-                        <a href="#">
+                        <a href="<?php echo $urlTienda; ?>">
 
                             <img src="<?php echo $urlServidor.$social['logo']; ?>" class="img-fluid">
 

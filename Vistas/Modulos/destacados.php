@@ -37,13 +37,16 @@ PRODUCTOS
 
     $ordenar = "";
 
+    $base = 0;
+    $tope = 4;
+
     if($tituloModulos[0] == "ARTICULOS GRATUITOS"){
 
         $ordenar = "id";
         $item = "precio";
         $valor = "0";
 
-        $gratis = ControladorProductos::ctrMostrarPoductos($ordenar,$item,$valor);
+        $gratis = ControladorProductos::ctrMostrarProductos($ordenar,$item,$valor,$base,$tope);
 
     }
 
@@ -52,7 +55,7 @@ PRODUCTOS
         $ordenar = "ventas";
         $item = null;
         $valor = null;
-        $ventas = ControladorProductos::ctrMostrarPoductos($ordenar,$item,$valor);
+        $ventas = ControladorProductos::ctrMostrarProductos($ordenar,$item,$valor,$base,$tope);
 
     }
 
@@ -61,7 +64,7 @@ PRODUCTOS
         $ordenar = "vistas";
         $item = null;
         $valor = null;
-        $vistas = ControladorProductos::ctrMostrarPoductos($ordenar,$item,$valor);
+        $vistas = ControladorProductos::ctrMostrarProductos($ordenar,$item,$valor,$base,$tope);
 
     }
 
