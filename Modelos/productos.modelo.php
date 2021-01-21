@@ -81,7 +81,9 @@
             else{
 
                 $stmt = Conexion::conectar()
-                ->prepare("SELECT * FROM $tabla ORDER BY $ordenar DESC LIMIT 4");
+                ->prepare("SELECT * FROM $tabla 
+                ORDER BY $ordenar DESC 
+                LIMIT $base, $tope");
 
                 $stmt->execute();
 
