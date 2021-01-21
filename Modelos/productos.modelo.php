@@ -119,4 +119,40 @@
 
         }
 
+        /*=========================================
+        LISTAR PRODUCTOS
+        ==========================================*/
+        static public function mdlListarProducto($tabla,$ordenar,$item,$valor){
+
+            if($item != null){
+
+                $stmt = Conexion::conectar()
+                ->prepare("SELECT * FROM $tabla WHERE $item = :$item 
+                ORDER BY $ordenar DESC");
+
+                $stmt -> bindParam(":".$item,$valor, PDO::PARAM_STR);
+
+                $stmt->execute();
+
+                return $stmt->fetchAll();
+
+            }
+            else{
+
+                $stmt = Conexion::conectar()
+                ->prepare("SELECT * FROM $tabla WHERE ORDER BY $ordenar DESC");
+
+                $stmt->execute();
+
+                return $stmt->fetchAll();
+
+            }
+
+            $stmt->close();
+
+            /* Anular objeto */
+            $stmt = null;
+
+        }
+
     }

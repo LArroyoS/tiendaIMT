@@ -54,4 +54,17 @@
 
         }
 
+        /*=========================================
+        LISTAR PRODUCTOS
+        ==========================================*/
+        static public function ctrListarProductos($ordenar,$item,$valor){
+
+            $tabla = "productos";
+
+            $respuesta = ModeloProductos::mdlListarProducto($tabla,$ordenar,$item,$valor);
+
+            return $respuesta;
+
+        }
+
     }

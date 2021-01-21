@@ -101,14 +101,41 @@ BANNER
 
             <div class="row">
 
-                <ul class="breadcrumb fondoBreadcrumb lead col-12">
+                <!--==============================================
+                BREADCRUMB O MIGAS DE PAN
+                ===============================================-->
+
+                <ul class="breadcrumb text-uppercase fondoBreadcrumb lead col-12">
 
                     <li class="breadcrumb-item"><a href="<?php echo $urlTienda ?>">INICIO</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><?php echo $rutas[0]; ?></li>
+                    <li class="breadcrumb-item active pagActiva" aria-current="page"><?php echo $rutas[0]; ?></li>
 
                 </ul>
 
 <?php 
+
+    $tope = 12;
+
+    /*==============================================
+    LLAMADO DE PAGINACION
+    ===============================================*/
+
+    if(isset($rutas[1])){
+
+        $base = ($rutas[1]-1)*12;
+
+    }
+    else{
+
+        $rutas[1] = 1;
+        $base = 0;
+
+    }
+
+    /*==============================================
+    LLAMADO A CATEGORIAS, SUBCATEGORIAS Y DESTACADOS
+    ===============================================-*/
+
 
     $ordenar = 'id';
     $itemP = null;
@@ -163,7 +190,7 @@ BANNER
     $tope = 12;
 
     $productos = ControladorProductos::ctrMostrarProductos($ordenar,$itemP,$valorP,$base,$tope);
-
+    $listaProductos = ControladorProductos::ctrListarProductos($ordenar,$itemP,$valorP);
     //var_dump(count($productos));
 
     if(!$productos){
@@ -533,6 +560,91 @@ BANNER
 
 ?>
 
+            <?php 
+
+                /*==============================================
+                LLAMADO A CATEGORIAS, SUBCATEGORIAS Y DESTACADOS
+                ===============================================-*/
+
+                //var_dump(count($listaProductos));
+                if(count($listaProductos)!=0){
+
+                    $pagProductos = ceil(count($listaProductos)/12);
+                    //var_dump($pagProductos);
+
+                    if($pagProductos>4){
+
+                        /*==============================================
+                        Primeras 4 paginas
+                        ===============================================-*/
+
+                        if($rutas[1]==1){
+
+                            echo '<ul class="pagination mx-auto">';
+
+                            for($i=1; $i<= 4; $i++){
+
+                                echo '
+                                    <li class="page-item">
+                                        <a class="page-link" href="'.$rutas[0].'/'.$i.'">'.$i.'</a>
+                                    </li>';
+
+                            }
+
+                                echo '
+                                    <li class="page-item disabled"><a class="page-link">...</a></li>
+                                    <li class="page-item"><a class="page-link" href="'.$rutas[0].'/'.$pagProductos.'">'.$pagProductos.'</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="'.$rutas[0].'/2">
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                        </a>
+                                    </li>';
+
+                            echo '</ul>';
+
+                        }
+
+                    }
+                    else{
+
+                        echo '<ul class="pagination mx-auto">';
+
+                        for($i=1; $i<= $pagProductos; $i++){
+
+                            echo '
+                                <li class="page-item">
+                                    <a class="page-link" href="#">'.$i.'</a>
+                                </li>';
+
+                        }
+
+                        echo '</ul>';
+
+                    }
+
+                }
+
+            ?>
+<!--
+                <ul class="pagination mx-auto">
+
+                            <li class="page-item" style="display:none">
+                                <a class="page-link" href="#">
+                                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#">20</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+
+                </ul>
+-->
             </div>
 
         </div>

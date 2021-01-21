@@ -99,3 +99,17 @@ HERRAMIENTA TOOLTIP
 ================================================*/
 
 $('[data-toggle="tooltip"]').tooltip();
+
+/*===========================================
+BREADCRUMB
+============================================*/
+
+var pagActiva = $(".pagActiva").html();
+
+if(pagActiva != null){
+
+    //El caracter g indica varios (todos los guines)
+    var regPagActiva = pagActiva.replace(/-/g, " ");    
+    $(".pagActiva").html(regPagActiva);
+
+}
