@@ -1,10 +1,11 @@
 /*===========================================
 PLANTILLA
 ============================================*/
+$rutaOculta = $("#rutaOculta").val();
 
 $.ajax({
 
-    url:"ajax/plantilla.ajax.php",
+    url: $rutaOculta+"ajax/plantilla.ajax.php",
     success: function(respuesta){
 
         var colorFondo = JSON.parse(respuesta).colorFondo;
@@ -113,3 +114,15 @@ if(pagActiva != null){
     $(".pagActiva").html(regPagActiva);
 
 }
+
+/*===========================================
+ENLACES PAGINACION
+============================================*/
+
+var url = window.location.href;
+
+var indice = url.split("/");
+var pag = indice.pop();
+
+$("#item"+pag).addClass("active");
+

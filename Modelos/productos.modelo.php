@@ -140,7 +140,7 @@
             else{
 
                 $stmt = Conexion::conectar()
-                ->prepare("SELECT * FROM $tabla WHERE ORDER BY $ordenar DESC");
+                ->prepare("SELECT * FROM $tabla ORDER BY $ordenar DESC");
 
                 $stmt->execute();
 

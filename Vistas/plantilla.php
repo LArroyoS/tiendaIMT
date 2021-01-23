@@ -156,11 +156,13 @@ else{
 
 ?>
 
+<input type="hidden" value="<?php echo $url; ?>" id="rutaOculta">
+
 <!--============================================
 JAVASCRIPT PERSONALIZADOS
 ============================================-->
 <script src="<?php echo $url; ?>Vistas/js/cabezote.js?1.3"></script>
-<script src="<?php echo $url; ?>Vistas/js/plantilla.js?1.1"></script>
+<script src="<?php echo $url; ?>Vistas/js/plantilla.js?1.3"></script>
 <script src="<?php echo $url; ?>Vistas/js/slide.js?1.2"></script>
 
 </body>

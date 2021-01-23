@@ -122,7 +122,7 @@ BANNER
 
     if(isset($rutas[1])){
 
-        $base = ($rutas[1]-1)*12;
+        $base = (($rutas[1])-1)*12;
 
     }
     else{
@@ -165,7 +165,7 @@ BANNER
 
         $item = "ruta";
         $valor = $rutas[0];
-        $ordenar = 'id';
+        $ordenar = 'vistas';
 
         $categorias = ControladorProductos::ctrMostrarCategorias($item,$valor);
 
@@ -186,7 +186,6 @@ BANNER
 
     }
 
-    $base = 0;
     $tope = 12;
 
     $productos = ControladorProductos::ctrMostrarProductos($ordenar,$itemP,$valorP,$base,$tope);
@@ -211,7 +210,7 @@ BANNER
                 <!--==============================================
                 VITRINA DE PRODUCTOS EN CUADRICULA
                 ===============================================-->
-                <ul class="grid0 row">';
+                <ul class="grid0 row col-12">';
 
                 foreach($productos as $key => $value){
 
@@ -233,6 +232,7 @@ BANNER
                             <!--==========================================-->
                             <div class="row">
 
+                                <h2>'.$value['id'].'</h2>
                                 <!--==========================================-->
                                 <h4 class="col-12">
 
@@ -383,7 +383,7 @@ BANNER
                 VITRINA DE PRODUCTOS EN LISTA
                 ===============================================-->
 
-                <ul class="list0 row" style="display:none">';
+                <ul class="list0 row col-12" style="display:none">';
 
                     foreach($productos as $key => $value){
 
@@ -571,11 +571,12 @@ BANNER
 
                     $pagProductos = ceil(count($listaProductos)/12);
                     //var_dump($pagProductos);
+                    //var_dump($rutas);
 
                     if($pagProductos>4){
 
                         /*==============================================
-                        Primeras 4 paginas
+                        Primera pagina
                         ===============================================-*/
 
                         if($rutas[1]==1){
@@ -585,17 +586,166 @@ BANNER
                             for($i=1; $i<= 4; $i++){
 
                                 echo '
-                                    <li class="page-item">
-                                        <a class="page-link" href="'.$rutas[0].'/'.$i.'">'.$i.'</a>
+                                    <li id="item'.$i.'" class="page-item">
+                                        <a class="page-link" href="'.$urlTienda.$rutas[0].'/'.$i.'">'.$i.'</a>
                                     </li>';
 
                             }
 
-                                echo '
+                            echo '
                                     <li class="page-item disabled"><a class="page-link">...</a></li>
-                                    <li class="page-item"><a class="page-link" href="'.$rutas[0].'/'.$pagProductos.'">'.$pagProductos.'</a></li>
+                                    <li class="page-item"><a class="page-link" href="'.$urlTienda.$rutas[0].'/'.$pagProductos.'">'.$pagProductos.'</a></li>
                                     <li class="page-item">
-                                        <a class="page-link" href="'.$rutas[0].'/2">
+                                        <a class="page-link" href="'.$urlTienda.$rutas[0].'/2">
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                        </a>
+                                    </li>';
+
+                            echo '</ul>';
+
+                        }
+                        /*==============================================
+                        Ultima pagina
+                        ===============================================-*/
+                        else if($rutas[1]==$pagProductos){
+
+                            echo '<ul class="pagination mx-auto">';
+
+                            echo '
+                                    <li class="page-item">
+                                        <a class="page-link" href="'.$urlTienda.$rutas[0].'/'.($pagProductos-1).'">
+                                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="'.$urlTienda.$rutas[0].'/1">1</a></li>
+                                    <li class="page-item disabled"><a class="page-link">...</a></li>';
+
+                            for($i = ($pagProductos-3); $i<= $pagProductos; $i++){
+
+                                echo '
+                                    <li id="item'.$i.'" class="page-item">
+                                        <a class="page-link" href="'.$urlTienda.$rutas[0].'/'.$i.'">'.$i.'</a>
+                                    </li>';
+
+                            }
+
+                            echo '</ul>';
+
+                        }
+                        /*==============================================
+                        Mitad hacia abajo
+                        ===============================================-*/
+                        else if($rutas[1] != $pagProductos &&
+                                $rutas[1] != 1 &&
+                                $rutas[1] < $pagProductos/2 &&
+                                $rutas[1] < $pagProductos-3){
+
+                            $numPagActual = $rutas[1];
+
+                            echo '<ul class="pagination mx-auto">';
+
+                            echo '
+                                    <li class="page-item">
+                                        <a class="page-link" href="'.$urlTienda.$rutas[0].'/'.($numPagActual-1).'">
+                                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="'.$urlTienda.$rutas[0].'/1">1</a></li>
+                                    <li class="page-item disabled"><a class="page-link">...</a></li>';
+
+                            for($i = ($numPagActual); $i <= ($numPagActual+3); $i++){
+
+                                echo '
+                                    <li id="item'.$i.'" class="page-item">
+                                        <a class="page-link" href="'.$urlTienda.$rutas[0].'/'.$i.'">'.$i.'</a>
+                                    </li>';
+
+                            }
+
+                            echo '
+                                    <li class="page-item disabled"><a class="page-link">...</a></li>
+                                    <li class="page-item"><a class="page-link" href="'.$urlTienda.$rutas[0].'/'.$pagProductos.'">'.$pagProductos.'</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="'.$urlTienda.$rutas[0].'/'.($numPagActual+1).'">
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                        </a>
+                                    </li>';
+
+                            echo '</ul>';
+
+                        }
+                        /*==============================================
+                        Mitad hacia arriba
+                        ===============================================-*/
+                        else if($rutas[1] != $pagProductos &&
+                                $rutas[1] != 1 &&
+                                $rutas[1] >= $pagProductos/2 &&
+                                $rutas[1] < $pagProductos-3){
+
+                            $numPagActual = $rutas[1];
+
+                            echo '<ul class="pagination mx-auto">';
+
+                            echo '
+                                    <li class="page-item">
+                                        <a class="page-link" href="'.$urlTienda.$rutas[0].'/'.($numPagActual-1).'">
+                                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="'.$urlTienda.$rutas[0].'/1">1</a></li>
+                                    <li class="page-item disabled"><a class="page-link">...</a></li>';
+
+                            for($i = ($numPagActual); $i <= ($numPagActual+3); $i++){
+
+                                echo '
+                                    <li id="item'.$i.'" class="page-item">
+                                        <a class="page-link" href="'.$urlTienda.$rutas[0].'/'.$i.'">'.$i.'</a>
+                                    </li>';
+
+                            }
+
+                            echo '
+                                    <li class="page-item disabled"><a class="page-link">...</a></li>
+                                    <li class="page-item"><a class="page-link" href="'.$urlTienda.$rutas[0].'/'.$pagProductos.'">'.$pagProductos.'</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="'.$urlTienda.$rutas[0].'/'.($numPagActual+1).'">
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                        </a>
+                                    </li>';
+
+                            echo '</ul>';
+
+                        }
+                        /*==============================================
+                        ultimas 4 paginas
+                        ===============================================-*/
+                        else{
+
+                            $numPagActual = $rutas[1];
+
+                            echo '<ul class="pagination mx-auto">';
+
+                            echo '
+                                    <li class="page-item">
+                                        <a class="page-link" href="'.$urlTienda.$rutas[0].'/'.($numPagActual-1).'">
+                                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="'.$urlTienda.$rutas[0].'/1">1</a></li>
+                                    <li class="page-item disabled"><a class="page-link">...</a></li>';
+
+                            for($i = ($pagProductos-3); $i <= ($pagProductos); $i++){
+
+                                echo '
+                                    <li id="item'.$i.'" class="page-item">
+                                        <a class="page-link" href="'.$urlTienda.$rutas[0].'/'.$i.'">'.$i.'</a>
+                                    </li>';
+
+                            }
+
+                            echo '
+                                    <li class="page-item">
+                                        <a class="page-link" href="'.$urlTienda.$rutas[0].'/'.($numPagActual+1).'">
                                             <i class="fa fa-angle-right" aria-hidden="true"></i>
                                         </a>
                                     </li>';
@@ -612,8 +762,8 @@ BANNER
                         for($i=1; $i<= $pagProductos; $i++){
 
                             echo '
-                                <li class="page-item">
-                                    <a class="page-link" href="#">'.$i.'</a>
+                                <li id="item'.$i.'" class="page-item">
+                                    <a class="page-link" href="'.$urlTienda.$rutas[0].'/'.$i.'">'.$i.'</a>
                                 </li>';
 
                         }
@@ -625,26 +775,7 @@ BANNER
                 }
 
             ?>
-<!--
-                <ul class="pagination mx-auto">
 
-                            <li class="page-item" style="display:none">
-                                <a class="page-link" href="#">
-                                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item disabled"><a class="page-link">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">20</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">
-                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                </a>
-                            </li>
-
-                </ul>
--->
             </div>
 
         </div>

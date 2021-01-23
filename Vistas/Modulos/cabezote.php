@@ -220,7 +220,7 @@ HEADER
 
                                         <h4>
 
-                                            <a href="'.$value['ruta'].'" class="pixelCategorias">'.$value['categoria'].'</a>
+                                            <a href="'.$urlTienda.$value['ruta'].'" class="pixelCategorias">'.$value['categoria'].'</a>
 
                                         </h4>
 
@@ -237,7 +237,7 @@ HEADER
 
                                                 echo    '<li>
 
-                                                            <a href="'.$value['ruta'].'" class="pixelSubCategorias">'.$value['subcategoria'].'</a>
+                                                            <a href="'.$urlTienda.$value['ruta'].'" class="pixelSubCategorias">'.$value['subcategoria'].'</a>
 
                                                         </li>';
 
