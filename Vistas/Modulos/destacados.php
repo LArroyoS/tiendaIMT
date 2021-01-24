@@ -39,6 +39,7 @@ PRODUCTOS
 
     $base = 0;
     $tope = 4;
+    $modo = "DESC";
 
     if($tituloModulos[0] == "ARTICULOS GRATUITOS"){
 
@@ -46,7 +47,7 @@ PRODUCTOS
         $item = "precio";
         $valor = "0";
 
-        $gratis = ControladorProductos::ctrMostrarProductos($ordenar,$item,$valor,$base,$tope);
+        $gratis = ControladorProductos::ctrMostrarProductos($ordenar,$item,$valor,$base,$tope,$modo);
 
     }
 
@@ -55,7 +56,7 @@ PRODUCTOS
         $ordenar = "ventas";
         $item = null;
         $valor = null;
-        $ventas = ControladorProductos::ctrMostrarProductos($ordenar,$item,$valor,$base,$tope);
+        $ventas = ControladorProductos::ctrMostrarProductos($ordenar,$item,$valor,$base,$tope,$modo);
 
     }
 
@@ -64,458 +65,494 @@ PRODUCTOS
         $ordenar = "vistas";
         $item = null;
         $valor = null;
-        $vistas = ControladorProductos::ctrMostrarProductos($ordenar,$item,$valor,$base,$tope);
+        $vistas = ControladorProductos::ctrMostrarProductos($ordenar,$item,$valor,$base,$tope,$modo);
 
     }
 
     $modulo = array($gratis,$ventas,$vistas);
 
-    for( $i=0 ; $i < count($tituloModulos); $i++){
+?>
 
-        echo '
+<?php for( $i=0 ; $i < count($tituloModulos); $i++): ?>
 
-            <div class="container-fluid">
+    <div class="container-fluid">
 
-                <!--====================================================
-                BARRA PRODUCTOS
-                ======================================================-->
+        <!--====================================================
+        BARRA PRODUCTOS
+        ======================================================-->
 
-                <div class="col-12 card card-body bg-light barraProductos">
+        <div class="col-12 card card-body bg-light barraProductos">
 
-                    <div class="container">
+            <div class="container">
 
-                        <div class="col-12 organizarProductos">
+                <div class="col-12 organizarProductos">
 
-                            <div class="btn-group float-right">
+                    <div class="btn-group float-right">
 
-                                <button type="button" class="btn btn-outline-secondary btnGrid" id="btnGrid'.$i.'">
+                        <button type="button" 
+                            class="btn btn-outline-secondary btnGrid" 
+                            id="btnGrid<?php echo htmlspecialchars($i); ?>">
 
-                                    <i class="fa fa-th" aria-hidden="true"></i>
-                                    <span class="col-xs-0 float-right">MOSAICO</span>
+                            <i class="fa fa-th" aria-hidden="true"></i>
+                            <span class="col-xs-0 float-right">MOSAICO</span>
 
-                                </button>
+                        </button>
 
-                                <button type="button" class="btn btn-outline-secondary btnList" id="btnList'.$i.'">
+                        <button type="button" 
+                            class="btn btn-outline-secondary btnList" 
+                            id="btnList<?php echo htmlspecialchars($i); ?>">
 
-                                    <i class="fa fa-list" aria-hidden="true"></i>
-                                    <span class="col-xs-0 float-right">LISTA</span>
+                            <i class="fa fa-list" aria-hidden="true"></i>
+                            <span class="col-xs-0 float-right">LISTA</span>
 
-                                </button>
-
-                            </div>
-
-                        </div>
+                        </button>
 
                     </div>
 
-                </div>';
+                </div>
 
-        echo '
+            </div>
 
-                <!--====================================================
-                VITRINA DE PRODUCTOS
-                ======================================================-->
+        </div>
 
-                <div class="container-fluid productos">
+        <!--====================================================
+        VITRINA DE PRODUCTOS
+        ======================================================-->
 
-                    <!--==============================================
-                    BARRA TITULO
-                    ===============================================-->
-                    <div class="container tituloDestacado mt-3">
+        <div class="col-12 productos">
 
+            <!--==============================================
+            BARRA TITULO
+            ===============================================-->
+            <div class="container tituloDestacado mt-3">
+
+                <div class="row">
+
+                    <!--==========================================-->
+
+                    <div class="col-sm-6 col-xs-12">
+
+                        <h1>
+
+                            <small>
+
+                                <?php echo htmlspecialchars($tituloModulos[$i]); ?>
+
+                            </small>
+
+                        </h1>
+
+                    </div>
+
+                        <!--==========================================-->
+
+                    <div class="col-sm-6 col-xs-12">
+
+                        <a href="<?php echo htmlspecialchars($rutaModulos[$i]); ?>">
+
+                            <button class="btn btn-outline-secondary backColor float-right">
+
+                                VER MÁS <span class="fa fa-chevron-right"></span>
+
+                            </button>
+
+                        </a>
+
+                    </div>
+
+                        <!--==========================================-->
+
+                </div>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <hr>
+
+            <!--==============================================
+            VITRINA DE PRODUCTOS EN CUADRICULA
+            ===============================================-->
+            <ul class="grid<?php echo htmlspecialchars($i); ?> row">
+
+                <?php foreach($modulo[$i] as $key => $value): ?>
+
+                    <!-- Producto -->
+                    <li class="col-md-3 col-sm-6 col-xs-12">
+
+                        <!--==========================================-->
+                        <figure>
+
+                            <a href="<?php echo htmlspecialchars($value['ruta']); ?>" 
+                                class="pixelProducto">
+
+                                <img src="<?php echo htmlspecialchars($urlServidor.$value["portada"]); ?>" 
+                                    class="img-fluid">
+
+                            </a>
+
+                        </figure>
+
+                            <!--==========================================-->
                         <div class="row">
 
                             <!--==========================================-->
+                            <h4 class="col-12">
 
-                            <div class="col-sm-6 col-xs-12">
+                                <small>
 
-                                <h1><small>'.$tituloModulos[$i].'</small></h1>
+                                    <a href="<?php echo htmlspecialchars($value['ruta']); ?>" 
+                                        class="pixelProducto">
+
+                                        <?php echo htmlspecialchars($value['titulo']); ?>
+
+                                        <br>
+
+                                        <span style="color: white !important;">-</span>
+
+                                        <?php if($value['nuevo'] !=0): ?>
+
+                                            <span class="badge badge-warning fontSize">
+
+                                                Nuevo
+
+                                            </span>
+
+                                        <?php endif; ?>
+
+                                        <?php if($value['oferta'] !=0): ?>
+
+                                            <span class="badge badge-warning fontSize">
+
+                                                <?php echo htmlspecialchars($value['descuentoOferta']); ?>% Descuento
+
+                                            </span>
+
+                                        <?php endif; ?>
+
+                                    </a>
+
+                                </small>
+
+                            </h4>
+
+                            <!--==========================================-->
+
+                            <div class="col-6 precio">
+
+                                <?php if($value["precio"]==0): ?>
+
+                                    <h2>
+
+                                        <small>
+
+                                            GRATIS
+
+                                        </small>
+
+                                    </h2>
+
+                                <?php else: ?>
+
+                                    <h2>
+
+                                        <?php if($value["oferta"] != 0): ?>
+
+                                            <small>
+
+                                                <strong class="oferta">
+
+                                                    USD $<?php echo htmlspecialchars($value['precio']); ?>
+
+                                                </strong>
+
+                                            </small>
+
+                                            <small>
+
+                                                $<?php echo htmlspecialchars($value['precioOferta']); ?>
+
+                                            </small>
+
+                                        <?php else: ?>
+
+                                            <small>
+
+                                                USD $<?php echo htmlspecialchars($value['precio']); ?>
+
+                                            </small>
+
+                                        <?php endif; ?>
+
+                                    </h2>
+
+                                <?php endif; ?>
 
                             </div>
 
                             <!--==========================================-->
+                            <div class="col-6 enlaces">
 
-                            <!--==========================================-->
+                                <div class="btn-group">
 
-                            <div class="col-sm-6 col-xs-12">
+                                    <button type="button" class="btn btn-outline-secondary btn-xs deseos" 
+                                        idProducto="<?php echo htmlspecialchars($value['id']); ?>"
+                                        data-toggle="tooltip" title="Agregar a mi lista de deseos">
 
-                                <a href="'.$rutaModulos[$i].'">
-
-                                    <button class="btn btn-outline-secondary backColor float-right">
-
-                                        VER MÁS <span class="fa fa-chevron-right"></span>
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
 
                                     </button>
 
-                                </a>
+                                    <?php if($value['tipo'] == "virtual"): ?>
+
+                                        <button type="button" 
+                                            class="btn btn-outline-secondary btn-xs agregarCarrito" 
+                                            idProducto="<?php echo htmlspecialchars($value['id']); ?>" 
+                                            imagen="<?php echo htmlspecialchars($urlServidor.$value['portada']); ?>"
+                                            titulo="<?php echo htmlspecialchars($value['titulo']); ?>"
+
+                                            <?php if($value['oferta'] != 0): ?>
+
+                                                precio="<?php echo htmlspecialchars($value['precioOferta']); ?>"
+
+                                            <?php else: ?>
+
+                                                precio="<?php echo htmlspecialchars($value['precio']); ?>"
+
+                                            <?php endif; ?>
+
+                                            tipo="'.$value['tipo'].'"
+                                            peso="'.$value['peso'].'"
+                                            data-toggle="tooltip" title="Agregar a carrito de compras">
+
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+                                        </button>
+
+                                    <?php endif; ?>
+
+                                    <a href="<?php echo htmlspecialchars($value['ruta']); ?>" 
+                                        class="pixelProducto">
+
+                                        <button type="button" class="btn btn-outline-secondary btn-xs"
+                                            data-toggle="tooltip" title="Ver Producto">
+
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                        </button>
+
+                                    </a>
+
+                                </div>
 
                             </div>
 
-                            <!--==========================================-->
-
                         </div>
 
-                    </div>
+                        <!--==========================================-->
 
-                    <div class="clearfix"></div>
+                    </li>
 
-                    <hr>';
+                <?php endforeach; ?>
 
-            echo '
+            </ul>
 
-                    <!--==============================================
-                    VITRINA DE PRODUCTOS EN CUADRICULA
-                    ===============================================-->
-                    <ul class="grid'.$i.' row">';
+            <!--==============================================
+            VITRINA DE PRODUCTOS EN LISTA
+            ===============================================-->
 
-                    foreach($modulo[$i] as $key => $value){
+            <ul class="list<?php echo htmlspecialchars($i); ?> 
+                row" 
+                style="display:none">
 
-                        echo '
+                <?php foreach($modulo[$i] as $key => $value): ?>
 
-                            <!-- Producto -->
-                            <li class="col-md-3 col-sm-6 col-xs-12">
+                    <!-- PRODUCTO -->
+                    <li class="col-12">
 
-                                <!--==========================================-->
+                        <div class="row">
+
+                            <!--=========================================-->
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+
                                 <figure>
 
-                                    <a href="'.$value['ruta'].'" class="pixelProducto">
+                                    <a href='<?php echo htmlspecialchars($value['ruta']); ?>' 
+                                        class="pixelProducto">
 
-                                        <img src="'.$urlServidor.$value["portada"].'" class="img-fluid">
+                                        <img src="<?php echo htmlspecialchars($urlServidor.$value['portada']); ?>" 
+                                            class="img-fluid">
 
                                     </a>
 
                                 </figure>
-                                <!--==========================================-->
-                                <div class="row">
 
-                                    <!--==========================================-->
-                                    <h4 class="col-12">
+                            </div>
+
+                            <!--=========================================-->
+
+                            <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
+
+                                <h1>
+
+                                    <small>
+
+                                        <a href="<?php echo htmlspecialchars($value['ruta']); ?>" 
+                                            class="pixelProducto">
+
+                                            <?php echo htmlspecialchars($value['titulo']); ?>
+
+                                        </a>
+
+                                        <?php if($value['nuevo'] !=0): ?>
+
+                                            <span class="badge badge-warning">Nuevo</span>
+
+                                        <?php endif; ?>
+
+                                        <?php if($value['oferta'] !=0): ?>
+
+                                            <span class="badge badge-warning">
+
+                                                <?php echo htmlspecialchars($value['descuentoOferta']); ?>% Descuento 
+
+                                            </span>
+
+                                        <?php endif; ?>
+
+                                    </small>
+
+                                </h1>
+
+                                <p class="text-muted">
+
+                                    <?php echo htmlspecialchars($value['descripcion']); ?>
+
+                                </p>
+
+                                <?php if($value["precio"]==0): ?>
+
+                                    <h2>
 
                                         <small>
 
-                                            <a href="'.$value['ruta'].'" class="pixelProducto">
-
-                                                '.$value['titulo'].'<br>
-
-                                                <span style="color: white !important;">-</span>';
-
-                                        if($value['nuevo'] !=0){
-
-                                            echo '
-                                                <span class="badge badge-warning fontSize">Nuevo</span>';
-
-                                        }
-
-                                        if($value['oferta'] !=0){
-
-                                            echo '
-
-                                                <span class="badge badge-warning fontSize">'.$value['descuentoOferta'].'% Descuento</span>';
-
-                                        }
-
-                        echo '
-                                            </a>
+                                            GRATIS
 
                                         </small>
 
-                                    </h4>
-                                    <!--==========================================-->
-                                    <div class="col-6 precio">';
+                                    </h2>
 
-                        if($value["precio"]==0){
+                                <? else: ?>
 
-                            echo '
-                                        <h2><small>GRATIS</small></h2>';
+                                    <h2>
 
-                        }
-                        else{
-                            
-                            echo '
-                                        <h2>';
-                            if($value["oferta"] != 0){
+                                        <?php if($value["oferta"] != 0): ?>
 
-                                echo '
                                             <small>
 
-                                                <strong class="oferta">USD $'.$value['precio'].'</strong>
+                                                <strong class="oferta">
+
+                                                    USD $<?php echo htmlspecialchars($value['precio']); ?>
+
+                                                </strong>
 
                                             </small>
 
-                                            <small>$'.$value['precioOferta'].'</small>';
+                                            <small>
 
-                            }
-                            else{
+                                                $<?php echo htmlspecialchars($value['precioOferta']); ?>
 
-                                echo '
-                                            <small>USD $'.$value['precio'].'</small>';
+                                            </small>
 
-                            }
+                                        <?php else: ?>
 
-                            echo '
-                                        </h2>';
+                                            <small>
 
-                        }
+                                                USD $<?php echo htmlspecialchars($value['precio']); ?>
 
-                        echo '
-                                    </div>
-                                    <!--==========================================-->
-                                    <div class="col-6 enlaces">
+                                            </small>
 
-                                        <div class="btn-group">
+                                        <?php endif; ?>
 
-                                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" 
-                                            idProducto="'.$value['id'].'"
-                                            data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                    </h2>
 
-                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                <?php endif; ?>
 
-                                            </button>';
+                                <div class="btn-group float-left enlaces">
 
-                                    if($value['tipo'] == "virtual"){
+                                    <button type="button" 
+                                        class="btn btn-outline-secondary btn-xs deseos"
+                                        idProducto="<?php echo htmlspecialchars($value['id']); ?>" 
+                                        data-toggle="tooltip" 
+                                        title="Agregar a mi lista de deseos">
 
-                                        echo '
-                                            <button type="button" class="btn btn-outline-secondary btn-xs agregarCarrito" 
-                                            idProducto="'.$value['id'].'" 
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
+
+                                    </button>
+
+                                    <?php if($value['tipo'] == "virtual"): ?>
+
+                                        <button type="button" class="btn btn-outline-secondary btn-xs agregarCarrito" idProducto="'.$value['id'].'" 
                                             imagen="'.$urlServidor.$value['portada'].'"
                                             titulo="'.$value['titulo'].'"';
 
-                                    
-                                        if($value['oferta'] != 0){
+                                            <?php if($value['oferta'] != 0): ?>
 
-                                            echo ' 
-                                                precio="'.$value['precioOferta'].'"';
+                                                precio="<?php echo htmlspecialchars($value['precioOferta']); ?>"
 
-                                        }
-                                        else{
+                                            <?php else: ?>
 
-                                            echo ' 
-                                                precio="'.$value['precio'].'"';
+                                                precio="<?php echo htmlspecialchars($value['precio']); ?>"
 
-                                        }
+                                            <?php endif; ?>
 
-                            echo '
-                                            tipo="'.$value['tipo'].'"
-                                            peso="'.$value['peso'].'"
-                                            data-toggle="tooltip" title="Agregar a carrito de compras">
+                                            tipo="<?php echo htmlspecialchars($value['tipo']); ?>"
+                                            peso="<?php echo htmlspecialchars($value['peso']); ?>"
+                                            data-toggle="tooltip" 
+                                            title="Agregar a carrito de compras">
 
-                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 
-                                            </button>';
+                                        </button>
 
-                        }
+                                    <?php endif; ?>
 
-                        echo '
-                                            <a href="'.$value['ruta'].'" class="pixelProducto">
+                                    <a href="<?php echo htmlspecialchars($value['ruta']); ?>" 
+                                        class="pixelProducto">
 
-                                                <button type="button" class="btn btn-outline-secondary btn-xs"
-                                                data-toggle="tooltip" title="Ver Producto">
+                                        <button type="button" 
+                                            class="btn btn-outline-secondary btn-xs"
+                                            data-toggle="tooltip" 
+                                            title="Ver Producto">
 
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
 
-                                                </button>
+                                        </button>
 
-                                            </a>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <!--==========================================-->
-
-                            </li>';
-
-                    }
-
-            echo '
-
-                    </ul>';
-
-            echo '
-
-                <!--==============================================
-                VITRINA DE PRODUCTOS EN LISTA
-                ===============================================-->
-
-                <ul class="list'.$i.' row" style="display:none">';
-
-                    foreach($modulo[$i] as $key => $value){
-
-                        echo '
-                        <!-- PRODUCTO -->
-
-                        <li class="col-12">
-
-                            <div class="row">
-
-                                <!--=========================================-->
-
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-
-                                    <figure>
-
-                                        <a href='.$value['ruta'].' class="pixelProducto">
-
-                                            <img src="'.$urlServidor.$value['portada'].'" class="img-fluid">
-
-                                        </a>
-
-                                    </figure>
-
-                                </div>
-
-                                <!--=========================================-->
-
-                                <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
-
-                                    <h1>
-
-                                        <small>
-
-                                            <a href="'.$value['ruta'].'" class="pixelProducto">
-
-                                            '.$value['titulo'].'
-                                            
-                                            </a>';
-
-                                    if($value['nuevo'] !=0){
-
-                                        echo '
-                                            <span class="badge badge-warning">Nuevo</span>';
-
-                                    }
-
-                                    if($value['oferta'] !=0){
-
-                                        echo '
-
-                                            <span class="badge badge-warning">'.$value['descuentoOferta'].'% Descuento </span>';
-
-                                    }
-
-                        echo '
-                                        </small>
-
-                                    </h1>
-
-                                    <p class="text-muted">'.$value['descripcion'].'</p>';
-
-                                    if($value["precio"]==0){
-
-                                        echo '
-                                                    <h2><small>GRATIS</small></h2>';
-
-                                    }
-                                    else{
-
-                                        echo '
-                                                    <h2>';
-
-                                                if($value["oferta"] != 0){
-
-                                                    echo '
-                                                        <small>
-
-                                                            <strong class="oferta">USD $'.$value['precio'].'</strong>
-
-                                                        </small>
-
-                                                        <small>$'.$value['precioOferta'].'</small>';
-
-                                                }
-                                                else{
-
-                                                        echo '
-                                                        <small>USD $'.$value['precio'].'</small>';
-
-                                                }
-
-                                        echo '
-                                                    </h2>';
-
-                                    }
-
-                        echo '
-
-                                    <div class="btn-group float-left enlaces">
-
-                                        <button type="button" class="btn btn-outline-secondary btn-xs deseos"
-                                        idProducto="'.$value['id'].'" data-toggle="tooltip" title="Agregar a mi lista de deseos">
-
-                                            <i class="fa fa-heart" aria-hidden="true"></i>
-
-                                        </button>';
-
-                                        if($value['tipo'] == "virtual"){
-
-                                            echo '
-                                                <button type="button" class="btn btn-outline-secondary btn-xs agregarCarrito" idProducto="'.$value['id'].'" 
-                                                imagen="'.$urlServidor.$value['portada'].'"
-                                                titulo="'.$value['titulo'].'"';
-
-                                            if($value['oferta'] != 0){
-
-                                                echo ' 
-                                                    precio="'.$value['precioOferta'].'"';
-
-                                            }
-                                            else{
-
-                                                echo ' 
-                                                    precio="'.$value['precio'].'"';
-
-                                            }
-
-                                            echo '
-                                            tipo="'.$value['tipo'].'"
-                                            peso="'.$value['peso'].'"
-                                            data-toggle="tooltip" title="Agregar a carrito de compras">
-
-                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-
-                                            </button>';
-
-                                        }
-
-                        echo '
-                                        <a href="'.$value['ruta'].'" class="pixelProducto">
-
-                                            <button type="button" class="btn btn-outline-secondary btn-xs"
-                                            data-toggle="tooltip" title="Ver Producto">
-
-                                                <i class="fa fa-eye" aria-hidden="true"></i>
-
-                                            </button>
-
-                                        </a>
-
-                                    </div>
+                                    </a>
 
                                 </div>
 
                             </div>
 
-                            <!--==============================================-->
+                        </div>
 
-                            <div class="col-12">
+                        <!--==============================================-->
 
-                                <hr>
+                        <div class="col-12">
 
-                            </div>
+                            <hr>
 
-                        </li>';
+                        </div>
 
-                    }
+                    </li>
 
-            echo '
-                    </ul>';
+                <?php endforeach; ?>
 
-        echo '
-                </div>
+            </ul>
 
-            </div>';
+        </div>
 
-    }
+    </div>
 
-?>
+<?php endfor; ?>

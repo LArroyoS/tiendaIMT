@@ -30,7 +30,11 @@ SLIDE
 
                 $slide = ControladorSlide::ctrMostrarSlide();
 
-                foreach($slide as $key => $value){
+            ?>
+
+            <?php foreach($slide as $key => $value): ?>
+
+                <?php
 
                     $estiloImgProducto = json_decode($value["estiloImgProducto"],true);
                     $estiloTextoSlide = json_decode($value["estiloTextoSlide"],true);
@@ -38,51 +42,71 @@ SLIDE
                     $titulo2 = json_decode($value["titulo2"],true);
                     $titulo3 = json_decode($value["titulo3"],true);
 
-                    $imgProducto = ((isset($value['imgProducto']) and $value['imgProducto']=="")?
-                                    '<img class="imgProducto d-none">':
-                                    '<img class="imgProducto" src="'.$urlServidor.$value['imgProducto'].'"
-                                        style="
-                                            top: '.$estiloImgProducto["top"].'; 
-                                            right: '.$estiloImgProducto["right"].';
-                                            left: '.$estiloImgProducto["left"].'; 
-                                            width: '.$estiloImgProducto["width"].';
-                                    ">'); 
+                ?>
 
-                    echo    '<li>
+                <li>
 
-                                <img src="'.$urlServidor.$value['imgFondo'].'">
+                    <img src="<?php echo htmlspecialchars($urlServidor.$value['imgFondo']); ?>">
 
-                                <div class="slideOpciones '.$value['tipoSlide'].'">
+                    <div class="slideOpciones 
+                    <?php echo htmlspecialchars($value['tipoSlide']); ?>">
 
-                                    '.$imgProducto.'
+                        <?php if(isset($value['imgProducto']) and $value['imgProducto']==""): ?>
 
-                                    <div class="textosSlide" 
-                                    style="
-                                        top: '.$estiloTextoSlide["top"].'; 
-                                        right: '.$estiloTextoSlide["right"].';
-                                        left: '.$estiloTextoSlide["left"].'; 
-                                        width: '.$estiloTextoSlide["width"].';
-                                    ">
+                            <img class="imgProducto d-none">
 
-                                        <h1 style="color: '.$titulo1["color"].';">'.$titulo1["texto"].'</h1>
-                                        <h2 style="color: '.$titulo2["color"].';">'.$titulo2["texto"].'</h2>
-                                        <h3 style="color: '.$titulo3["color"].';">'.$titulo3["texto"].'</h3>
+                        <?php else: ?>
 
-                                        <a href="'.$value["url"].'">
+                            <img class="imgProducto" 
+                            src="<?php echo htmlspecialchars($urlServidor.$value['imgProducto']); ?>"
+                            style="
+                            top: <?php echo htmlspecialchars($estiloImgProducto["top"]); ?>; 
+                            right: <?php echo htmlspecialchars($estiloImgProducto["right"]); ?>;
+                            left: <?php echo htmlspecialchars($estiloImgProducto["left"]); ?>; 
+                            width: <?php echo htmlspecialchars($estiloImgProducto["width"]); ?>;
+                            ">
 
-                                            '.$value["botonVerProducto"].'
+                        <?php endif; ?>
 
-                                        </a>
+                        <div class="textosSlide" 
+                        style="
+                        top: <?php echo htmlspecialchars($estiloTextoSlide["top"]); ?>; 
+                        right: <?php echo htmlspecialchars($estiloTextoSlide["right"]); ?>;
+                        left: <?php echo htmlspecialchars($estiloTextoSlide["left"]); ?>; 
+                        width: <?php echo htmlspecialchars($estiloTextoSlide["width"]); ?>;
+                        ">
 
-                                    </div>
+                            <h1 style="color: <?php echo htmlspecialchars($titulo1["color"]); ?>;">
 
-                                </div>
+                                <?php echo htmlspecialchars($titulo1["texto"]); ?>
 
-                            </li>';
+                            </h1>
 
-                }
+                            <h2 style="color: <?php echo htmlspecialchars($titulo2["color"]); ?>;">
 
-            ?>
+                                <?php echo htmlspecialchars($titulo2["texto"]); ?>
+
+                            </h2>
+
+                            <h3 style="color: <?php echo htmlspecialchars($titulo3["color"]); ?>">
+
+                                <?php echo htmlspecialchars($titulo3["texto"]); ?>
+
+                            </h3>
+
+                            <a href="<?php echo htmlspecialchars($value["url"]); ?>">
+
+                                <?php echo $value["botonVerProducto"]; ?>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+            <?php endforeach; ?>
 
         </ul>
 
@@ -91,15 +115,15 @@ SLIDE
         ---------------------------------------- -->
         <ol id="paginacion">
 
-            <?php 
+            <?php for($i = 1; $i<=count($slide); $i++): ?>
 
-                for($i = 1; $i<=count($slide); $i++){
+                <li item="<?php echo htmlspecialchars($i); ?>">
 
-                    echo '<li item='.$i.'><span class="fa fa-circle"></li>';
+                    <span class="fa fa-circle">
 
-                }
+                </li>
 
-            ?>
+            <?php endfor; ?>
 
         </ol>
 

@@ -11,6 +11,8 @@
 
     <?php 
 
+        session_start();
+
         $urlServidor = Ruta:: ctrRutaServidor();
         $icono = ControladorPlantilla::ctrEstiloPlantilla();
 
@@ -162,7 +164,7 @@ else{
 JAVASCRIPT PERSONALIZADOS
 ============================================-->
 <script src="<?php echo $url; ?>Vistas/js/cabezote.js?1.3"></script>
-<script src="<?php echo $url; ?>Vistas/js/plantilla.js?1.3"></script>
+<script src="<?php echo $url; ?>Vistas/js/plantilla.js?1.0"></script>
 <script src="<?php echo $url; ?>Vistas/js/slide.js?1.2"></script>
 
 </body>

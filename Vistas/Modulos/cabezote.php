@@ -27,21 +27,27 @@ TOP
                         $social = ControladorPlantilla::ctrEstiloPlantilla();
                         $jsonRedesSociales = json_decode($social['redesSociales'],true);
 
-                        foreach($jsonRedesSociales as $key => $value){
-
-                            echo    '<li>
-
-                                        <a href="'.$value['url'].'" target="_blank">
-
-                                            <i class="fab '.$value['red'].' redSocial '.$value['estilo'].'" arial-hidden="true"></i>
-
-                                        </a>
-
-                                    </li>';
-
-                        }
-
                     ?>
+
+                    <?php foreach($jsonRedesSociales as $key => $value): ?>
+
+                        <li>
+
+                            <a href="<?php echo htmlspecialchars($value['url']); ?>" 
+                            target="_blank">
+
+                                <i class="fab 
+                                <?php echo htmlspecialchars($value['red']); ?> 
+                                redSocial 
+                                <?php echo htmlspecialchars($value['estilo']); ?>" 
+                                arial-hidden="true">
+                                </i>
+
+                            </a>
+
+                        </li>
+
+                    <?php endforeach; ?>
 
                 </ul>
 
@@ -98,9 +104,10 @@ HEADER
 
                     <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12" id="logotipo">
 
-                        <a href="<?php echo $urlTienda; ?>">
+                        <a href="<?php echo htmlspecialchars($urlTienda); ?>">
 
-                            <img src="<?php echo $urlServidor.$social['logo']; ?>" class="img-fluid">
+                            <img src="<?php echo htmlspecialchars($urlServidor.$social['logo']); ?>" 
+                            class="img-fluid">
 
                         </a>
 
@@ -214,42 +221,56 @@ HEADER
 
                         $categorias = ControladorProductos::ctrMostrarCategorias($item,$valor);
 
-                        foreach($categorias as $key => $value){
-
-                            echo    '<div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
-
-                                        <h4>
-
-                                            <a href="'.$urlTienda.$value['ruta'].'" class="pixelCategorias">'.$value['categoria'].'</a>
-
-                                        </h4>
-
-                                        <hr>
-
-                                        <ul>';
-
-                                            $item = "id_categoria";
-                                            $valor = $value['id'];
-
-                                            $subcategorias = ControladorProductos::ctrMostrarSubCategorias($item,$valor);
-
-                                            foreach($subcategorias as $key => $value){
-
-                                                echo    '<li>
-
-                                                            <a href="'.$urlTienda.$value['ruta'].'" class="pixelSubCategorias">'.$value['subcategoria'].'</a>
-
-                                                        </li>';
-
-                                            }
-
-                                    echo '</ul>
-
-                                    </div>';
-
-                        }
-
                     ?>
+
+                    <?php foreach($categorias as $key => $value):?>
+
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+
+                            <h4>
+
+                                <a href="<?php echo htmlspecialchars($urlTienda.$value['ruta']); ?>" 
+                                class="pixelCategorias">
+                                
+                                    <?php echo htmlspecialchars($value['categoria']); ?>
+
+                                </a>
+
+                            </h4>
+
+                            <hr>
+
+                            <ul>
+
+                                <?php
+
+                                    $item = "id_categoria";
+                                    $valor = $value['id'];
+
+                                    $subcategorias = ControladorProductos::ctrMostrarSubCategorias($item,$valor);
+
+                                ?>
+
+                                <?php foreach($subcategorias as $key => $value): ?>
+
+                                    <li>
+
+                                        <a href="<?php echo htmlspecialchars($urlTienda.$value['ruta']); ?>" 
+                                        class="pixelSubCategorias">
+
+                                            <?php echo htmlspecialchars($value['subcategoria']); ?>
+
+                                        </a>
+
+                                    </li>
+
+                                <?php endforeach; ?>
+
+                            </ul>
+
+                        </div>
+
+                    <?php endforeach; ?>
 
                 </div>
 
