@@ -3,33 +3,15 @@
     $urlServidor = Ruta:: ctrRutaServidor();
 
 ?>
-<!--====================================================
-BANNER
-======================================================-->
 
-<figure class="banner">
-
-    <img width="150%" src="<?php echo $urlServidor; ?>Vistas/img/banner/default.jpg">
-
-    <div class="textoBanner textoIzq">
-
-        <h1 style="color:#fff">OFERTAS ESPECIALES</h1>
-        <h2 style="color:#fff">
-
-            <strong>50% menos</strong>
-
-        </h2>
-
-        <h3 style="color:#fff" >Termina mañana</h3>
-
-    </div>
-
-</figure>
+<!--==============================================
+Banner
+===============================================-->
+<?php include "banner.php"; ?>
 
 <!--====================================================
 PRODUCTOS
 ======================================================-->
-
 <?php 
 
     $tituloModulos = array("ARTICULOS GRATUITOS","LO MÁS VENDIDOS", "LO MAS VISTO");
