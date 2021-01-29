@@ -5,11 +5,6 @@
 
 ?>
 
-<!--==============================================
-Banner
-===============================================-->
-<?php include "banner.php"; ?>
-
 <div class="container-fluid">
 
     <!--====================================================
@@ -36,8 +31,8 @@ Banner
 
                         <ul class="dropdown-menu" role="menu">
 
-                            <li><a href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/1/recientes">Más Reciente</a></li>
-                            <li><a href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/1/antiguos">Más Antiguo</a></li>
+                            <li><a href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/1/recientes/<?php echo htmlspecialchars($rutas[3]); ?>">Más Reciente</a></li>
+                            <li><a href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/1/antiguos/<?php echo htmlspecialchars($rutas[3]); ?>">Más Antiguo</a></li>
 
                         </ul>
 
@@ -104,7 +99,8 @@ Banner
                     LLAMADO DE PAGINACION
                     ===============================================*/
 
-                    $modo = (isset($_SESSION['ordenar'])? $_SESSION['ordenar']:"DESC");
+                    $orden = "recientes";
+                    $modo = "DESC";
 
                     if(isset($rutas[1])){
 
@@ -112,6 +108,7 @@ Banner
 
                         if(isset($rutas[2])){
 
+                            $orden = $rutas[2];
                             if($rutas[2] == 'antiguos'){
 
                                 $modo = "ASC";
@@ -119,11 +116,10 @@ Banner
                             }
                             else{
 
+                                $orden = "recientes";
                                 $modo = "DESC";
 
                             }
-
-                            $_SESSION["ordenar"] = $modo;
 
                         }
 
@@ -139,61 +135,21 @@ Banner
                     LLAMADO A CATEGORIAS, SUBCATEGORIAS Y DESTACADOS
                     ===============================================-*/
 
-                    $ordenar = "id";
-                    $itemP = null;
-                    $valorP = null;
-
-                    if($rutas[0] == "articulos-gratis"){
-
-                        $itemP = "precio";
-                        $valorP = 0;
-                        $ordenar = "id";
-
-                    }else if($rutas[0] == "lo-mas-vendido"){
-
-                        $itemP = null;
-                        $valorP = null;
-                        $ordenar = "ventas";
-
-                    }
-                    else if($rutas[0] == "lo-mas-visto"){
-
-                        $itemP = null;
-                        $valorP = null;
-                        $ordenar = "vistas";
-
-                    }
-                    else{
-
-                        $item = "ruta";
-                        $valor = $rutas[0];
-                        $ordenar = "id";
-
-                        $categorias = ControladorProductos::ctrMostrarCategorias($item,$valor);
-
-                        if(!$categorias){
-
-                            $subCategorias = ControladorProductos::ctrMostrarSubCategorias($item,$valor);
-                            //var_dump($subCategorias[0]['id']);
-
-                            $itemP = "id_subcategoria";
-                            $valorP = $subCategorias[0]['id'];
-
-                        }
-                        else{
-
-                            $itemP = "id_categoria";
-                            $valorP = $categorias['id'];
-
-                        }
-
-                    }
-
                     $tope = 12;
 
-                    $productos = ControladorProductos::ctrMostrarProductos($ordenar, $itemP, $valorP,$base,$tope,$modo);
-                    $listaProductos = ControladorProductos::ctrListarProductos($ordenar,$itemP,$valorP);
-                    //var_dump(count($productos));
+                    $productos = null;
+                    $listaProductos = null;
+                    $ordenar = "id";
+
+                    if(isset($rutas[3])){
+
+                        $busqueda = $rutas[3];
+
+                        $productos = ControladorProductos::ctrBuscarProductos($busqueda,$base,$tope,$ordenar, $modo);
+                        $listaProductos = ControladorProductos::ctrListarProductosBusqueda($busqueda);
+                        //var_dump(count($productos));
+
+                    }
 
                 ?>
 
@@ -614,7 +570,7 @@ Banner
                 <!--==============================================
                 PAGINACIÓN
                 ===============================================-->
-                <?php include 'paginacion.php'; ?>
+                <?php include 'paginacionBusqueda.php'; ?>
 
             </div>
 

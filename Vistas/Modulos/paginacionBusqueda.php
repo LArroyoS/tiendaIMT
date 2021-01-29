@@ -36,7 +36,7 @@
                         class="page-item">
 
                         <a class="page-link" 
-                            href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($i); ?>">
+                            href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($i); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                             <?php echo htmlspecialchars($i); ?>
 
@@ -55,7 +55,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($pagProductos); ?>">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($pagProductos); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         <?php echo htmlspecialchars($pagProductos); ?>
 
@@ -66,7 +66,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/2">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/2/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
 
@@ -90,7 +90,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($pagProductos-1); ?>">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($pagProductos-1); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
 
@@ -101,7 +101,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/1">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/1/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         1
 
@@ -121,7 +121,7 @@
                         class="page-item">
 
                         <a class="page-link" 
-                            href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($i); ?>">
+                            href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($i); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                             <?php echo htmlspecialchars($i); ?>
 
@@ -152,7 +152,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($numPagActual-1); ?>">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($numPagActual-1); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
 
@@ -163,7 +163,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/1">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/1/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         1
 
@@ -183,7 +183,7 @@
                         class="page-item">
 
                         <a class="page-link" 
-                            href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($i); ?>">
+                            href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($i); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                             <?php echo htmlspecialchars($i); ?>
 
@@ -198,7 +198,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($pagProductos); ?>">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($pagProductos); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         <?php echo htmlspecialchars($pagProductos); ?>
 
@@ -209,7 +209,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($numPagActual+1); ?>">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($numPagActual+1); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
 
@@ -238,7 +238,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($numPagActual-1); ?>">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($numPagActual-1); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
 
@@ -249,7 +249,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/1">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/1/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         1
 
@@ -269,7 +269,7 @@
                         class="page-item">
 
                         <a class="page-link" 
-                            href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($i); ?>">
+                            href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($i); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                             <?php echo htmlspecialchars($i); ?>
 
@@ -288,7 +288,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($pagProductos); ?>">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($pagProductos); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         <?php echo htmlspecialchars($pagProductos); ?>
 
@@ -299,7 +299,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($numPagActual+1); ?>">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($numPagActual+1); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
 
@@ -325,7 +325,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($numPagActual-1); ?>">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($numPagActual-1); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
 
@@ -336,7 +336,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/1">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/1/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         1
 
@@ -356,7 +356,7 @@
                         class="page-item">
 
                         <a class="page-link" 
-                            href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($i); ?>">
+                            href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($i); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                             <?php echo htmlspecialchars($i); ?>
 
@@ -369,7 +369,7 @@
                 <li class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($numPagActual+1); ?>">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($numPagActual+1); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
 
@@ -391,7 +391,7 @@
                     class="page-item">
 
                     <a class="page-link" 
-                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($i); ?>">
+                        href="<?php echo htmlspecialchars($urlTienda.$rutas[0]); ?>/<?php echo htmlspecialchars($i); ?>/<?php echo $orden; ?>/<?php echo htmlspecialchars($rutas[3]); ?>">
 
                         <?php echo htmlspecialchars($i); ?>
 

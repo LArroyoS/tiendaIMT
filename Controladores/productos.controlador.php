@@ -80,4 +80,30 @@
 
         }
 
+        /*=========================================
+        BUSCADOR
+        ==========================================*/
+        static public function ctrBuscarProductos($busqueda,$base,$tope,$ordenar, $modo){
+
+            $tabla = "productos";
+
+            $respuesta = ModeloProductos::mdlBuscarProductos($tabla,$busqueda,$base,$tope,$ordenar, $modo);
+
+            return $respuesta;
+
+        }
+
+        /*=========================================
+        LISTAR PRODUCTOS BUSCADOR
+        ==========================================*/
+        static public function ctrListarProductosBusqueda($busqueda){
+
+            $tabla = "productos";
+
+            $respuesta = ModeloProductos::mdlListarProductosBusqueda($tabla,$busqueda);
+
+            return $respuesta;
+
+        }
+
     }

@@ -150,7 +150,7 @@ HEADER
 
                                     <span class="input-group-append">
 
-                                        <a href="#">
+                                        <a href="<?php echo $urlTienda; ?>buscador/1/recientes">
 
                                             <button class="btn btn-default backColor" type="submit">
 

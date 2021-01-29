@@ -142,6 +142,11 @@ if(isset($_GET['ruta'])){
         include "Modulos/infoproducto.php";
 
     }
+    else if($rutas[0] == "buscador"){
+
+        include "Modulos/buscador.php";
+
+    }
     else{
 
         include "Modulos/error404.php";
@@ -166,6 +171,7 @@ JAVASCRIPT PERSONALIZADOS
 <script src="<?php echo $url; ?>Vistas/js/cabezote.js?1.3"></script>
 <script src="<?php echo $url; ?>Vistas/js/plantilla.js?1.0"></script>
 <script src="<?php echo $url; ?>Vistas/js/slide.js?1.2"></script>
+<script src="<?php echo $url; ?>Vistas/js/buscador.js?1.2"></script>
 
 </body>
 
