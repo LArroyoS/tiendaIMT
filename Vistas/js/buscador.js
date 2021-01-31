@@ -1,11 +1,31 @@
 /*=====================================================
+SUSPENDER REDIRECCIÓN
+======================================================*/
+
+$("#buscador a").on('click',function(e){
+
+    e.preventDefault();
+    var redireccion = $("#rutaOculta").val();
+    //console.log(redirecion);
+    //console.log(input);
+    if($("#buscador input").val() != ""){
+
+        redireccion = $("#buscador a").attr("href");
+
+    }
+    $(location).prop('href', redireccion);
+
+});
+
+/*=====================================================
 BUSCADOR
 ======================================================*/
+
 
 $("#buscador input").change(function(){
 
     var busqueda = $(this).val();
-    var espresion = /^[a-zA-Z0-9nÑáéíóúÁÉÍÓÚ ]*$/;
+    var espresion = /^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]*$/;
     if(!espresion.test(busqueda)){
 
         $(this).val("");
@@ -14,7 +34,7 @@ $("#buscador input").change(function(){
     else{
 
         var direccion = $("#buscador a");
-        var evaluarBusqueda = busqueda.replace(/[áéíóúÁÉÍÓÚ ]/g, "-");
+        var evaluarBusqueda = busqueda.replace(/[áéíóúÁÉÍÓÚ ]/g, "_");
         var rutaBuscador = direccion.attr("href");
 
         if(busqueda != ""){

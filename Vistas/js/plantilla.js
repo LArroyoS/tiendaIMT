@@ -68,14 +68,18 @@ $(window).scroll(function(){
 
     if(window.matchMedia("(min-width: 768px)").matches){
 
-        if(scrollY < ($(".banner").offset().top)-150){
+        if($(".banner").html() != null){
 
-            //console.log("es menor");
-            $(".banner img").css({"margin-top": (-scrollY/2)+"px"});
+            if(scrollY < ($(".banner").offset().top)-150){
 
-        }else{
-
-            scrollY = 0;
+                //console.log("es menor");
+                $(".banner img").css({"margin-top": (-scrollY/2)+"px"});
+    
+            }else{
+    
+                scrollY = 0;
+    
+            }
 
         }
 
