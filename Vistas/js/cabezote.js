@@ -20,7 +20,7 @@ $('#btnCategorias').on('click',function(e){
 $(window).resize(function(){
 
     var categorias = $("#categorias").css('display');
-    console.log(categorias);
+    //console.log(categorias);
     if( (categorias=='block') && 
         (window.matchMedia("(max-width:576px)").matches)){
 

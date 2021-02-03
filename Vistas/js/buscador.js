@@ -11,9 +11,9 @@ $("#buscador a").on('click',function(e){
     if($("#buscador input").val() != ""){
 
         redireccion = $("#buscador a").attr("href");
+        $(location).prop('href', redireccion);
 
     }
-    $(location).prop('href', redireccion);
 
 });
 

@@ -38,6 +38,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+    <link type="text/css" media="screen" href="<?php echo $url; ?>Vistas/css/plugins/flexslider.css" rel="stylesheet">
 
     <!--============================================
     ESTILOS PERSONALIZADOS
@@ -46,6 +47,7 @@
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/cabezote.css?1.0">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/slide.css?1.0">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/productos.css?1.2">
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/infoproducto.css?1.2">
 
     <!--============================================
     PLUGINS DE JAVASCRIPT
@@ -57,6 +59,7 @@
     <!-- https://easings.net -->
     <script src="<?php echo $url; ?>Vistas/js/plugins/jquery.easing.js"></script>
     <script src="<?php echo $url; ?>Vistas/js/plugins/jquery.scrollUp.js"></script>
+    <script src="<?php echo $url; ?>Vistas/js/plugins/jquery.flexslider.js"></script>
 
 </head>
 
@@ -172,6 +175,7 @@ JAVASCRIPT PERSONALIZADOS
 <script src="<?php echo $url; ?>Vistas/js/plantilla.js?1.0"></script>
 <script src="<?php echo $url; ?>Vistas/js/slide.js?1.2"></script>
 <script src="<?php echo $url; ?>Vistas/js/buscador.js?1.5"></script>
+<script src="<?php echo $url; ?>Vistas/js/infoproducto.js?1.3"></script>
 
 </body>
 
