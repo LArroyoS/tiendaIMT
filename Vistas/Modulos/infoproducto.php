@@ -56,9 +56,6 @@ INFO PRODUCTOS
 
             ?>
 
-                <!--======================================================
-                VISOR
-                ========================================================-->
                 <div class="col-md-5 col-sm-6 col-xs-12 visorImg">
 
                     <!-- Place somewhere in the <body> of your page -->
@@ -117,19 +114,16 @@ INFO PRODUCTOS
             <?php 
 
                 /*=========================================================
-                VISOR IMAGENES
+                VISOR VCIDEO
                 ==========================================================*/
                 else: 
 
             ?>
 
-                <!--======================================================
-                VISOR DE VIDEO
-                ========================================================-->
                 <div class="col-sm-6 col-xs-12 visorImg">
 
                     <iframe width="100%" 
-                        src="https://www.youtube.com/embed/7ArCpeOUl8I?autoplay=1&rel=0" 
+                        src="https://www.youtube.com/embed/7ArCpeOUl8I?autoplay=0&rel=0" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen
@@ -156,7 +150,7 @@ INFO PRODUCTOS
                                 
                         <h6>
 
-                            <a href="javascript:history.back()">
+                            <a href="javascript:history.back()" class="text-muted">
 
                                 <i class="fa fa-reply"></i> Continuar Comprando
 
@@ -187,7 +181,7 @@ INFO PRODUCTOS
 
                                     <p class="btnFacebook">
 
-                                        <i class="fa fa-facebook-f"></i>
+                                        <i class="fab fa-facebook"></i>
                                         Facebook
 
                                     </p>
@@ -198,7 +192,7 @@ INFO PRODUCTOS
 
                                     <p class="btnTwitter">
 
-                                        <i class="fa fa-twitter"></i>
+                                        <i class="fab fa-twitter"></i>
                                         Twitter
 
                                     </p>
@@ -212,20 +206,300 @@ INFO PRODUCTOS
                     </div>
 
                     <div class="clearfix"></div>
+
                     <!--======================================================
                     ESPACIO PRODUCTO
                     ========================================================-->
 
+                    <h1 class="text-muted text-uppercase col-12">
+
                         <!--======================================================
-                        LUPA
+                        TITULO
                         ========================================================-->
-                        <figure class="lupa">
+                        <?php echo htmlspecialchars($infoproducto["titulo"]); ?>
 
-                            <img src="">
+                        <!--======================================================
+                        NUEVO?
+                        ========================================================-->
+                        <?php if($infoproducto['nuevo'] != 0): ?>
 
-                        </figure>
+                            <br>
+                            <small>
+
+                                <span class="badge badge-warning text-white">
+
+                                    Nuevo
+
+                                </span>
+
+                            </small>
+
+                        <?php endif; ?>
+
+                        <!--======================================================
+                        OFERTA?
+                        ========================================================-->
+                        <?php if($infoproducto['oferta'] != 0): ?>
+
+                            <small>
+
+                                <span class="badge badge-warning text-white">
+
+                                    <?php echo htmlspecialchars($infoproducto["descuentoOferta"]); ?>
+                                    % descuento
+
+                                </span>
+
+                            </small>
+
+                        <?php endif; ?>
+
+                    </h1>
+
+                    <!--======================================================
+                    PRECIO
+                    ========================================================-->
+                    <h2 class="text-muted col-12">
+
+                        <?php if($infoproducto["precio"] == 0): ?>
+
+                            GRATIS
+
+                        <?php else: ?>
+
+                            <?php if($infoproducto["oferta"] == 0): ?>
+
+                                USD $<?php echo htmlspecialchars($infoproducto["precio"]); ?>
+
+                            <?php else: ?>
+
+                                <span>
+
+                                    <strong class="oferta">
+
+                                        USD $<?php echo htmlspecialchars($infoproducto["precio"]); ?>
+
+                                    </strong>
+
+                                </span>
+
+                                <span>
+
+                                    $ <?php echo htmlspecialchars($infoproducto['precioOferta']); ?>
+
+                                </span>
+
+                            <?php endif; ?>
+
+                        <?php endif ?>
+
+                    </h2>
+
+                    <!--======================================================
+                    DESCRIPCION
+                    ========================================================-->
+                    <p class="col-12">
+
+                        <?php echo htmlspecialchars($infoproducto['descripcion']); ?>
+
+                    </p>
+
+                    <!--======================================================
+                    CARACTERISTICAS
+                    ========================================================-->
+                    <div class="col-12">
+
+                        <div class="row">
+
+                            <?php if($infoproducto["detalles"] != null): ?>
+
+                                <?php 
+
+                                    $detalles = json_decode($infoproducto['detalles'], true);
+                                    //var_dump($detalles);
+
+                                ?>
+
+                                <?php if($infoproducto['tipo'] == "fisico"): ?>
+
+                                    <?php if($detalles['Talla']!=null): ?>
+
+                                        <div class="col form-group">
+
+                                            <select class="form-control seleccionarDetalle" id="seleccionarTalla">
+
+                                                <option value="">Talla</option>
+
+                                                <?php foreach($detalles['Talla'] as $key => $value): ?>
+
+                                                    <option value="<?php echo htmlspecialchars($key); ?>">
+
+                                                        <?php echo htmlspecialchars($value); ?>
+
+                                                    </option>
+
+                                                <?php endforeach; ?>
+
+                                            </select>
+
+                                        </div>
+
+                                    <?php endif; ?>
+
+                                    <?php if($detalles['Color']!=null): ?>
+
+                                        <div class="col form-group">
+
+                                            <select class="form-control seleccionarDetalle" id="seleccionarColor">
+
+                                                <option value="">Color</option>
+
+                                                <?php foreach($detalles['Color'] as $key => $value): ?>
+
+                                                    <option value="<?php echo htmlspecialchars($key); ?>">
+
+                                                        <?php echo htmlspecialchars($value); ?>
+
+                                                    </option>
+
+                                                <?php endforeach; ?>
+
+                                            </select>
+
+                                        </div>
+
+                                    <?php endif; ?>
+
+                                    <?php if($detalles['Marca']!=null): ?>
+
+                                        <div class="col form-group">
+
+                                            <select class="form-control seleccionarDetalle" id="seleccionarMarca">
+
+                                                <option value="">Marca</option>
+
+                                                <?php foreach($detalles['Marca'] as $key => $value): ?>
+
+                                                    <option value="<?php echo htmlspecialchars($key); ?>">
+
+                                                        <?php echo htmlspecialchars($value); ?>
+
+                                                    </option>
+
+                                                <?php endforeach; ?>
+
+                                            </select>
+
+                                        </div>
+
+                                    <?php endif; ?>
+
+                                <?php else: ?>
+
+                                    <div class="col-12 detallesEstilo">
+
+                                        <li>
+
+                                            <i class="fa fa-play-circle"></i>
+                                            <?php echo htmlspecialchars($detalles["Clases"]); ?>
+
+                                        </li>
+                                        <li>
+
+                                            <i class="fa fa-clock"></i>
+                                            <?php echo htmlspecialchars($detalles["Tiempo"]); ?>
+
+                                        </li>
+                                        <li>
+
+                                            <i class="fa fa-check-circle"></i>
+                                            <?php echo htmlspecialchars($detalles["Nivel"]); ?>
+
+                                        </li>
+                                        <li>
+
+                                            <i class="fa fa-info-circle"></i>
+                                            <?php echo htmlspecialchars($detalles["Acceso"]); ?>
+
+                                        </li>
+                                        <li>
+
+                                            <i class="fa fa-desktop"></i>
+                                            <?php echo htmlspecialchars($detalles["Dispositivo"]); ?>
+
+                                        </li>
+                                        <li>
+
+                                            <i class="fa fa-trophy"></i>
+                                            <?php echo htmlspecialchars($detalles["Certificado"]); ?>
+
+                                        </li>
+
+                                    </div>
+
+                                <?php endif; ?>
+
+                            <?php else: ?>
+
+                                
+
+                            <?php endif; ?>
+
+                        </div>
 
                     </div>
+
+                    <!--======================================================
+                    ENTREGA
+                    ========================================================-->
+                    <h4 class="col-12">
+
+                        <hr>
+                        <span class="badge badge-secondary"
+                            style="font-weight: 100">
+
+                            <i class="fa fa-clock" style="margin-right: 5px"></i>
+
+                            <?php if($infoproducto['entrega'] == 0): ?>
+
+                                Entrega inmediata
+
+                            <?php else: ?>
+
+                                <?php echo htmlspecialchars($infoproducto['entrega']); ?> días hábiles para la entrega
+
+                            <?php endif; ?>
+                            |
+                            <?php if($infoproducto['precio'] == 0): ?>
+
+                                <i class="fa fa-shopping-cart" style="margin: 0px 5px"></i>
+                                <?php echo htmlspecialchars($infoproducto['ventasGratis']); ?> 
+                                <?php echo ($infoproducto['tipo']=='fisico')? 'Solicitudes': 'Inscritos';?> |
+                                <i class="fa fa-eye" style="margin: 0px 5px"></i>
+                                Visto por <?php echo htmlspecialchars($infoproducto['vistasGratis']); ?> Personas
+
+                            <?php else: ?>
+
+                                <i class="fa fa-shopping-cart" style="margin: 0px 5px"></i>
+                                <?php echo htmlspecialchars($infoproducto['ventas']); ?> 
+                                <?php echo ($infoproducto['tipo']=='fisico')? 'Ventas': 'Inscritos';?> |
+                                <i class="fa fa-eye" style="margin: 0px 5px"></i>
+                                Visto por <?php echo htmlspecialchars($infoproducto['vistas']); ?> Personas
+
+                            <?php endif; ?>
+
+                        </span>
+
+                    </h4>
+
+                    <!--======================================================
+                    LUPA
+                    ========================================================-->
+                    <figure class="lupa">
+
+                        <img src="">
+
+                    </figure>
 
                 </div>
 
