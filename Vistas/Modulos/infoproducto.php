@@ -9,22 +9,18 @@
 BREADCRUB INFOPRODUCTOS
 ========================================================-->
 
-<div class="container-fluid">
+<div class="container-fluid card bg-light">
 
-    <div class="card bg-light col-12">
+    <div class="container">
 
-        <div class="container">
+        <div class="row">
 
-            <div class="row">
+            <ul class="breadcrumb text-uppercase fondoBreadcrumb col-12 bg-light">
 
-                <ul class="breadcrumb text-uppercase fondoBreadcrumb col-12 bg-light">
+                <li class="breadcrumb-item"><a href="<?php echo $urlTienda ?>">INICIO</a></li>
+                <li class="breadcrumb-item active pagActiva" aria-current="page"><?php echo $rutas[0]; ?></li>
 
-                    <li class="breadcrumb-item"><a href="<?php echo $urlTienda ?>">INICIO</a></li>
-                    <li class="breadcrumb-item active pagActiva" aria-current="page"><?php echo $rutas[0]; ?></li>
-
-                </ul>
-
-            </div>
+            </ul>
 
         </div>
 
@@ -35,7 +31,7 @@ BREADCRUB INFOPRODUCTOS
 <!--======================================================
 INFO PRODUCTOS
 ========================================================-->
-<div class="container-fluid infoproducto">
+<div class="container-fluid infoproducto pt-4">
 
     <div class="container">
 
@@ -309,6 +305,8 @@ INFO PRODUCTOS
                     ========================================================-->
                     <div class="col-12">
 
+                        <hr>
+
                         <div class="row">
 
                             <?php if($infoproducto["detalles"] != null): ?>
@@ -439,9 +437,70 @@ INFO PRODUCTOS
 
                                 <?php endif; ?>
 
+                            <?php endif; ?>
+
+                        </div>
+
+                        <hr>
+
+                    </div>
+
+                    <!--======================================================
+                    ENTREGA
+                    ========================================================-->
+                    <div class="col-12 badge badge-primary infoEntrega">
+
+                        <div class=" row"
+                            style="font-weight: 100">
+
+                            <div class="col-xs-12 col-lg-4">
+
+                                <i class="fa fa-clock"></i>
+
+                                <?php if($infoproducto['entrega'] == 0): ?>
+
+                                    Entrega inmediata
+
+                                <?php else: ?>
+
+                                    <?php echo htmlspecialchars($infoproducto['entrega']); ?> días hábiles para la entrega
+
+                                <?php endif; ?>
+
+                            </div>
+
+                            <?php if($infoproducto['precio'] == 0): ?>
+
+                                <div class="col-xs-12 col-lg-4">
+
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <?php echo htmlspecialchars($infoproducto['ventasGratis']); ?> 
+                                    <?php echo ($infoproducto['tipo']=='fisico')? 'Solicitudes': 'Inscritos';?>
+
+                                </div>
+                                <div class="col-xs-12 col-lg-4">
+
+                                    <i class="fa fa-eye"></i>
+                                    Visto por <?php echo htmlspecialchars($infoproducto['vistasGratis']); ?> Personas
+
+                                </div>
+
                             <?php else: ?>
 
-                                
+                                <div class="col-xs-12 col-lg-4">
+
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <?php echo htmlspecialchars($infoproducto['ventas']); ?> 
+                                    <?php echo ($infoproducto['tipo']=='fisico')? 'Ventas': 'Inscritos';?>
+
+                                </div>
+
+                                <div class="col-xs-12 col-lg-4">
+
+                                    <i class="fa fa-eye"></i>
+                                    Visto por <?php echo htmlspecialchars($infoproducto['vistas']); ?> Personas
+
+                                </div>
 
                             <?php endif; ?>
 
@@ -450,47 +509,52 @@ INFO PRODUCTOS
                     </div>
 
                     <!--======================================================
-                    ENTREGA
+                    BOTONES DE COMPRA
                     ========================================================-->
-                    <h4 class="col-12">
+                    <div class="col-12">
 
-                        <hr>
-                        <span class="badge badge-secondary"
-                            style="font-weight: 100">
+                        <br>
 
-                            <i class="fa fa-clock" style="margin-right: 5px"></i>
+                        <div class="row text-center">
 
-                            <?php if($infoproducto['entrega'] == 0): ?>
+                            <?php if($infoproducto['tipo'] == 'virtual'): ?>
 
-                                Entrega inmediata
+                                <div class="col">
 
-                            <?php else: ?>
+                                    <button class="btn btn-outline-success btn-block">
 
-                                <?php echo htmlspecialchars($infoproducto['entrega']); ?> días hábiles para la entrega
+                                        <?php 
 
-                            <?php endif; ?>
-                            |
-                            <?php if($infoproducto['precio'] == 0): ?>
+                                            echo ($infoproducto['precio'] == 0)? 
+                                                    'SOLICITAR AHORA':
+                                                    'COMPRAR AHORA'; 
 
-                                <i class="fa fa-shopping-cart" style="margin: 0px 5px"></i>
-                                <?php echo htmlspecialchars($infoproducto['ventasGratis']); ?> 
-                                <?php echo ($infoproducto['tipo']=='fisico')? 'Solicitudes': 'Inscritos';?> |
-                                <i class="fa fa-eye" style="margin: 0px 5px"></i>
-                                Visto por <?php echo htmlspecialchars($infoproducto['vistasGratis']); ?> Personas
+                                        ?>
 
-                            <?php else: ?>
+                                    </button>
 
-                                <i class="fa fa-shopping-cart" style="margin: 0px 5px"></i>
-                                <?php echo htmlspecialchars($infoproducto['ventas']); ?> 
-                                <?php echo ($infoproducto['tipo']=='fisico')? 'Ventas': 'Inscritos';?> |
-                                <i class="fa fa-eye" style="margin: 0px 5px"></i>
-                                Visto por <?php echo htmlspecialchars($infoproducto['vistas']); ?> Personas
+                                </div>
 
                             <?php endif; ?>
 
-                        </span>
+                            <?php if($infoproducto['precio'] > 0): ?>
 
-                    </h4>
+                                <div class="col">
+
+                                    <button class="btn btn-outline-warning btn-block">
+
+                                        AÑADIR AL CARRO
+                                        <i class="fa fa-shopping-cart"></i>
+
+                                    </button>
+
+                                </div>
+
+                            <?php endif; ?>
+
+                        </div>
+
+                    </div>
 
                     <!--======================================================
                     LUPA

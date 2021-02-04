@@ -34,9 +34,15 @@ INFOPRODUCTO
     line-height: 30px;
     padding: 8px;
     font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
     cursor: pointer;
+
+}
+
+.dropdown-menu{
+
+    padding: 0;
 
 }
 
@@ -55,6 +61,13 @@ INFOPRODUCTO
 .detallesEstilos{
 
     margin-right: 10px;
+
+}
+
+.infoEntrega>div>div{
+
+    white-space: initial;
+    font-size: 15px;
 
 }
 
@@ -84,6 +97,12 @@ ESCRITORIO MEDIANO O TABLET HORIZONTAL (MD revisamos en 900)
 
     }
 
+    .infoEntrega{
+
+        text-align: left;
+
+    }
+
 }
 
 /*=================================================
@@ -98,6 +117,12 @@ ESCRITORIO CHICO O TABLET VERTICAL (SM revisamos en 700px)
 
     }
 
+    .infoEntrega{
+
+        text-align: left;
+
+    }
+
 }
 
 /*=================================================
@@ -109,6 +134,12 @@ MOVIL (XS revisamos en 320px)
     .videoPresentacion{
 
         height: 200px;
+
+    }
+
+    .infoEntrega{
+
+        text-align: left;
 
     }
 
