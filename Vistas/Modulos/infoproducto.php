@@ -43,14 +43,16 @@ INFO PRODUCTOS
                 $valor = $rutas[0];
                 $infoproducto = ControladorProductos::ctrMostrarInfoProducto($item,$valor);
 
+                //var_dump($infoproducto['multimedia']);
+                $multimedia = json_decode($infoproducto['multimedia'],true);
+                //var_dump($multimedia);
+                //var_dump($multimedia[0]['foto']);
+
                 //var_dump($infoproducto);
 
-                /*=========================================================
-                VISOR IMAGENES
-                ==========================================================*/
-                if($infoproducto["tipo"] == "fisico"):
-
             ?>
+
+            <?php if($multimedia != null): ?>
 
                 <div class="col-md-5 col-sm-6 col-xs-12 visorImg">
 
@@ -59,21 +61,45 @@ INFO PRODUCTOS
 
                         <ul class="slides">
 
-                            <li>
-                                <img class="img-thumbnail" src="<?php echo $urlServidor; ?>/Vistas/img/multimedia/tennis-verde/img-01.jpg" alt="tennis-verde 11">
-                            </li>
-                            <li>
-                                <img class="img-thumbnail" src="<?php echo $urlServidor; ?>/Vistas/img/multimedia/tennis-verde/img-02.jpg" alt="tennis-verde 11">
-                            </li>
-                            <li>
-                                <img class="img-thumbnail" src="<?php echo $urlServidor; ?>/Vistas/img/multimedia/tennis-verde/img-03.jpg" alt="tennis-verde 11">
-                            </li>
-                            <li>
-                                <img class="img-thumbnail" src="<?php echo $urlServidor; ?>/Vistas/img/multimedia/tennis-verde/img-04.jpg" alt="tennis-verde 11">
-                            </li>
-                            <li>
-                                <img class="img-thumbnail" src="<?php echo $urlServidor; ?>/Vistas/img/multimedia/tennis-verde/img-05.jpg" alt="tennis-verde 11">
-                            </li>
+                            <?php foreach($multimedia as $multi): ?>
+
+                                <?php foreach($multi as $key => $value): ?>
+
+                                    <?php if($key=='foto'): ?>
+
+                                        <li>
+
+                                            <!--=========================================================
+                                            VISOR IMAGENES
+                                            ==========================================================-->
+                                            <img class="img-thumbnail" src="<?php echo $urlServidor; ?><?php echo htmlspecialchars($value); ?>" 
+                                                alt="<?php echo htmlspecialchars($infoproducto['titulo']); ?>">
+
+                                        </li>
+
+                                    <?php elseif($key=='video'): ?>
+
+                                        <li>
+
+                                            <!--=========================================================
+                                            VISOR VIDEO
+                                            ==========================================================-->
+                                            <iframe width="100%" 
+                                                src="https://www.youtube.com/embed/<?php echo htmlspecialchars($value); ?>?autoplay=0&rel=0" 
+                                                frameborder="0" 
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                allowfullscreen
+                                                class="videoPresentacion">
+
+                                            </iframe>
+
+                                        </li>
+
+                                    <?php endif; ?>
+
+                                <?php endforeach; ?>
+
+                            <?php endforeach; ?>
 
                             <!-- items mirrored twice, total of 12 -->
                         </ul>
@@ -84,47 +110,43 @@ INFO PRODUCTOS
 
                         <ul class="slides">
 
-                            <li>
-                                <img class="img-thumbnail" src="<?php echo $urlServidor; ?>/Vistas/img/multimedia/tennis-verde/img-01.jpg" alt="tennis-verde 11">
-                            </li>
-                            <li>
-                                <img class="img-thumbnail" src="<?php echo $urlServidor; ?>/Vistas/img/multimedia/tennis-verde/img-02.jpg" alt="tennis-verde 11">
-                            </li>
-                            <li>
-                                <img class="img-thumbnail" src="<?php echo $urlServidor; ?>/Vistas/img/multimedia/tennis-verde/img-03.jpg" alt="tennis-verde 11">
-                            </li>
-                            <li>
-                                <img class="img-thumbnail" src="<?php echo $urlServidor; ?>/Vistas/img/multimedia/tennis-verde/img-04.jpg" alt="tennis-verde 11">
-                            </li>
-                            <li>
-                                <img class="img-thumbnail" src="<?php echo $urlServidor; ?>/Vistas/img/multimedia/tennis-verde/img-05.jpg" alt="tennis-verde 11">
-                            </li>
+                            <?php foreach($multimedia as $multi): ?>
 
-                            <!-- items mirrored twice, total of 12 -->
+                                <?php foreach($multi as $key => $value): ?>
+
+                                    <?php if($key=='foto'): ?>
+
+                                        <li>
+
+                                            <!--=========================================================
+                                                CARRUCEL IMAGENES
+                                                ==========================================================-->
+                                            <img class="img-thumbnail" src="<?php echo $urlServidor; ?><?php echo htmlspecialchars($value); ?>" 
+                                                alt="<?php echo htmlspecialchars($infoproducto['titulo']); ?>">
+
+                                        </li>
+
+                                    <?php elseif($key=='video'): ?>
+
+                                        <li>
+
+                                            <!--=========================================================
+                                                CARRUCEL VIDEO
+                                                ==========================================================-->
+                                            <img class="img-thumbnail" src="http://i3.ytimg.com/vi/<?php echo htmlspecialchars($value); ?>/hqdefault.jpg" 
+                                                alt="<?php echo htmlspecialchars($infoproducto['titulo']); ?>">
+
+                                        </li>
+
+                                    <?php endif; ?>
+
+                                <?php endforeach; ?>
+
+                            <?php endforeach; ?>
+
                         </ul>
 
                     </div>
-
-                </div>
-
-            <?php 
-
-                /*=========================================================
-                VISOR VCIDEO
-                ==========================================================*/
-                else: 
-
-            ?>
-
-                <div class="col-sm-6 col-xs-12 visorImg">
-
-                    <iframe width="100%" 
-                        src="https://www.youtube.com/embed/7ArCpeOUl8I?autoplay=0&rel=0" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                        class="videoPresentacion">
-                    </iframe>
 
                 </div>
 
@@ -213,6 +235,7 @@ INFO PRODUCTOS
                         TITULO
                         ========================================================-->
                         <?php echo htmlspecialchars($infoproducto["titulo"]); ?>
+                        <small>[ <?php echo htmlspecialchars($infoproducto["id"]); ?> ]</small>
 
                         <!--======================================================
                         NUEVO?
@@ -564,6 +587,235 @@ INFO PRODUCTOS
                         <img src="">
 
                     </figure>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--======================================================
+        LUPA
+        ========================================================-->
+
+        <br>
+
+        <div class="col-12">
+
+            <ul class="nav nav-tabs">
+
+                <li class="nav-item">
+
+                    <a class="nav-link active">COMENTARIOS 4</a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="">VER MÁS</a>
+
+                </li>
+
+                <li class="mr-auto"></li>
+
+                <li class="float-right">
+
+                    <a class="text-muted" href="">
+
+                        PROMEDIO DE CALIFICACIÓN 3.5 | 
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fas fa-star-half-alt text-success"></i>
+                        <i class="far fa-star text-success"></i>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+            <br>
+
+        </div>
+
+        <div class="row comentarios">
+
+            <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
+
+                <div class="card">
+
+                    <div class="card-header text-uppercase">
+
+                        Usuario1
+                        <span class="text-right">
+
+                            <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
+                                width="20%">
+
+                        </span>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fas fa-star-half-alt text-success"></i>
+                        <i class="far fa-star text-success"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
+
+                <div class="card">
+
+                    <div class="card-header text-uppercase">
+
+                        Usuario1
+                        <span class="text-right">
+
+                            <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
+                                width="20%">
+
+                        </span>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fas fa-star-half-alt text-success"></i>
+                        <i class="far fa-star text-success"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
+
+                <div class="card">
+
+                    <div class="card-header text-uppercase">
+
+                        Usuario1
+                        <span class="text-right">
+
+                            <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
+                                width="20%">
+
+                        </span>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fas fa-star-half-alt text-success"></i>
+                        <i class="far fa-star text-success"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
+
+                <div class="card">
+
+                    <div class="card-header text-uppercase">
+
+                        Usuario1
+                        <span class="text-right">
+
+                            <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
+                                width="20%">
+
+                        </span>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fas fa-star-half-alt text-success"></i>
+                        <i class="far fa-star text-success"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
+
+                <div class="card">
+
+                    <div class="card-header text-uppercase">
+
+                        Usuario1
+                        <span class="text-right">
+
+                            <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
+                                width="20%">
+
+                        </span>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fa fa-star text-success"></i>
+                        <i class="fas fa-star-half-alt text-success"></i>
+                        <i class="far fa-star text-success"></i>
+
+                    </div>
 
                 </div>
 

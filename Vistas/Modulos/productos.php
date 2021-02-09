@@ -252,7 +252,6 @@ Banner
                                                 class="pixelProducto">
 
                                                 <?php echo htmlspecialchars($value['titulo']); ?>
-
                                                 <br>
 
                                                 <span style="color: white !important;">-</span>
