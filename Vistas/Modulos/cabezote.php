@@ -63,7 +63,7 @@ TOP
 
                     <li>
 
-                        <a href="#modalIngreso" data-toggle="modal">Ingresar</a>
+                        <a href="#modalIngreso" data-toggle="modal" data-target="#Ingresar">Ingresar</a>
 
                     </li>
 
@@ -71,7 +71,7 @@ TOP
 
                     <li>
 
-                        <a href="#modalRegistro" data-toggle="modal">Crear una cuenta</a>
+                        <a href="#modalRegistro" data-toggle="modal" data-target="#Registro">Crear una cuenta</a>
 
                     </li>
 
@@ -281,3 +281,163 @@ HEADER
     </div>
 
 </header>
+
+<!--===========================================================
+VENTANA MODAL PARA EL REGISTRO
+============================================================-->
+<div class="container">
+  
+    <!-- The Modal -->
+    <div class="modal modalFormulario" id="Registro">
+        
+        <div class="modal-dialog">
+            
+            <div class="modal-content">
+                
+                <!-- Modal body -->
+                <div class="modal-body modalTitulo">
+                    
+                    <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title backColor">Registro</h3>
+
+                    <div class="row">
+                        
+                        <!--=======================================================
+                        REGISTRO FACEBOOK
+                        =========================================================-->
+                        <div class="col-sm-6 col-xs-12 facebook" id="btnFacebookRegistro">
+                        
+                            <p>
+                            
+                                <i class="fab fa-facebook-f"></i>
+                                Registro con Facebook
+
+                            </p>
+
+                        </div>
+                        
+                        <!--=======================================================
+                        REGISTRO GOOGLE
+                        =========================================================-->
+                        <div class="col-sm-6 col-xs-12 google" id="btnGoogleRegistro">
+                        
+                            <p>
+                            
+                                <i class="fab fa-google"></i>
+                                Registro con Google
+
+                            </p>
+
+                        </div>
+
+                        <!--=======================================================
+                        REGISTRO DIRECTO
+                        =========================================================-->
+                        <form class="col-12" method="post" onsubmit="return registroUsuario()">
+                        
+                            <hr>
+
+                            <div class="form-group">
+                                
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                            
+                                        <div class="input-group-text">
+                                                
+                                            <i class="fas fa-user"></i>
+                                                
+                                        </div>
+                                        
+                                    </div>
+                                    <input type="text" class="form-control text-uppercase" id="regUsuario" name="regUsuario"
+                                        placeholder="Nombre completo" required>
+                                </div>
+
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                            
+                                        <div class="input-group-text">
+                                                
+                                            <i class="fas fa-envelope"></i>
+                                                
+                                        </div>
+                                        
+                                    </div>
+                                    <input type="email" class="form-control" id="regEmail" name="regEmail"
+                                        placeholder="CORREO ELECTRONICO" required>
+                                </div>
+
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                            
+                                        <div class="input-group-text">
+                                                
+                                            <i class="fas fa-lock"></i>
+                                                
+                                        </div>
+                                        
+                                    </div>
+                                    <input type="password" class="form-control" id="regPassword" name="regPassword"
+                                        placeholder="CONTRASEÑA" required>
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                
+                </div>
+                
+            </div>
+        
+        </div>
+
+    </div>
+  
+</div>
+
+<!--===========================================================
+VENTANA MODAL PARA EL Ingresar
+============================================================-->
+<div class="container">
+  
+    <!-- The Modal -->
+    <div class="modal modalFormulario" id="Ingresar">
+        
+        <div class="modal-dialog">
+            
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Ingresar</h4>
+                    
+                    <button type="button" class="close" data-dismiss="modal" style="color: white;">ggg &times;</button>
+                
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                Modal body..
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+                
+            </div>
+        
+        </div>
+
+    </div>
+  
+</div>

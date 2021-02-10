@@ -153,6 +153,63 @@ Alineacion Vertical
 }
 
 /*=================================================
+VENTANAS MODALES
+=================================================*/
+.modalTitulo{
+
+    padding: 5px 0px
+
+}
+
+.modalTitulo h3{
+
+    text-align: center;
+    margin-top: -6px;
+    padding: 15px 0px;
+    border-radius: 5px 5px 0px 0px;
+
+}
+
+.modalFormulario .facebook, .modalFormulario .google{
+
+    cursor: pointer;
+
+}
+
+.modalFormulario .facebook p, .modalFormulario .google p{
+
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    padding: 8px;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+
+}
+
+.modalFormulario .facebook p{
+
+    background: #46639f;
+
+}
+
+.modalFormulario .google p{
+
+    background: #d6513e;
+
+}
+
+.modalFormulario p i{
+
+    margin-left: -25px;
+    margin-left: 25px;
+    font-size: 25px;
+
+}
+
+/*=================================================
 ESCRITORIO GRANDE (LG revisamos en 992px en adelante)
 =================================================*/
 
@@ -317,8 +374,6 @@ ESCRITORIO CHICO O TABLET VERTICAL (SM revisamos en 700px)
 
     }
 
-
-
 }
 
 /*=================================================
@@ -396,6 +451,12 @@ MOVIL (XS revisamos en 320px)
     header #buscador{
 
         margin: 0;
+
+    }
+
+    .modalFormulario .google p{
+
+        margin-top: -16px !important;
 
     }
 

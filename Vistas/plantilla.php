@@ -44,7 +44,7 @@
     ESTILOS PERSONALIZADOS
     ============================================-->
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/plantilla.css?1.0">
-    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/cabezote.css?1.0">
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/cabezote.css?2.1">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/slide.css?1.0">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/productos.css?1.2">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/infoproducto.css?1.1">
@@ -171,7 +171,7 @@ else{
 <!--============================================
 JAVASCRIPT PERSONALIZADOS
 ============================================-->
-<script src="<?php echo $url; ?>Vistas/js/cabezote.js?1.3"></script>
+<script src="<?php echo $url; ?>Vistas/js/cabezote.js?2"></script>
 <script src="<?php echo $url; ?>Vistas/js/plantilla.js?1.0"></script>
 <script src="<?php echo $url; ?>Vistas/js/slide.js?1.2"></script>
 <script src="<?php echo $url; ?>Vistas/js/buscador.js?1.5"></script>
