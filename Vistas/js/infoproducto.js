@@ -20,6 +20,9 @@ $('#slider').flexslider({
     sync: "#carousel"
 });
 
+/*=======================================================
+LUPA
+========================================================*/
 $(".infoproducto .visor img").mouseover(function(e){
 
     var capturaImg = $(this).attr("src");
@@ -51,5 +54,58 @@ $(".infoproducto .visor img").mousemove(function(e){
 $(".infoproducto .visor img").mouseout(function(e){
 
     $(".lupa").fadeOut("fast");
+
+});
+
+/*=======================================================
+CONTADOR DE VISTAS
+========================================================*/
+var contador = 0;
+$rutaOculta = $("#rutaOculta").val();
+
+$(window ).on('load',function(){
+
+    var item = "vistas";
+
+    var vistas = $("span.vistas").html();
+    var precio = $("span.vistas").attr('precio');
+
+    contador = Number(vistas)+1;
+    //console.log("vistas", contador);
+
+    $("span.vistas").html(contador);
+
+    if(precio == 0){
+
+        var item = "vistasGratis";
+
+    }
+
+    var urlActual = location.pathname;
+    var ruta = urlActual.split("/");
+
+    //console.log("ruta", ruta.pop());
+
+    var datos = new FormData();
+
+    datos.append('valor', contador);
+    datos.append('item',item);
+    datos.append("ruta", ruta.pop());
+
+    $.ajax({
+
+        url: $rutaOculta+"ajax/producto.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(respuesta){
+
+            console.log('respuesta', respuesta);
+
+        }
+
+    });
 
 });

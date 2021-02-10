@@ -504,7 +504,14 @@ INFO PRODUCTOS
                                 <div class="col-xs-12 col-lg-4">
 
                                     <i class="fa fa-eye"></i>
-                                    Visto por <?php echo htmlspecialchars($infoproducto['vistasGratis']); ?> Personas
+                                    Visto por 
+                                    <span class="vistas" precio="<?php echo htmlspecialchars($infoproducto['precio']); ?>">
+
+                                        <?php echo htmlspecialchars($infoproducto['vistasGratis']); ?> 
+
+                                    </span>
+
+                                    Personas
 
                                 </div>
 
@@ -521,7 +528,14 @@ INFO PRODUCTOS
                                 <div class="col-xs-12 col-lg-4">
 
                                     <i class="fa fa-eye"></i>
-                                    Visto por <?php echo htmlspecialchars($infoproducto['vistas']); ?> Personas
+                                    Visto por 
+                                    <span class="vistas" precio="<?php echo htmlspecialchars($infoproducto['precio']); ?>">
+
+                                        <?php echo htmlspecialchars($infoproducto['vistas']); ?> 
+
+                                    </span>
+
+                                    Personas
 
                                 </div>
 
@@ -595,7 +609,7 @@ INFO PRODUCTOS
         </div>
 
         <!--======================================================
-        LUPA
+        COMENTARIOS NAVBAR
         ========================================================-->
 
         <br>
@@ -639,37 +653,189 @@ INFO PRODUCTOS
 
         </div>
 
-        <div class="row comentarios">
+        <!--======================================================
+        COMENTARIOS
+        ========================================================-->
 
-            <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="col-12">
 
-                <div class="card">
+            <div class="row comentarios">
 
-                    <div class="card-header text-uppercase">
+                <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
 
-                        Usuario1
-                        <span class="text-right">
+                    <div class="card">
 
-                            <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
-                                width="20%">
+                        <div class="card-header text-uppercase">
 
-                        </span>
+                            Usuario1
+                            <span class="text-right">
+
+                                <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
+                                    width="20%">
+
+                            </span>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
+
+                        </div>
+
+                        <div class="card-footer">
+
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fas fa-star-half-alt text-success"></i>
+                            <i class="far fa-star text-success"></i>
+
+                        </div>
 
                     </div>
 
-                    <div class="card-body">
+                </div>
 
-                        <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
+                <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
+
+                    <div class="card">
+
+                        <div class="card-header text-uppercase">
+
+                            Usuario1
+                            <span class="text-right">
+
+                                <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
+                                    width="20%">
+
+                            </span>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
+
+                        </div>
+
+                        <div class="card-footer">
+
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fas fa-star-half-alt text-success"></i>
+                            <i class="far fa-star text-success"></i>
+
+                        </div>
 
                     </div>
 
-                    <div class="card-footer">
+                </div>
 
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fas fa-star-half-alt text-success"></i>
-                        <i class="far fa-star text-success"></i>
+                <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
+
+                    <div class="card">
+
+                        <div class="card-header text-uppercase">
+
+                            Usuario1
+                            <span class="text-right">
+
+                                <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
+                                    width="20%">
+
+                            </span>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
+
+                        </div>
+
+                        <div class="card-footer">
+
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fas fa-star-half-alt text-success"></i>
+                            <i class="far fa-star text-success"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
+
+                    <div class="card">
+
+                        <div class="card-header text-uppercase">
+
+                            Usuario1
+                            <span class="text-right">
+
+                                <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
+                                    width="20%">
+
+                            </span>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
+
+                        </div>
+
+                        <div class="card-footer">
+
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fas fa-star-half-alt text-success"></i>
+                            <i class="far fa-star text-success"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
+
+                    <div class="card">
+
+                        <div class="card-header text-uppercase">
+
+                            Usuario1
+                            <span class="text-right">
+
+                                <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
+                                    width="20%">
+
+                            </span>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
+
+                        </div>
+
+                        <div class="card-footer">
+
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fa fa-star text-success"></i>
+                            <i class="fas fa-star-half-alt text-success"></i>
+                            <i class="far fa-star text-success"></i>
+
+                        </div>
 
                     </div>
 
@@ -677,149 +843,301 @@ INFO PRODUCTOS
 
             </div>
 
-            <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
+        </div>
 
-                <div class="card">
+        <hr>
 
-                    <div class="card-header text-uppercase">
+        <div class="container-fluid">
 
-                        Usuario1
-                        <span class="text-right">
+            <?php 
 
-                            <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
-                                width="20%">
+                $ordenar = "";
+                $item = "id_subcategoria";
+                $valor = $infoproducto["id_subcategoria"];
+                $base = 0;
+                $tope = 4;
+                $modo = "RAND()";
 
-                        </span>
+                $relacionados = ControladorProductos::ctrMostrarProductos($ordenar,$item,$valor,
+                                $base,$tope,$modo);
 
-                    </div>
+                //var_dump($relacionados);
 
-                    <div class="card-body">
+            ?>
 
-                        <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
+            <?php if(!$relacionados): ?>
 
-                    </div>
+                <div class="container pt-3 pb-3">
 
-                    <div class="card-footer">
+                    <div class="row">
 
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fas fa-star-half-alt text-success"></i>
-                        <i class="far fa-star text-success"></i>
+                        <div class="col-12 text-center error404">
 
-                    </div>
+                            <h2>No hay productos relacionados</h2>
 
-                </div>
-
-            </div>
-
-            <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
-
-                <div class="card">
-
-                    <div class="card-header text-uppercase">
-
-                        Usuario1
-                        <span class="text-right">
-
-                            <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
-                                width="20%">
-
-                        </span>
-
-                    </div>
-
-                    <div class="card-body">
-
-                        <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
-
-                    </div>
-
-                    <div class="card-footer">
-
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fas fa-star-half-alt text-success"></i>
-                        <i class="far fa-star text-success"></i>
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
+            <?php else: ?>
 
-            <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
+                <!--====================================================
+                VITRINA DE PRODUCTOS
+                ======================================================-->
 
-                <div class="card">
+                <div class="col-12 productos">
 
-                    <div class="card-header text-uppercase">
+                    <!--==============================================
+                    BARRA TITULO
+                    ===============================================-->
+                    <div class="container tituloDestacado mt-3">
 
-                        Usuario1
-                        <span class="text-right">
+                        <div class="row">
 
-                            <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
-                                width="20%">
+                            <!--==========================================-->
 
-                        </span>
+                            <div class="col-sm-6 col-xs-12">
+
+                                <h1>
+
+                                    <small>
+
+                                        PRODUCTOS RELACIONADOS
+
+                                    </small>
+
+                                </h1>
+
+                            </div>
+
+                                <!--==========================================-->
+
+                            <div class="col-sm-6 col-xs-12">
+
+                                <?php 
+
+                                    $item = "id";
+                                    $valor = $infoproducto['id_subcategoria'];
+
+                                    $rutaArticulosDestacados = ControladorProductos::ctrMostrarSubCategorias($item,$valor);
+
+                                    //var_dump($rutaArticulosDestacados[0]["ruta"]);
+
+                                ?>
+
+                                <a href="<?php echo htmlspecialchars($url); ?>/<?php echo htmlspecialchars($rutaArticulosDestacados[0]["ruta"]); ?>">
+
+                                    <button class="btn btn-outline-secondary backColor float-right">
+
+                                        VER MÁS <span class="fa fa-chevron-right"></span>
+
+                                    </button>
+
+                                </a>
+
+                            </div>
+
+                                <!--==========================================-->
+
+                        </div>
 
                     </div>
 
-                    <div class="card-body">
+                    <div class="clearfix"></div>
 
-                        <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
+                    <hr>
+                    <!--==============================================
+                    VITRINA DE PRODUCTOS EN CUADRICULA
+                    ===============================================-->
+                    <ul class="grid0 row">
 
-                    </div>
+                        <?php foreach($relacionados as $key => $value): ?>
 
-                    <div class="card-footer">
+                            <!-- Producto -->
+                            <li class="col-md-3 col-sm-6 col-xs-12">
 
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fas fa-star-half-alt text-success"></i>
-                        <i class="far fa-star text-success"></i>
+                                <!--==========================================-->
+                                <figure>
 
-                    </div>
+                                    <a href="<?php echo htmlspecialchars($urlTienda); ?>/<?php echo htmlspecialchars($value['ruta']); ?>" 
+                                        class="pixelProducto">
+
+                                        <img src="<?php echo htmlspecialchars($urlServidor.$value["portada"]); ?>" 
+                                            class="img-fluid">
+
+                                    </a>
+
+                                </figure>
+
+                                    <!--==========================================-->
+                                <div class="row">
+
+                                    <!--==========================================-->
+                                    <h4 class="col-12">
+
+                                        <small>
+
+                                            <a href="<?php echo htmlspecialchars($urlTienda); ?>/<?php echo htmlspecialchars($value['ruta']); ?>" 
+                                                class="pixelProducto">
+
+                                                <?php echo htmlspecialchars($value['titulo']); ?>
+
+                                                <br>
+
+                                                <span style="color: white !important;">-</span>
+
+                                                <?php if($value['nuevo'] !=0): ?>
+
+                                                    <span class="badge badge-warning fontSize">
+
+                                                        Nuevo
+
+                                                    </span>
+
+                                                <?php endif; ?>
+
+                                                <?php if($value['oferta'] !=0): ?>
+
+                                                    <span class="badge badge-warning fontSize">
+
+                                                        <?php echo htmlspecialchars($value['descuentoOferta']); ?>% Descuento
+
+                                                    </span>
+
+                                                <?php endif; ?>
+
+                                            </a>
+
+                                        </small>
+
+                                    </h4>
+
+                                    <!--==========================================-->
+
+                                    <div class="col-6 precio">
+
+                                        <?php if($value["precio"]==0): ?>
+
+                                            <h2>
+
+                                                <small>
+
+                                                    GRATIS
+
+                                                </small>
+
+                                            </h2>
+
+                                        <?php else: ?>
+
+                                            <h2>
+
+                                                <?php if($value["oferta"] != 0): ?>
+
+                                                    <small>
+
+                                                        <strong class="oferta">
+
+                                                            USD $<?php echo htmlspecialchars($value['precio']); ?>
+
+                                                        </strong>
+
+                                                    </small>
+
+                                                    <small>
+
+                                                        $<?php echo htmlspecialchars($value['precioOferta']); ?>
+
+                                                    </small>
+
+                                                <?php else: ?>
+
+                                                    <small>
+
+                                                        USD $<?php echo htmlspecialchars($value['precio']); ?>
+
+                                                    </small>
+
+                                                <?php endif; ?>
+
+                                            </h2>
+
+                                        <?php endif; ?>
+
+                                    </div>
+
+                                    <!--==========================================-->
+                                    <div class="col-6 enlaces">
+
+                                        <div class="btn-group">
+
+                                            <button type="button" class="btn btn-outline-secondary btn-xs deseos" 
+                                                idProducto="<?php echo htmlspecialchars($value['id']); ?>"
+                                                data-toggle="tooltip" title="Agregar a mi lista de deseos">
+
+                                                <i class="fa fa-heart" aria-hidden="true"></i>
+
+                                            </button>
+
+                                            <?php if($value['tipo'] == "virtual"): ?>
+
+                                                <button type="button" 
+                                                    class="btn btn-outline-secondary btn-xs agregarCarrito" 
+                                                    idProducto="<?php echo htmlspecialchars($value['id']); ?>" 
+                                                    imagen="<?php echo htmlspecialchars($urlServidor.$value['portada']); ?>"
+                                                    titulo="<?php echo htmlspecialchars($value['titulo']); ?>"
+
+                                                    <?php if($value['oferta'] != 0): ?>
+
+                                                        precio="<?php echo htmlspecialchars($value['precioOferta']); ?>"
+
+                                                    <?php else: ?>
+
+                                                        precio="<?php echo htmlspecialchars($value['precio']); ?>"
+
+                                                    <?php endif; ?>
+
+                                                    tipo="'.$value['tipo'].'"
+                                                    peso="'.$value['peso'].'"
+                                                    data-toggle="tooltip" title="Agregar a carrito de compras">
+
+                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+                                                </button>
+
+                                            <?php endif; ?>
+
+                                            <a href="<?php echo htmlspecialchars($urlTienda); ?>/<?php echo htmlspecialchars($value['ruta']); ?>" 
+                                                class="pixelProducto">
+
+                                                <button type="button" class="btn btn-outline-secondary btn-xs"
+                                                    data-toggle="tooltip" title="Ver Producto">
+
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                                </button>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!--==========================================-->
+
+                            </li>
+
+                        <?php endforeach; ?>
+
+                    </ul>
 
                 </div>
 
-            </div>
-
-            <div class="pt-3 col-md-3 col-sm-6 col-xs-12">
-
-                <div class="card">
-
-                    <div class="card-header text-uppercase">
-
-                        Usuario1
-                        <span class="text-right">
-
-                            <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img\usuarios\default/anonymous.png"
-                                width="20%">
-
-                        </span>
-
-                    </div>
-
-                    <div class="card-body">
-
-                        <small> Comentario 1 dcnijfd vnvconcvwc caNOCNWROIVCN AOHCOEANCOIAHC OAHCOIABNCOIWERJ VFPIOHBPRWONB S VAJVWHVJNSPVN  O OSGVWOFVNA NOGVahfvonfvo H</small>
-
-                    </div>
-
-                    <div class="card-footer">
-
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fa fa-star text-success"></i>
-                        <i class="fas fa-star-half-alt text-success"></i>
-                        <i class="far fa-star text-success"></i>
-
-                    </div>
-
-                </div>
-
-            </div>
+            <?php endif; ?>
 
         </div>
 
