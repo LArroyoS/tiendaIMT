@@ -36,11 +36,11 @@ TOP
                             <a href="<?php echo htmlspecialchars($value['url']); ?>" 
                             target="_blank">
 
-                                <i class="fab 
-                                <?php echo htmlspecialchars($value['red']); ?> 
-                                redSocial 
-                                <?php echo htmlspecialchars($value['estilo']); ?>" 
-                                arial-hidden="true">
+                                <i class="fab
+                                    <?php echo htmlspecialchars($value['red']); ?> 
+                                    redSocial 
+                                    <?php echo htmlspecialchars($value['estilo']); ?>" 
+                                    arial-hidden="true">
                                 </i>
 
                             </a>
@@ -286,7 +286,7 @@ HEADER
 VENTANA MODAL PARA EL REGISTRO
 ============================================================-->
 <div class="container">
-  
+
     <!-- The Modal -->
     <div class="modal modalFormulario" id="Registro">
         
@@ -333,55 +333,90 @@ VENTANA MODAL PARA EL REGISTRO
                         <!--=======================================================
                         REGISTRO DIRECTO
                         =========================================================-->
-                        <form class="col-12" method="post" onsubmit="return registroUsuario()">
+                        <form class="col-12" action="formulario.php" method="post">
                         
                             <hr>
 
                             <div class="form-group">
-                                
+
                                 <div class="input-group mb-2">
+
                                     <div class="input-group-prepend">
-                                            
+
                                         <div class="input-group-text">
-                                                
+
                                             <i class="fas fa-user"></i>
-                                                
+
                                         </div>
-                                        
+
                                     </div>
+
                                     <input type="text" class="form-control text-uppercase" id="regUsuario" name="regUsuario"
-                                        placeholder="Nombre completo" required>
+                                        placeholder="Nombre completo">
+
                                 </div>
 
                                 <div class="input-group mb-2">
+
                                     <div class="input-group-prepend">
-                                            
+
                                         <div class="input-group-text">
-                                                
+
                                             <i class="fas fa-envelope"></i>
-                                                
+
                                         </div>
-                                        
+
                                     </div>
+
                                     <input type="email" class="form-control" id="regEmail" name="regEmail"
-                                        placeholder="CORREO ELECTRONICO" required>
+                                        placeholder="CORREO ELECTRONICO">
+
                                 </div>
 
                                 <div class="input-group mb-2">
+
                                     <div class="input-group-prepend">
-                                            
+
                                         <div class="input-group-text">
-                                                
+
                                             <i class="fas fa-lock"></i>
-                                                
+
                                         </div>
-                                        
+
                                     </div>
+
                                     <input type="password" class="form-control" id="regPassword" name="regPassword"
-                                        placeholder="CONTRASEÑA" required>
+                                        placeholder="CONTRASEÑA">
+
                                 </div>
 
                             </div>
+
+                            <!--=======================================================
+                            Pendiente
+                            HTTPS://WWW.iubenda.com/ CONDICIONES DE USO Y POLITICAS DE PRIVACIDAD
+                            =========================================================-->
+                            <div class="checkBox">
+
+                                <label>
+
+                                    <input id="regTerminos" type="checkbox">
+
+                                        <small>
+
+                                            Acepta nuestas condiciones de uso y politicas de privacidad
+
+                                            <a href="#"> Leer Más</a>
+
+                                        </small>
+
+                                    </input>
+
+                                </label>
+
+                            </div>
+
+                            <input type="submit" class="btn btn-block backColor" value="ENVIAR">
 
                         </form>
 
@@ -391,9 +426,19 @@ VENTANA MODAL PARA EL REGISTRO
                 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                
+
+                    ¿Ya tienes una cuenta registrada? | 
+                    <strong>
+
+                        <a href="#modalIngreso" data-dismiss="modal"
+                            data-toggle="modal" data-target="#Ingresar">
+
+                            Ingresar
+
+                        </a>
+
+                    </strong>
+
                 </div>
                 
             </div>
@@ -401,14 +446,14 @@ VENTANA MODAL PARA EL REGISTRO
         </div>
 
     </div>
-  
+
 </div>
 
 <!--===========================================================
 VENTANA MODAL PARA EL Ingresar
 ============================================================-->
 <div class="container">
-  
+
     <!-- The Modal -->
     <div class="modal modalFormulario" id="Ingresar">
         
@@ -439,5 +484,5 @@ VENTANA MODAL PARA EL Ingresar
         </div>
 
     </div>
-  
+
 </div>

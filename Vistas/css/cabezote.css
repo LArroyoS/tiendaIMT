@@ -209,6 +209,32 @@ VENTANAS MODALES
 
 }
 
+.modalFormulario form{
+
+    padding: 30px;
+
+}
+
+.modalFormulario form hr{
+
+    border: 1px solid #eee;
+
+}
+
+.modalFormulario form input[type="text"],
+.modalFormulario form input[type="email"],
+.modalFormulario form input[type="password"]{
+
+    padding: 25px;
+
+}
+
+.modalFormulario form input[type="submit"]{
+
+    padding: 15px;
+
+}
+
 /*=================================================
 ESCRITORIO GRANDE (LG revisamos en 992px en adelante)
 =================================================*/
