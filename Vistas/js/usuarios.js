@@ -1,7 +1,8 @@
 /*=============================================================
 VALIDAR EL REGISTRO DE USUARIO
 =============================================================*/
-$("#Registro").submit('form', function(e){
+
+$("#Registro").submit('form', function /*validar*/(e){
 
     var nombre = $("#regUsuario").val();
     var email = $("#regEmail").val();

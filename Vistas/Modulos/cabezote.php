@@ -333,7 +333,7 @@ VENTANA MODAL PARA EL REGISTRO
                         <!--=======================================================
                         REGISTRO DIRECTO
                         =========================================================-->
-                        <form class="col-12" action="formulario.php" method="post">
+                        <form class="col-12" method="post">
                         
                             <hr>
 
@@ -415,6 +415,13 @@ VENTANA MODAL PARA EL REGISTRO
                                 </label>
 
                             </div>
+
+                            <?php 
+
+                                $registro = new ControladorUsuarios();
+                                $registro->ctrRegistroUsuario();
+
+                            ?>
 
                             <input type="submit" class="btn btn-block backColor" value="ENVIAR">
 
