@@ -19,6 +19,11 @@
     require_once "Modelos/usuarios.modelo.php";
 
     /*=======================================
+    LIBRERIAS
+    ========================================*/
+    require_once "extensiones/PHPMailer/PHPMailerAutoload.php";
+
+    /*=======================================
     SLIDE
     ========================================*/
     require_once "Controladores/slide.controlador.php";

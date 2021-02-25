@@ -44,7 +44,7 @@
     <!--============================================
     ESTILOS PERSONALIZADOS
     ============================================-->
-    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/plantilla.css?1.0">
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/plantilla.css?1.1">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/cabezote.css?2.1">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/slide.css?1.0">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/productos.css?1.2">
@@ -147,9 +147,9 @@ if(isset($_GET['ruta'])){
         include "Modulos/infoproducto.php";
 
     }
-    else if($rutas[0] == "buscador"){
+    else if($rutas[0] == "buscador" || $rutas[0] == "verificar"){
 
-        include "Modulos/buscador.php";
+        include "Modulos/".$rutas[0].".php";
 
     }
     else{
@@ -178,7 +178,7 @@ JAVASCRIPT PERSONALIZADOS
 <script src="<?php echo $url; ?>Vistas/js/slide.js?1.2"></script>
 <script src="<?php echo $url; ?>Vistas/js/buscador.js?1.5"></script>
 <script src="<?php echo $url; ?>Vistas/js/infoproducto.js?1.0"></script>
-<script src="<?php echo $url; ?>Vistas/js/usuarios.js?1.1"></script>
+<script src="<?php echo $url; ?>Vistas/js/usuarios.js?1.3"></script>
 
 </body>
 
