@@ -281,7 +281,7 @@
                     if($respuesta["email"] == $_POST['ingEmail'] &&
                         $respuesta['password'] == $encriptar ){
 
-                        if($respuesta["verificar"]==1){
+                        if($respuesta["verificacion"]==1){
 
                             echo '<script>
 
@@ -326,7 +326,7 @@
                             echo 
                             '<script>
 
-                                windows.location = localStorage.getItem("rutaActual");
+                                window.location = localStorage.getItem("rutaActual");
 
                             </script>';
 
@@ -341,8 +341,8 @@
 
                                 {
 
-                                    title: "!ERROR¡",
-                                    text: "Al registrar el usuario, no se permiten caracteres especiales",
+                                    title: "!ERROR AL INGRESAR¡",
+                                    text: "¡Por favor revise que el usuario exista y que la contraseña sea correcta!",
                                     type: "error",
                                     confirmButtonText: "Cerrar",
                                     closeOnConfirm: false,
@@ -353,7 +353,7 @@
                                     if(isConfirm){
 
                                         /*Permite regresar a la pagina anterior*/
-                                        history.back();
+                                        window.location = localStorage.getItem("rutaActual");
 
                                     }
 
@@ -371,7 +371,7 @@
                     echo '<script>
 
                         swal({
-                            title: "!ERROR¡",
+                            title: "!ERROR AL INGRESAR¡",
                             text: "Al ingresar al sistema, no se permiten caracteres especiales",
                             type: "error",
                             confirmButtonText: "Cerrar",

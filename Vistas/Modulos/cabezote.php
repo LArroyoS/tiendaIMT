@@ -61,19 +61,60 @@ TOP
 
                 <ul>
 
-                    <li>
+                    <?php if(isset($_SESSION['validarSesion']) && $_SESSION['validarSesion'] == 'ok'): ?>
 
-                        <a href="#modalIngreso" data-toggle="modal" data-target="#Ingresar">Ingresar</a>
+                        <?php if($_SESSION['modo'] == 'DIRECTO'): ?>
 
-                    </li>
+                            <?php if($_SESSION['foto'] != ''): ?>
 
-                    <li>|</li>
+                                <li>
 
-                    <li>
+                                    <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor.$_SESSION['foto']); ?>" width="10%">
 
-                        <a href="#modalRegistro" data-toggle="modal" data-target="#Registro">Crear una cuenta</a>
+                                </li>
 
-                    </li>
+                            <?php else: ?>
+
+                                <li>
+
+                                    <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor); ?>Vistas\img\usuarios\default\anonymous.png" width="10%">
+
+                                </li>
+
+                            <?php endif; ?>
+
+                            <li>|</li>
+                            <li>
+
+                                <a href="<?php echo htmlspecialchars($urlTienda); ?>perfil">Ver Perfil</a>
+
+                            </li>
+                            <li>|</li>
+                            <li>
+
+                                <a href="<?php echo htmlspecialchars($urlTienda); ?>salir">Salir</a>
+
+                            </li>
+
+                        <?php endif; ?>
+
+                    <?php else: ?>
+
+                        <li>
+
+                            <a href="#modalIngreso" data-toggle="modal" data-target="#Ingresar">Ingresar</a>
+
+                        </li>
+
+                        <li>|</li>
+
+                        <li>
+
+                            <a href="#modalRegistro" data-toggle="modal" data-target="#Registro">Crear una cuenta</a>
+
+                        </li>
+
+                    <?php endif; ?>
 
                 </ul>
 
@@ -556,7 +597,7 @@ VENTANA MODAL PARA EL Ingresar
 
                             ?>
 
-                            <input type="submit" class="btn btn-block backColor" value="ENVIAR">
+                            <input type="submit" class="btn btn-block backColor btnIngreso" value="ENVIAR">
 
                         </form>
 

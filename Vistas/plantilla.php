@@ -62,7 +62,11 @@
     <script src="<?php echo $url; ?>Vistas/js/plugins/jquery.scrollUp.js"></script>
     <script src="<?php echo $url; ?>Vistas/js/plugins/jquery.flexslider.js"></script>
     <script src="<?php echo $url; ?>Vistas/js/plugins/sweetalert.min.js"></script>
+    <script>
 
+        var rutaActual = location.href;
+
+    </script>
 </head>
 
 <body> 
@@ -147,7 +151,10 @@ if(isset($_GET['ruta'])){
         include "Modulos/infoproducto.php";
 
     }
-    else if($rutas[0] == "buscador" || $rutas[0] == "verificar"){
+    else if($rutas[0] == "buscador" || 
+            $rutas[0] == "verificar" || 
+            $rutas[0] == "salir" ||
+            $rutas[0] == "perfil"){
 
         include "Modulos/".$rutas[0].".php";
 
@@ -178,7 +185,7 @@ JAVASCRIPT PERSONALIZADOS
 <script src="<?php echo $url; ?>Vistas/js/slide.js?1.2"></script>
 <script src="<?php echo $url; ?>Vistas/js/buscador.js?1.5"></script>
 <script src="<?php echo $url; ?>Vistas/js/infoproducto.js?1.0"></script>
-<script src="<?php echo $url; ?>Vistas/js/usuarios.js?1.3"></script>
+<script src="<?php echo $url; ?>Vistas/js/usuarios.js?1.5"></script>
 
 </body>
 

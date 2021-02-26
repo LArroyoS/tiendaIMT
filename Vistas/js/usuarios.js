@@ -1,4 +1,16 @@
 /*=============================================================
+CAPTURA DE RUTA
+=============================================================*/
+var rutaActual = location.href;
+$("#Ingresar").submit(function(){
+
+    localStorage.setItem("rutaActual",rutaActual);
+    console.log(rutaActual)
+    return true;
+
+});
+
+/*=============================================================
 VALIDAR EL REGISTRO DE USUARIO
 =============================================================*/
 /*
