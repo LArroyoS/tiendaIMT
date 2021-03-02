@@ -5,8 +5,64 @@ var rutaActual = location.href;
 $("#Ingresar").submit(function(){
 
     localStorage.setItem("rutaActual",rutaActual);
-    console.log(rutaActual)
-    return true;
+    console.log(rutaActual);
+    var email = $("#ingEmail").val();
+    var password = $("#ingPassword").val();
+
+    var alertas = $('div[alerta]');
+    alertas.remove();
+
+    console.log(alertas);
+
+    var error = true;
+
+    /*========================================================
+    VALIDAR EMAIL
+    =========================================================*/
+    if(email != ""){
+
+        var expresion = /^\w+([\.-]?\w+)*@\w+([\.-]?\w)*(\.\w{2,4})+$/;
+        if(!expresion.test(email)){
+
+            $("#ingEmail").parent().after(
+                '<div alerta="ingEmail" class="alert alert-danger" alert-dismissible fade show" role="alert"><strong>ERROR: </strong> Escriba correctamente el correo electrónico<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            error = false;
+
+        }
+
+    }
+    else{
+
+        $("#ingEmail").parent().after(
+            '<div alerta="ingEmail" class="alert alert-warning" alert-dismissible fade show" role="alert"><strong>ATENCIÓN: </strong> Este campo es obligatorio<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        error = false;
+
+    }
+
+    /*========================================================
+    VALIDAR PASSWORD
+    =========================================================*/
+    if(password != ""){
+
+        var expresion = /^[a-z-A-Z0-9]*$/;
+        if(!expresion.test(password)){
+
+            $("#ingPassword").parent().after(
+                '<div alerta="ingPassword" class="alert alert-danger" alert-dismissible fade show" role="alert"><strong>ERROR: </strong> No se caracteres especiales<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            error = false;
+
+        }
+
+    }
+    else{
+
+        $("#ingPassword").parent().after(
+            '<div alerta="ingPassword" class="alert alert-warning" alert-dismissible fade show" role="alert"><strong>ATENCIÓN: </strong> Este campo es obligatorio<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        error = false;
+
+    }
+
+    return error;
 
 });
 
@@ -127,7 +183,7 @@ $("#Registro").submit('form', function /*validar*/(e){
 
     }
 
-    return false;
+    return error;
 
 });
 

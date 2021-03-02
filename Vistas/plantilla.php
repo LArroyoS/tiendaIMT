@@ -35,7 +35,7 @@
     ============================================-->
     <!--<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>-->
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/plugins/bootstrap.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/plugins/fontawesome.css">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/plugins/sweetalert.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
@@ -185,7 +185,7 @@ JAVASCRIPT PERSONALIZADOS
 <script src="<?php echo $url; ?>Vistas/js/slide.js?1.2"></script>
 <script src="<?php echo $url; ?>Vistas/js/buscador.js?1.5"></script>
 <script src="<?php echo $url; ?>Vistas/js/infoproducto.js?1.0"></script>
-<script src="<?php echo $url; ?>Vistas/js/usuarios.js?1.5"></script>
+<script src="<?php echo $url; ?>Vistas/js/usuarios.js?1.6"></script>
 
 </body>
 

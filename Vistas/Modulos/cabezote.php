@@ -599,6 +599,122 @@ VENTANA MODAL PARA EL Ingresar
 
                             <input type="submit" class="btn btn-block backColor btnIngreso" value="ENVIAR">
 
+                            <br>
+
+                            <center>
+
+                                <a href="#modalPassword" data-dismiss="modal" 
+                                    data-toggle="modal" data-target="#OlvidoPassword">
+
+                                    ¿Olvidaste tu contraseña?
+
+                                </a>
+
+                            </center>
+
+                        </form>
+
+                    </div>
+
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+
+                    ¿No tienes una cuenta registrada? | 
+                    <strong>
+
+                        <a href="#modalRegistro" data-dismiss="modal"
+                            data-toggle="modal" data-target="#Registro">
+
+                            Registrarse
+
+                        </a>
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--===========================================================
+VENTANA MODAL OLVIDASTE CONTRSEÑA
+============================================================-->
+<div class="container">
+
+    <!-- The Modal -->
+    <div class="modal modalFormulario" id="OlvidoPassword">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body modalTitulo">
+
+                    <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title backColor">Solicitud de nueva contraeña</h3>
+
+                    <div class="row">
+                        
+                        <!--=======================================================
+                        Olvido contraseña
+                        =========================================================-->
+                        <form class="col-12" method="post">
+
+                            <label for="passEmail" class="text-muted">Escribe el correo electrónico con el que estás regirtrado y te enviaremos una nueva contraseña</label>
+
+                            <hr>
+
+                            <div class="form-group">
+
+                                <div class="input-group mb-2">
+
+                                    <div class="input-group-prepend">
+
+                                        <div class="input-group-text">
+
+                                            <i class="fas fa-envelope"></i>
+
+                                        </div>
+
+                                    </div>
+
+                                    <input type="email" class="form-control" id="passEmail" name="passEmail"
+                                        placeholder="CORREO ELECTRONICO">
+
+                                </div>
+
+                            </div>
+
+                            <?php 
+
+                                $password = new ControladorUsuarios();
+                                $password->ctrOlvidoPassword();
+
+                            ?>
+
+                            <input type="submit" class="btn btn-block backColor btnIngreso" value="ENVIAR">
+
+                            <br>
+
+                            <center>
+
+                                <a href="#modalPassword" data-dismiss="modal" data-toggle="modal">
+
+                                    ¿Olvidaste tu contraseña?
+
+                                </a>
+
+                            </center>
+
                         </form>
 
                     </div>

@@ -398,4 +398,117 @@
 
         }
 
+        /*====================================================
+        INGRESO USUARIO
+        ====================================================*/
+        public function ctrOlvidoPassword(){
+
+            if(isset($_POST["passEmail"])){
+
+                if(preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["passEmail"])){
+
+                    /*====================================================
+                    GENERAR CONTRASEÑA ALEATORIA
+                    ====================================================*/
+
+                    function generarPassword($longitud){
+
+                        $key = "";
+                        $pattern = "1234567890abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+                        $max = strlen($pattern)-1;
+                        for($i=0;$i<$longitud;$i++){
+
+                            $key .= $pattern{mt_rand(0,$max)};
+
+                        }
+
+                        return $key;
+
+                    }
+
+                    $nuevaPassword = generarPassword(11);
+                    $encriptar = crypt($nuevaPassword,'$*/&wy$alvn01qlaxgt44ty00a1g6qJABGfHjjYAGaev$');
+
+                    $table = "usuarios";
+
+                    $item1 = "email";
+                    $valor1 = $_POST["passEmail"];
+                    $respuesta1 = ModeloUsuarios::mdlMostrarUsuario($tabla,$item1,$valor1);
+
+                    if($respuesta1){
+
+                        $id = $respuesta1['id'];
+                        $item2 = "password";
+                        $valor2 = $encriptar;
+
+                        $respuesta2 = ModeloUsuarios::mdlActualizarUsuario($tabla,$id,$item2,$valor2);
+                        if($respuest2 == 'ok'){
+
+
+
+                        }
+                    }
+                    else{
+
+                        echo '<script>
+
+                        swal({
+                            title: "!ERROR¡",
+                            text: "El correo electronico no existe en el sistema",
+                            type: "error",
+                            confirmButtonText: "Cerrar",
+                            closeOnConfirm: false,
+
+                        },
+                        function(isConfirm){
+
+                            if(isConfirm){
+
+                                /*Permite regresar a la pagina anterior*/
+                                history.back();
+
+                            }
+
+                        }
+                    );
+
+                    </script>';
+
+                    }
+
+                    //var_dump($nuevaPassword);
+
+                }
+                else{
+
+                    echo '<script>
+
+                        swal({
+                            title: "!ERROR¡",
+                            text: "El correo electronico pudo ser enviado, puede que este mal escrito",
+                            type: "error",
+                            confirmButtonText: "Cerrar",
+                            closeOnConfirm: false,
+
+                        },
+                        function(isConfirm){
+
+                            if(isConfirm){
+
+                                /*Permite regresar a la pagina anterior*/
+                                history.back();
+
+                            }
+
+                        }
+                    );
+
+                    </script>';
+
+                }
+
+            }
+
+        }
+
     }
