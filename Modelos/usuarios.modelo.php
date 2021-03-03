@@ -7,8 +7,8 @@
         =====================================================*/
         static public function mdlRegistroUsuario($tabla,$datos){
 
-            $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id,nombre,password,email,modo,verificacion,emailEncriptado)
-            VALUE (1,:nombre, :password, :email, :modo, :verificacion,:emailEncriptado)");
+            $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre,password,email,modo,verificacion,emailEncriptado)
+            VALUE (:nombre, :password, :email, :modo, :verificacion,:emailEncriptado)");
 
             $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
             $stmt->bindParam(":password", $datos["password"], PDO::PARAM_STR);
@@ -17,12 +17,21 @@
             $stmt->bindParam(":verificacion", $datos["verificacion"], PDO::PARAM_INT);
             $stmt->bindParam(":emailEncriptado", $datos["emailEncriptado"], PDO::PARAM_STR);
 
-            if($stmt->execute()){
+            try{
 
-                return "ok";
+                if($stmt->execute()){
+
+                    return "ok";
+
+                }
+                else{
+
+                    return "error";
+
+                }
 
             }
-            else{
+            catch(Exception $e){
 
                 return "error";
 
@@ -43,12 +52,21 @@
 
             $stmt->bindParam(":".$item, $valor, PDO::PARAM_STR);
 
-            if($stmt->execute()){
+            try{
 
-                return $stmt->fetch();
+                if($stmt->execute()){
+
+                    return $stmt->fetch();
+
+                }
+                else{
+
+                    return false;
+
+                }
 
             }
-            else{
+            catch(Exception $e){
 
                 return false;
 
@@ -71,12 +89,21 @@
             $stmt->bindParam(":".$item, $valor, PDO::PARAM_STR);
             $stmt->bindParam(":id", $id, PDO::PARAM_STR);
 
-            if($stmt->execute()){
+            try{
 
-                return "ok";
+                if($stmt->execute()){
+
+                    return "ok";
+
+                }
+                else{
+
+                    return "error";
+
+                }
 
             }
-            else{
+            catch(Exception $e){
 
                 return "error";
 
