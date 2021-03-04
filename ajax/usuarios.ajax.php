@@ -20,15 +20,42 @@ class AjaxUsuarios{
 
     }
 
+    /*===========================================================
+    REGISTRO FACEBOOK
+    ============================================================*/
+    public $email;
+    public $nombre;
+    public $foto;
+
+    public function ajaxRegistroFacebook(){
+
+        $datos = array(
+                    "nombre"=>$this->nombre,
+                    "email"=>$this->email,
+                    "foto"=>$this->foto,
+                    "password"=>"null",
+                    "modo"=>"FACEBOOK",
+                    "verificacion"=>0,
+                    "emailEncriptado"=>"null",
+                );
+
+        $respuesta = ControladorUsuarios::ctrRegistroRedesSociales($datos);
+
+        echo $respuesta;
+
+    }
+
 }
 
 /*===========================================================
 VALIDAR EMAIL EXISTENTE
 ============================================================*/
-if(isset($_POST["validarEmail"])){
+if(isset($_POST["email"])){
 
-    $validarEmail = new AjaxUsuarios();
-    $validarEmail->validarEmail = $_POST["validarEmail"];
-    $validarEmail->ajaxValidarEmail();
+    $regFacebook = new AjaxUsuarios();
+    $regFacebook->email = $_POST["email"];
+    $regFacebook->nombre = $_POST["nombre"];
+    $regFacebook->foto = $_POST["foto"];
+    $regFacebook->ajaxRegistroFacebook();
 
 }

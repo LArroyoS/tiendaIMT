@@ -12,7 +12,7 @@
         ALERTA
         ====================================================*/
 
-        private function alerta($titulo,$mensaje,$tipo,$retorno){
+        static private function alerta($titulo,$mensaje,$tipo,$retorno){
 
             echo 
 
@@ -49,7 +49,7 @@
         /*====================================================
         MENSAJE
         =====================================================*/
-        private function mensaje($titulo,$icono,$contenido,$urlBoton,$textoBoton,$pieDePagina){
+        static private function mensaje($titulo,$icono,$contenido,$urlBoton,$textoBoton,$pieDePagina){
 
             $mensaje = '
 
@@ -133,12 +133,15 @@
                     $encriptar = crypt($_POST["regPassword"], '$*/&wy$alvn01qlaxgt44ty00a1g6qJABGfHjjYAGaev$');
                     $encriptarEmail = md5($_POST["regEmail"]);
 
-                    $datos = array("nombre" => $_POST["regUsuario"],
-                    "password" => $encriptar,
-                    "email" => $_POST["regEmail"],
-                    "modo" => "DIRECTO",
-                    "verificacion" => 1,
-                    "emailEncriptado" => $encriptarEmail);
+                    $datos = array(
+                                "nombre" => $_POST["regUsuario"],
+                                "password" => $encriptar,
+                                "email" => $_POST["regEmail"],
+                                "foto" => "",
+                                "modo" => "DIRECTO",
+                                "verificacion" => 1,
+                                "emailEncriptado" => $encriptarEmail
+                            );
 
                     $tabla = "usuarios";
 
@@ -452,6 +455,19 @@
                 }
 
             }
+
+        }
+
+        /*==========================================================
+        REGISTRO CON REDES SOCIALES
+        ===========================================================*/
+        static public function ctrRegistroRedesSociales($datos){
+
+            $tabla = "usuarios";
+
+            $respuesta = ModeloUsuarios::mdlRegistroUsuario($tabla,$datos);
+
+            return $respuesta;
 
         }
 
