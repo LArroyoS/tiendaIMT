@@ -5,7 +5,7 @@ var rutaActual = location.href;
 $("#Ingresar").submit(function(){
 
     localStorage.setItem("rutaActual",rutaActual);
-    console.log(rutaActual);
+    //console.log(rutaActual);
     var email = $("#ingEmail").val();
     var password = $("#ingPassword").val();
 

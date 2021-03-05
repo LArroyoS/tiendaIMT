@@ -5,7 +5,7 @@ BOTON FACEBOOK
 $(".facebook").click(function(){
 
     localStorage.setItem("rutaActual",rutaActual);
-    console.log(rutaActual);
+    //console.log(rutaActual);
     FB.login(function(response){
 
         validarUsuario();
@@ -115,7 +115,11 @@ function textApi(){
                 processData:false,
                 success:function(respuesta){
 
-                    console.log("respuesta",respuesta);
+                    if(respuesta=="ok"){
+
+                        window.location = localStoage.getItem("rutaActual");
+
+                    }
 
                 }
 

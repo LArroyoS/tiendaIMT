@@ -83,20 +83,28 @@ TOP
 
                             <?php endif; ?>
 
-                            <li>|</li>
+                        <?php elseif($_SESSION['modo'] == 'FACEBOOK'): ?>
+
                             <li>
 
-                                <a href="<?php echo htmlspecialchars($urlTienda); ?>perfil">Ver Perfil</a>
-
-                            </li>
-                            <li>|</li>
-                            <li>
-
-                                <a href="<?php echo htmlspecialchars($urlTienda); ?>salir">Salir</a>
+                                <img class="rounded-circle" src="<?php echo htmlspecialchars($_SESSION['foto']); ?>" width="10%">
 
                             </li>
 
                         <?php endif; ?>
+
+                        <li>|</li>
+                        <li>
+
+                            <a href="<?php echo htmlspecialchars($urlTienda); ?>perfil">Ver Perfil</a>
+
+                        </li>
+                        <li>|</li>
+                        <li>
+
+                            <a href="<?php echo htmlspecialchars($urlTienda); ?>salir">Salir</a>
+
+                        </li>
 
                     <?php else: ?>
 

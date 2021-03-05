@@ -102,7 +102,7 @@ $(window ).on('load',function(){
         processData: false,
         success: function(respuesta){
 
-            console.log('respuesta', respuesta);
+            //console.log('respuesta', respuesta);
 
         }
 

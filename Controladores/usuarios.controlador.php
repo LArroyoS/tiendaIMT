@@ -465,9 +465,32 @@
 
             $tabla = "usuarios";
 
-            $respuesta = ModeloUsuarios::mdlRegistroUsuario($tabla,$datos);
+            $respuesta1 = ModeloUsuarios::mdlRegistroUsuario($tabla,$datos);
 
-            return $respuesta;
+            if($respuesta1 == "ok"){
+
+                $item = "email";
+                $valor = $datos['email'];
+
+                $respuesta2 = ModeloUsuarios::mdlMostrarUsuario($tabla,$item,$valor);
+
+                if($respueta2["modo"] == "FACEBOOK"){
+
+                    session_start();
+
+                    $_SESSION["validarSesion"] = "ok";
+                    $_SESSION["id"] = $respuesta2['id'];
+                    $_SESSION["nombre"] = $respuesta2['nombre'];
+                    $_SESSION["foto"] = $respuesta2['foto'];
+                    $_SESSION["email"] = $respuesta2['email'];
+                    $_SESSION["password"] = $respuesta['password'];
+                    $_SESSION["modo"] = $respuesta2['modo'];
+
+                    echo "ok";
+
+                }
+
+            }
 
         }
 
