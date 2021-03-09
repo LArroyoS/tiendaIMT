@@ -5,7 +5,7 @@ BOTON FACEBOOK
 $(".facebook").click(function(){
 
     localStorage.setItem("rutaActual",rutaActual);
-    //console.log(rutaActual);
+    console.log(rutaActual);
     FB.login(function(response){
 
         validarUsuario();
@@ -117,7 +117,38 @@ function textApi(){
 
                     if(respuesta=="ok"){
 
-                        window.location = localStoage.getItem("rutaActual");
+                        window.location = localStorage.getItem("rutaActual");
+
+                    }else{
+
+                        swal({
+
+                            title: "¡ERROR!",
+                            text: "!El correo electrónico "+email+" ya esta registrado con un metodo diferente a Facebook¡"+respuesta,
+                            type: "error",
+                            confirmButtonText: "Cerrar",
+                            closeOnConfirm: false,
+                
+                        },
+                        function(isConfirm){
+                
+                            if(isConfirm){
+                
+                                FB.getLoginStatus(function(response){
+
+                                    if(response.status == 'connected'){
+
+                                        cerrarSesionFB();
+
+                                    }
+
+                                });
+
+                                window.location = localStorage.getItem("rutaActual");
+                
+                            }
+                
+                        });
 
                     }
 
@@ -130,3 +161,44 @@ function textApi(){
     });
 
 }
+
+function cerrarSesionFB(){
+
+    FB.logout(function(response){
+
+        console.log(response);
+        deleteCookie("fblo_438843627380358");
+        setTimeout(function(){
+
+            window.location = $rutaOculta+"salir";
+
+        },500);
+
+    });
+
+}
+
+function deleteCookie(name){
+
+    document.cookie = name+'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT';
+
+}
+
+/*================================================================
+SALIR DE FACEBOOK
+================================================================*/
+$(".salirFACEBOOK").click(function(e){
+
+    e.preventDefault();
+
+    FB.getLoginStatus(function(response){
+
+        if(response.status == 'connected'){
+
+            cerrarSesionFB();
+
+        }
+
+    });
+
+});

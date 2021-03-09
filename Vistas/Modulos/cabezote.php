@@ -102,7 +102,7 @@ TOP
                         <li>|</li>
                         <li>
 
-                            <a href="<?php echo htmlspecialchars($urlTienda); ?>salir">Salir</a>
+                            <a href="<?php echo htmlspecialchars($urlTienda); ?>salir" class="salir<?php echo htmlspecialchars($_SESSION['modo']); ?>">Salir</a>
 
                         </li>
 

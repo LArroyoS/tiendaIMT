@@ -49,7 +49,7 @@
         /*====================================================
         MENSAJE
         =====================================================*/
-        static private function mensaje($titulo,$icono,$contenido,$urlBoton,$textoBoton,$pieDePagina){
+        static private function mensaje($logo,$titulo,$icono,$contenido,$urlBoton,$textoBoton,$pieDePagina){
 
             $mensaje = '
 
@@ -58,7 +58,7 @@
                     <center>
 
                         <img style="padding: 20px; width: 10%;" 
-                            src="'.$this->logo.'" 
+                            src="'.$logo.'" 
                             alt="">
 
                     </center>
@@ -171,7 +171,7 @@
 
                         $mail->msgHTML(
 
-                            $this->mensaje($titulo,$icono,$contenido,$urlBoton,$textoBoton,$pie)
+                            $this->mensaje($this->logo,$titulo,$icono,$contenido,$urlBoton,$textoBoton,$pie)
 
                         );
 
@@ -394,7 +394,7 @@
 
                             $mail->msgHTML(
 
-                                $this->mensaje($titulo,$icono,$contenido,$urlBoton,$textoBoton,$pie)
+                                $this->mensaje($this->logo,$titulo,$icono,$contenido,$urlBoton,$textoBoton,$pie)
 
                             );
 
@@ -423,7 +423,7 @@
                         else{
 
                             $titulo = "!ERROR¡";
-                            $mensaje = 'Ha ocurrido un problema, intentelo mas tarde';
+                            $mensaje = 'Ha ocurrido un problema, intentelo mas tarde'.$respuesta2;
                             $tipo = "error";
                             $retorno = $this->anterior;
                             $this->alerta($titulo,$mensaje,$tipo,$retorno);
@@ -465,16 +465,27 @@
 
             $tabla = "usuarios";
 
-            $respuesta1 = ModeloUsuarios::mdlRegistroUsuario($tabla,$datos);
+            $item = "email";
+            $valor = $datos['email'];
+            $emailRepetido = false;
 
-            if($respuesta1 == "ok"){
+            $respuesta0 = ModeloUsuarios::mdlMostrarUsuario($tabla,$item,$valor);
 
-                $item = "email";
-                $valor = $datos['email'];
+            if($respuesta0){
+
+                $emailRepetido = true;
+
+            }else{
+
+                $respuesta1 = ModeloUsuarios::mdlRegistroUsuario($tabla,$datos);
+
+            }
+
+            if($emailRepetido || $respuesta1 == "ok"){
 
                 $respuesta2 = ModeloUsuarios::mdlMostrarUsuario($tabla,$item,$valor);
 
-                if($respueta2["modo"] == "FACEBOOK"){
+                if($respuesta2["modo"] == "FACEBOOK"){
 
                     session_start();
 
@@ -483,12 +494,21 @@
                     $_SESSION["nombre"] = $respuesta2['nombre'];
                     $_SESSION["foto"] = $respuesta2['foto'];
                     $_SESSION["email"] = $respuesta2['email'];
-                    $_SESSION["password"] = $respuesta['password'];
+                    $_SESSION["password"] = $respuesta2['password'];
                     $_SESSION["modo"] = $respuesta2['modo'];
 
                     echo "ok";
 
+                }else{
+
+                    echo "";
+
                 }
+
+            }
+            else{
+
+                echo "";
 
             }
 

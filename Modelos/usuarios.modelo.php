@@ -85,7 +85,7 @@
 
             $stmt = Conexion::conectar()->prepare("UPDATE $tabla 
                 SET $item = :$item
-                WHERE $id = :id");
+                WHERE id = :id");
 
             $stmt->bindParam(":".$item, $valor, PDO::PARAM_STR);
             $stmt->bindParam(":id", $id, PDO::PARAM_STR);
