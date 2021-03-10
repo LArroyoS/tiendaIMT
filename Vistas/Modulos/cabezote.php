@@ -3,6 +3,49 @@
     $urlServidor = Ruta::ctrRutaServidor();
     $urlTienda = Ruta::ctrRuta();
 
+    /*=========================================================
+    CREAR OBJETO DE API GOOGLE
+    =========================================================*/
+    $cliente = new Google_Client();
+    $cliente->setAuthConfig('Modelos/client_secret.json');
+    $cliente->setAccessType("offline"); //se para a online cuando se trabaje con un hosting
+    $cliente->setScopes(['profile','email']);
+
+    /*=========================================================
+    RUTA PARA EL LOGIN DE GOOGLE
+    =========================================================*/
+    $rutaGoogle = $cliente->createAuthUrl();
+
+    /*=========================================================
+    RECIBIMOS LA VARIABLE GET DE GOOGLE LLAMADA CODE
+    =========================================================*/
+    if(isset($_GET["code"])){
+
+        $token = $cliente->authenticate($_GET["code"]);
+        $cliente->setAccessToken($token);
+
+    }
+
+    /*=========================================================
+    RECIBIMOS DATOS CIFRADO DE GOOGLE EN UN ARRAY
+    =========================================================*/
+    if($cliente->getAccessToken()){
+
+        $item = $cliente->verifyIdToken();
+        //var_dump($item);
+        $datos = array(
+            "nombre"=>$item["name"],
+            "email"=>$item["email"],
+            "foto"=>$item["picture"],
+            "password"=>"null",
+            "modo"=>"GOOGLE",
+            "verificacion"=>0,
+            "emailEncriptado"=>"null",);
+
+        $respuesta = ControladorUsuarios::ctrRegistroRedesSociales($datos);
+
+    }
+
 ?>
 
 <!--=============================================
@@ -83,7 +126,7 @@ TOP
 
                             <?php endif; ?>
 
-                        <?php elseif($_SESSION['modo'] == 'FACEBOOK'): ?>
+                        <?php else: ?>
 
                             <li>
 
@@ -368,16 +411,17 @@ VENTANA MODAL PARA EL REGISTRO
                         <!--=======================================================
                         REGISTRO GOOGLE
                         =========================================================-->
-                        <div class="col-sm-6 col-xs-12 google" id="btnGoogleRegistro">
-                        
+                        <a href="<?php echo htmlspecialchars($rutaGoogle); ?>" 
+                            class="col-sm-6 col-xs-12 google" id="btnGoogleRegistro">
+
                             <p>
-                            
+
                                 <i class="fab fa-google"></i>
                                 Registro con Google
 
                             </p>
 
-                        </div>
+                        </a>
 
                         <!--=======================================================
                         REGISTRO DIRECTO
@@ -542,7 +586,8 @@ VENTANA MODAL PARA EL Ingresar
                         <!--=======================================================
                         REGISTRO GOOGLE
                         =========================================================-->
-                        <div class="col-sm-6 col-xs-12 google" id="btnGoogleRegistro">
+                        <a href="<?php echo htmlspecialchars($rutaGoogle); ?>" 
+                            class="col-sm-6 col-xs-12 google" id="btnGoogleRegistro">
 
                             <p>
 
@@ -551,7 +596,7 @@ VENTANA MODAL PARA EL Ingresar
 
                             </p>
 
-                        </div>
+                        </a>
 
                         <!--=======================================================
                         REGISTRO DIRECTO

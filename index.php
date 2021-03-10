@@ -22,6 +22,7 @@
     LIBRERIAS
     ========================================*/
     require_once "extensiones/PHPMailer/PHPMailerAutoload.php";
+    require_once "extensiones/vendor/autoload.php";
 
     /*=======================================
     SLIDE

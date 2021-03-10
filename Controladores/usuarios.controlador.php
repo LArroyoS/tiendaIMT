@@ -499,7 +499,21 @@
 
                     echo "ok";
 
-                }else{
+                }
+                else if($respuesta2["modo"] == "GOOGLE"){
+
+                    $_SESSION["validarSesion"] = "ok";
+                    $_SESSION["id"] = $respuesta2['id'];
+                    $_SESSION["nombre"] = $respuesta2['nombre'];
+                    $_SESSION["foto"] = $respuesta2['foto'];
+                    $_SESSION["email"] = $respuesta2['email'];
+                    $_SESSION["password"] = $respuesta2['password'];
+                    $_SESSION["modo"] = $respuesta2['modo'];
+
+                    echo "ok";
+
+                }
+                else{
 
                     echo "";
 
