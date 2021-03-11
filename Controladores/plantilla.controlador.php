@@ -7,7 +7,7 @@
         ====================================*/
         public function plantilla(){
 
-            include "vistas/plantilla.php";
+            include "Vistas/plantilla.php";
 
         }
 

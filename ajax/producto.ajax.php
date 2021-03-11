@@ -34,5 +34,3 @@
         $vista->ajaxVistaProducto();
 
     }
-
-?>
