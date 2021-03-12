@@ -22,6 +22,7 @@
     if(isset($_GET["code"])){
 
         $token = $cliente->authenticate($_GET["code"]);
+        $_SESSION['id_token_google'] = $token;
         $cliente->setAccessToken($token);
 
     }
@@ -43,6 +44,12 @@
             "emailEncriptado"=>"null",);
 
         $respuesta = ControladorUsuarios::ctrRegistroRedesSociales($datos);
+
+        echo '<script>
+
+            window.location = localStorage.getItem("rutaActual");
+
+        </script>';
 
     }
 
@@ -570,7 +577,7 @@ VENTANA MODAL PARA EL Ingresar
                     <div class="row">
                         
                         <!--=======================================================
-                        REGISTRO FACEBOOK
+                        INGRESO FACEBOOK
                         =========================================================-->
                         <div class="col-sm-6 col-xs-12 facebook" id="btnFacebookRegistro">
 
@@ -584,7 +591,7 @@ VENTANA MODAL PARA EL Ingresar
                         </div>
 
                         <!--=======================================================
-                        REGISTRO GOOGLE
+                        INGRESO GOOGLE
                         =========================================================-->
                         <a href="<?php echo htmlspecialchars($rutaGoogle); ?>" 
                             class="col-sm-6 col-xs-12 google" id="btnGoogleRegistro">

@@ -139,7 +139,7 @@ setInterval(function(){
         Con esto se soluciona el error de cambio rapido de pestaña de slide
         */
 
-        $("#slide ul li").stop(true, true);
+        $("#slide li").stop(true, true);
 
     }
     else{

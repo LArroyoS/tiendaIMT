@@ -468,12 +468,27 @@
             $item = "email";
             $valor = $datos['email'];
             $emailRepetido = false;
+            $respuesta1 = null;
 
             $respuesta0 = ModeloUsuarios::mdlMostrarUsuario($tabla,$item,$valor);
 
             if($respuesta0){
 
-                $emailRepetido = true;
+                if($respuesta0['modo']!= $datos['modo']){
+
+                    $titulo = "!ERROR¡";
+                    $mensaje = 'El correo electronico '.$datos['email'].', ya esta registrado en el sistema con un método diferente a Google!';
+                    $tipo = "error";
+                    $retorno = "history.back();";
+                    ControladorUsuarios::alerta($titulo,$mensaje,$tipo,$retorno);
+
+                    $emailRepetido = false;
+
+                }else{
+
+                    $emailRepetido = true;
+
+                }
 
             }else{
 
@@ -510,7 +525,7 @@
                     $_SESSION["password"] = $respuesta2['password'];
                     $_SESSION["modo"] = $respuesta2['modo'];
 
-                    echo "ok";
+                    return "ok";
 
                 }
                 else{
