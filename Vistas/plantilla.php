@@ -16,13 +16,13 @@
         $urlServidor = Ruta:: ctrRutaServidor();
         $icono = ControladorPlantilla::ctrEstiloPlantilla();
 
-        echo '<link rel="icon" href="'.$urlServidor.$icono['icono'].'">';
-
         /*============================================
         MANTENER LA RUTA FIJA DEL PROJECTO
         ============================================*/
 
         $url = Ruta::ctrRuta();
+
+        echo '<link rel="icon" href="'.$url.$icono['icono'].'">';
 
     ?>
 
