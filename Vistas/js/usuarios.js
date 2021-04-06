@@ -2,7 +2,7 @@
 CAPTURA DE RUTA
 =============================================================*/
 var rutaActual = location.href;
-$("#Ingresar").submit(function(){
+$("#Ingresar").submit('form',function(){
 
     localStorage.setItem("rutaActual",rutaActual);
     //console.log(rutaActual);
