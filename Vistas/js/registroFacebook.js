@@ -189,8 +189,6 @@ SALIR DE FACEBOOK
 ================================================================*/
 $(".salirFACEBOOK").click(function(e){
 
-    e.preventDefault();
-
     FB.getLoginStatus(function(response){
 
         if(response.status == 'connected'){

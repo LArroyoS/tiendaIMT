@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/slide.css?1.0">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/productos.css?1.2">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/infoproducto.css?1.1">
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/perfil.css?1.1">
 
     <!--============================================
     PLUGINS DE JAVASCRIPT

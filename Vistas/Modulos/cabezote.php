@@ -765,16 +765,6 @@ VENTANA MODAL OLVIDASTE CONTRSEÑA
 
                             <br>
 
-                            <center>
-
-                                <a href="#modalPassword" data-dismiss="modal" data-toggle="modal">
-
-                                    ¿Olvidaste tu contraseña?
-
-                                </a>
-
-                            </center>
-
                         </form>
 
                     </div>

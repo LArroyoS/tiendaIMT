@@ -398,8 +398,6 @@
 
                             );
 
-                            $envio = $mail->send();
-
                             if(!$envio){
 
                                 $titulo = "!ERROR¡";
