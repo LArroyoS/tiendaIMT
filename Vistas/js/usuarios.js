@@ -242,3 +242,178 @@ $("#regEmail").change(function(){
     });
 
 });
+
+/*=============================================================
+CAMBIAR FOTO
+=============================================================*/
+$("#btnCambiarFoto").click(function (){
+
+    $("#datosImagen").val("");
+    $("#preVisualizar").removeAttr('src');
+    $("#imgPerfil").toggle();
+    $("#subirImagen").toggle();
+
+});
+
+$("#datosImagen").change(function (){
+
+    var imagen = this.files[0];
+    //console.log("imagen", imagen);
+    /*========================================
+    Validar formato imagen
+    =========================================*/
+    if(imagen['type']!= "image/jpeg" && imagen['type']!= "image/png"){
+
+        $("#datosImagen").val("");
+        swal({
+
+            title: "¡ERROR!",
+            text: "!La imagen debe estar en formato JPG o PNG¡",
+            type: "error",
+            confirmButtonText: "Cerrar",
+            closeOnConfirm: false,
+
+        });
+
+    }
+    else if(Number(imagen['size']) > 2000000){
+
+        $("#datosImagen").val("");
+
+        swal({
+
+            title: "¡ERROR!",
+            text: "!La imagen no debe pesar mas de 2 MB¡",
+            type: "error",
+            confirmButtonText: "Cerrar",
+            closeOnConfirm: false,
+
+        });
+
+    }
+    else{
+
+        var datosImagen = new FileReader;
+        datosImagen.readAsDataURL(imagen);
+
+        $(datosImagen).on("load",function(e){
+
+            var rutaImagen = e.target.result;
+            $("#preVisualizar").attr('src', rutaImagen);
+
+        });
+
+    }
+
+});
+
+/*=============================================================
+COMENTARIOS
+=============================================================*/
+$(".calificarProducto").click(function (){
+
+    var idComentario = $(this).attr('idComentario');
+    var idProducto = $(this).attr('idProducto');
+
+    if(idComentario!=''){
+
+        var comentario = $(this).attr('datoComentario');
+        var calificacion = $(this).attr('datoCalificacion');
+
+        $("#idComentario").val(idComentario);
+        $("#comentario").val(comentario);
+
+        $("#radioCalificacion input[value='"+calificacion+"']").removeAttr('checked',true);
+        $("#radioCalificacion input[value='"+calificacion+"']").attr('checked',true);
+
+    }
+
+    $("#idProducto").val(idProducto);
+
+    var puntaje = $("#radioCalificacion input[name='puntaje']:checked").val();
+    var puntaje = (puntaje=='')? 5: puntaje;
+    actualizarEstrellas(puntaje);
+
+});
+
+/*=============================================================
+COMENTARIOS ACTUALIZA ESTRELLA
+=============================================================*/
+$("input[name='puntaje']").change(function (){
+
+    var puntaje = $(this).val();
+    actualizarEstrellas(puntaje)
+
+});
+
+function actualizarEstrellas(puntaje){
+
+    var estrellas = $('#estrellas').children('svg');
+    estrellas.eq(0).attr('class', (puntaje==0.5)? "fas fa-star-half-alt": "fas fa-star");
+    estrellas.eq(1).attr('class', (puntaje==1.5)? "fas fa-star-half-alt": ((puntaje>=2)? "fas fa-star" : "far fa-star"));
+    estrellas.eq(2).attr('class', (puntaje==2.5)? "fas fa-star-half-alt": ((puntaje>=3)? "fas fa-star" : "far fa-star"));
+    estrellas.eq(3).attr('class', (puntaje==3.5)? "fas fa-star-half-alt": ((puntaje>=4)? "fas fa-star" : "far fa-star"));
+    estrellas.eq(4).attr('class', (puntaje==4.5)? "fas fa-star-half-alt": ((puntaje>=5)? "fas fa-star" : "far fa-star"));
+
+}
+
+/*=============================================================
+COMENTARIOS VALIDAR
+=============================================================*/
+$('#calificar').submit(function(){
+
+    var alerta = "";
+
+    var comentario = $("#comentario").val();
+    var calificacion = $("#radioCalificacion input[name='puntaje']:checked").val();
+    if(comentario != ""){
+
+        var expresion = /^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ!¡ ]*$/;
+        if(!expresion.test(comentario)){
+
+            alerta += '<div class="alert alert-danger" role="alert">';
+            alerta += '<strong>¡ERROR!: </strong>';
+            alerta += 'No se permiten caracteres especiales ( como por ejemplo: ¿ , ? , + , - , * , _ , etc.. )';
+            alerta += '</div>';
+            $("#comentario").parent().after(alerta);
+
+        }
+
+    }
+    else{
+
+        alerta += '<div class="alert alert-danger" role="alert">';
+        alerta += '<strong>¡ERROR!: </strong>';
+        alerta += 'Campo obligatorio';
+        alerta += '</div>';
+        $("#comentario").parent().after(alerta);
+
+    }
+    if(calificacion != ""){
+
+        var expresion = /^[.0-9]*$/;
+        if(!expresion.test(calificacion)){
+
+            alerta += '<div class="alert alert-danger" role="alert">';
+            alerta += '<strong>¡ERROR!: </strong>';
+            alerta += 'Solo se permiten numeros reales';
+            alerta += '</div>';
+            $("#radioCalificacion").parent().after(alerta);
+
+
+        }
+
+    }
+    else{
+
+        alerta += '<div class="alert alert-danger" role="alert">';
+        alerta += '<strong>¡ERROR!: </strong>';
+        alerta += 'Campo obligatorio';
+        alerta += '</div>';
+        $("#radioCalificacion").parent().after(alerta);
+
+    }
+
+    return (alerta=="")? true: false;
+
+});

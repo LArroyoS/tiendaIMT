@@ -119,7 +119,7 @@ TOP
 
                                 <li>
 
-                                    <img class="rounded-circle" src="<?php echo htmlspecialchars($urlServidor.$_SESSION['foto']); ?>" width="10%">
+                                    <img class="rounded-circle" src="<?php echo htmlspecialchars($urlTienda.$_SESSION['foto']); ?>" width="10%">
 
                                 </li>
 

@@ -541,4 +541,248 @@
 
         }
 
+        /*==========================================================
+        ACTUALIZAR PERFIL
+        ===========================================================*/
+        static public function ctrActualizarPerfil(){
+
+            if(isset($_POST['editarNombre'])){
+
+                $ruta = $_POST['fotoUsuario'];
+                /*==========================================================
+                VALIDAR IMAGEN
+                ===========================================================*/
+                if(isset($_FILES['datosImagen']['tmp_name']) && 
+                    !empty($_FILES['datosImagen']['tmp_name'])){
+
+                    /*==========================================================
+                    EXISTE OTRA IMAGEN
+                    ===========================================================*/
+                    $directorio = "Vistas/img/usuarios/".$_POST['idUsuario'];
+
+                    if(!empty($_POST['fotoUsuario'])){
+
+                        unlink($_POST['fotoUsuario']);
+
+                    }
+                    else if(!file_exists($directorio)){
+
+                        mkdir($directorio, 0755);
+
+                    }
+
+                    /*==========================================================
+                    Modificar tamaño de foto
+                    ===========================================================*/
+                    list($ancho,$alto) = getimagesize($_FILES['datosImagen']['tmp_name']);
+                    $nuevoAncho = 500;
+                    $nuevoAlto = 500;
+
+                    /*==========================================================
+                    Guardar imagen en el directorio
+                    ===========================================================*/
+                    $aleatorio = mt_rand(100, 999);
+
+                    if($_FILES['datosImagen']['type']=='image/jpeg'){
+
+                        $ruta = $directorio."/".$aleatorio.'.jpeg';
+
+                        $origen = imagecreatefromjpeg($_FILES['datosImagen']['tmp_name']);
+
+                        $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+                        imagecopyresized($destino,$origen,0,0,0,0,$nuevoAncho,$nuevoAlto,$ancho,$alto);
+                        imagejpeg($destino, $ruta);
+
+                    }
+                    else if($_FILES['datosImagen']['type']=='image/png'){
+
+                        $ruta = $directorio."/".$aleatorio.'.png';
+
+                        $origen = imagecreatefrompng($_FILES['datosImagen']['tmp_name']);
+
+                        $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+                        /*Conservar la transfarencia*/
+                        imagealphablending($destino,false);
+                        imagesavealpha($destino, true);
+
+                        imagecopyresized($destino,$origen,0,0,0,0,$nuevoAncho,$nuevoAlto,$ancho,$alto);
+                        imagepng($destino, $ruta);
+
+                    }
+
+                }
+
+                if($_POST['editarClave']==""){
+
+                    $password = $_POST['passUsuario'];
+
+                }
+                else{
+
+                    $password = crypt($_POST['editarClave'],'$*/&wy$alvn01qlaxgt44ty00a1g6qJABGfHjjYAGaev$');
+
+                }
+
+                $datos = array(
+                            'nombre' => $_POST['editarNombre'],
+                            'email' => $_POST['editarCorreo'],
+                            'password' => $password,
+                            'foto' => $ruta,
+                            'modo' => $_POST['modoUsuario'],
+                            'id' => $_POST['idUsuario']
+                        );
+
+                $tabla = 'usuarios';
+                $respuesta = ModeloUsuarios::mdlActualizarPerfil($tabla,$datos);
+                if($respuesta == 'ok'){
+
+                    $_SESSION["id"] = $datos['id'];
+                    $_SESSION["nombre"] = $datos['nombre'];
+                    $_SESSION["foto"] = $datos['foto'];
+                    $_SESSION["email"] = $datos['email'];
+                    $_SESSION["password"] = $datos['password'];
+                    $_SESSION["modo"] = $datos['modo'];
+
+                    //Redireccionar a al pagina donde se encuentra actualmente
+                    $titulo = "!OK¡";
+                    $mensaje = '¡Su cuenta ha sido actualizada correctamente!';
+                    $tipo = "success";
+                    $retorno = "history.back();";
+                    ControladorUsuarios::alerta($titulo,$mensaje,$tipo,$retorno);
+
+                }
+                else{
+
+                    echo $respuesta;
+
+                }
+
+            }
+
+        }
+
+        /*====================================================
+        MOSTRAR COMPRAS
+        ====================================================*/
+        static public function ctrMostrarCompras($item,$valor){
+
+            $tabla = "compras";
+            $respuesta = ModeloUsuarios::mdlMostrarCompras($tabla,$item,$valor);
+
+            return $respuesta;
+
+        }
+
+        /*====================================================
+        MOSTRAR COMEMTARIOS PERFIL
+        ====================================================*/
+        static public function ctrMostrarComentarioPerfil($datos){
+
+            $tabla = "comentarios";
+            $respuesta = ModeloUsuarios::mdlMostrarComentarioPerfil($tabla,$datos);
+
+            return $respuesta;
+
+        }
+
+        /*====================================================
+        Actualizar comentarios
+        ====================================================*/
+        static public function ctrActualizarComentario(){
+
+            if(isset($_POST['comentario'])){
+
+                if(preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ!¡ ]*$/', $_POST['comentario'])){
+
+                    if($_POST["comentario"]!=''){
+
+                        //Registrar comentario
+                        if($_POST['idComentario']==''){
+
+                            $tabla = 'comentarios';
+                            $datos = array('id_usuario' => $_SESSION['id'],
+                                            'calificacion' => $_POST['puntaje'],
+                                            'comentario' => $_POST['comentario'],
+                                            'id_producto' => $_POST['idProducto']);
+
+                            $respuesta = ModeloUsuarios::mdlRegistroComentario($tabla,$datos);
+
+                            if($respuesta == 'ok'){
+
+                                $titulo = "¡GRACIAS POR COMAPRTIR SU OPINIÓN!";
+                                $mensaje = '¡Su calificación y comentario han sido guardados!';
+                                $tipo = "success";
+                                $retorno = 'history.back();';
+                                ControladorUsuarios::alerta($titulo,$mensaje,$tipo,$retorno);
+
+                            }
+                            //Actualizar comentario
+                            else{
+
+                                $titulo = "¡ERROR!";
+                                $mensaje = '¡No se pudo guardar su calificación y comentario!';
+                                $tipo = "error";
+                                $retorno = 'history.back();';
+                                ControladorUsuarios::alerta($titulo,$mensaje,$tipo,$retorno);
+
+                            }
+
+                        }
+                        else{
+
+                            $tabla = 'comentarios';
+                            $datos = array('id' => $_POST['idComentario'],
+                                            'calificacion' => $_POST['puntaje'],
+                                            'comentario' => $_POST['comentario']);
+
+                            $respuesta = ModeloUsuarios::mdlActualizarComentario($tabla,$datos);
+
+                            if($respuesta == 'ok'){
+
+                                $titulo = "¡GRACIAS POR COMAPRTIR SU OPINIÓN!";
+                                $mensaje = '¡Su calificación y comentario han sido guardados!';
+                                $tipo = "success";
+                                $retorno = 'history.back();';
+                                ControladorUsuarios::alerta($titulo,$mensaje,$tipo,$retorno);
+
+                            }
+                            else{
+
+                                $titulo = "¡ERROR!";
+                                $mensaje = '¡No se pudo guardar su calificación y comentario!';
+                                $tipo = "error";
+                                $retorno = 'history.back();';
+                                ControladorUsuarios::alerta($titulo,$mensaje,$tipo,$retorno);
+
+                            }
+
+                        }
+
+                    }
+                    else{
+
+                        $titulo = "¡ERROR!";
+                        $mensaje = '¡El comentario no puede estar vacio!';
+                        $tipo = "error";
+                        $retorno = 'history.back();';
+                        ControladorUsuarios::alerta($titulo,$mensaje,$tipo,$retorno);
+
+                    }
+
+                }
+                else{
+
+                    $titulo = "¡ERROR!";
+                    $mensaje = 'No se permiten caracteres especiales ( como por ejemplo: ¿ , ? , + , - , * , _ , etc.. )';
+                    $tipo = "error";
+                    $retorno = 'history.back();';
+                    ControladorUsuarios::alerta($titulo,$mensaje,$tipo,$retorno);
+
+                }
+
+            }
+
+        }
+
     }

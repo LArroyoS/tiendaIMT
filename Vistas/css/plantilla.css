@@ -287,3 +287,12 @@ MOVIL (XS revisamos en 320px)
     }
 
 }
+
+/*=================================================
+Correcciones Boostrap
+=================================================*/
+.progress-bar{
+
+    display: block !important;
+
+}
