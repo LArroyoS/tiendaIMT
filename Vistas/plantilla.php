@@ -185,7 +185,7 @@ JAVASCRIPT PERSONALIZADOS
 <script src="<?php echo $url; ?>Vistas/js/plantilla.js?1.2"></script>
 <script src="<?php echo $url; ?>Vistas/js/slide.js?1.2"></script>
 <script src="<?php echo $url; ?>Vistas/js/buscador.js?1.5"></script>
-<script src="<?php echo $url; ?>Vistas/js/infoproducto.js?1.0"></script>
+<script src="<?php echo $url; ?>Vistas/js/infoproducto.js?1.1"></script>
 <script src="<?php echo $url; ?>Vistas/js/usuarios.js?1.2"></script>
 <script src="<?php echo $url; ?>Vistas/js/registroFacebook.js?1.4"></script>
 

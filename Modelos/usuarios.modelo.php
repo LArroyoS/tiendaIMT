@@ -201,29 +201,61 @@
         ====================================================*/
         static public function mdlMostrarComentarioPerfil($tabla,$datos){
 
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla
-                WHERE id_usuario = :id_usuario AND id_producto = :id_producto");
+            if($datos['id_usuario']!=''){
 
-            $stmt->bindParam(":id_usuario", $datos['id_usuario'], PDO::PARAM_INT);
-            $stmt->bindParam(":id_producto", $datos['id_producto'], PDO::PARAM_INT);
+                $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla
+                    WHERE id_usuario = :id_usuario AND id_producto = :id_producto");
 
-            try{
+                $stmt->bindParam(":id_usuario", $datos['id_usuario'], PDO::PARAM_INT);
+                $stmt->bindParam(":id_producto", $datos['id_producto'], PDO::PARAM_INT);
 
-                if($stmt->execute()){
+                try{
 
-                    return $stmt->fetch();
-
+                    if($stmt->execute()){
+    
+                        return $stmt->fetch();
+    
+                    }
+                    else{
+    
+                        return false;
+    
+                    }
+    
                 }
-                else{
-
+                catch(Exception $e){
+    
                     return false;
-
+    
                 }
 
             }
-            catch(Exception $e){
+            else{
 
-                return false;
+                $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla
+                    WHERE id_producto = :id_producto ORDER BY Rand()");
+
+                $stmt->bindParam(":id_producto", $datos['id_producto'], PDO::PARAM_INT);
+
+                try{
+
+                    if($stmt->execute()){
+    
+                        return $stmt->fetchAll();
+    
+                    }
+                    else{
+    
+                        return false;
+    
+                    }
+    
+                }
+                catch(Exception $e){
+    
+                    return false;
+    
+                }
 
             }
 
