@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/productos.css?1.2">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/infoproducto.css?1.1">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/perfil.css?1.2">
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/carrito-de-compras.css?1.3">
 
     <!--============================================
     PLUGINS DE JAVASCRIPT
@@ -155,7 +156,8 @@ if(isset($_GET['ruta'])){
     else if($rutas[0] == "buscador" || 
             $rutas[0] == "verificar" || 
             $rutas[0] == "salir" ||
-            $rutas[0] == "perfil"){
+            $rutas[0] == "perfil" ||
+            $rutas[0] == 'carrito-de-compras'){
 
         include "Modulos/".$rutas[0].".php";
 

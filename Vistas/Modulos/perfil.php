@@ -22,7 +22,7 @@ Validar sesion
 ?>
 
 <!--======================================================
-BREADCRUB INFOPRODUCTOS
+BREADCRUB perfil
 ========================================================-->
 <div class="container-fluid card bg-light">
 
