@@ -446,4 +446,146 @@
 
         }
 
+        /*====================================================
+        Eliminar usuario
+        ====================================================*/
+        static public function mdlEliminarUsuario($tabla,$id){
+
+            $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla
+                WHERE id = :id");
+
+            $stmt->bindParam(":id", $id, PDO::PARAM_STR);
+
+            try{
+
+                if($stmt->execute()){
+
+                    return 'ok';
+
+                }
+                else{
+
+                    return 'error';
+
+                }
+
+            }
+            catch(Exception $e){
+
+                return $e->getMessage();
+
+            }
+
+            $stmt->close();
+            $stmt = null;
+
+        }
+
+        /*====================================================
+        Eliminar comentarios usuario
+        ====================================================*/
+        static public function mdlEliminarComentariosUsuario($tabla,$id){
+
+            $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla
+                WHERE id_usuario = :id_usuario");
+
+            $stmt->bindParam(":id_usuario", $id, PDO::PARAM_STR);
+
+            try{
+
+                if($stmt->execute()){
+
+                    return 'ok';
+
+                }
+                else{
+
+                    return 'error';
+
+                }
+
+            }
+            catch(Exception $e){
+
+                return $e->getMessage();
+
+            }
+
+            $stmt->close();
+            $stmt = null;
+
+        }
+
+
+        /*====================================================
+        Eliminar compras usuario
+        ====================================================*/
+        static public function mdlEliminarComprasUsuario($tabla,$id){
+
+            $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla
+                WHERE id_usuario = :id_usuario");
+
+            $stmt->bindParam(":id_usuario", $id, PDO::PARAM_STR);
+
+            try{
+
+                if($stmt->execute()){
+
+                    return 'ok';
+
+                }
+                else{
+
+                    return 'error';
+
+                }
+
+            }
+            catch(Exception $e){
+
+                return $e->getMessage();
+
+            }
+
+            $stmt->close();
+            $stmt = null;
+
+        }
+
+        /*====================================================
+        Eliminar deseos usuario
+        ====================================================*/
+
+        static public function mdlEliminarListaDeseosUsuario($tabla,$id){
+
+            $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla
+                WHERE id_usuario = :id_usuario");
+
+            $stmt->bindParam(":id_usuario", $id, PDO::PARAM_STR);
+
+            try{
+
+                if($stmt->execute()){
+
+                    return 'ok';
+
+                }
+                else{
+
+                    return 'error';
+
+                }
+
+            }
+            catch(Exception $e){
+
+                return $e->getMessage();
+
+            }
+
+            $stmt->close();
+            $stmt = null;
+
+        }
+
     }

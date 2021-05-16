@@ -1,9 +1,9 @@
 <form method="post" class="row" enctype="multipart/form-data" autocomplete="off">
 
-    <input type="hidden" value="<?php echo htmlspecialchars($_SESSION['id'])?>" name="idUsuario">
-    <input type="hidden" value="<?php echo htmlspecialchars($_SESSION['password'])?>" name="passUsuario">
-    <input type="hidden" value="<?php echo htmlspecialchars($_SESSION['foto'])?>" name="fotoUsuario">
-    <input type="hidden" value="<?php echo htmlspecialchars($_SESSION['modo'])?>" name="modoUsuario">
+    <input type="hidden" value="<?php echo htmlspecialchars($_SESSION['id'])?>" name="idUsuario" id="idUsuario">
+    <input type="hidden" value="<?php echo htmlspecialchars($_SESSION['password'])?>" name="passUsuario" id="passUsuario">
+    <input type="hidden" value="<?php echo htmlspecialchars($_SESSION['foto'])?>" name="fotoUsuario" id="fotoUsuario">
+    <input type="hidden" value="<?php echo htmlspecialchars($_SESSION['modo'])?>" name="modoUsuario" id="modoUsuario">
 
     <div class="col-md-3 col-sm-4 col-12 text-center">
 
@@ -180,9 +180,9 @@
 
     <?php 
 
-                        ControladorUsuarios::ctrActualizarPerfil();
+        ControladorUsuarios::ctrActualizarPerfil();
 
-                    ?>
+    ?>
 
 </form>
 
@@ -191,3 +191,9 @@
     Eliminar Cuenta
 
 </button>
+
+<?php 
+
+    ControladorUsuarios::ctrEliminarUsuario();
+
+?>

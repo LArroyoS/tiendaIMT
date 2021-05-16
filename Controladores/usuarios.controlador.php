@@ -824,4 +824,48 @@
 
         }
 
+        /*====================================================
+        Eliminar usuario
+        ====================================================*/
+        static public function ctrEliminarUsuario(){
+
+            if(isset($_GET['id'])){
+
+                $url = Ruta::ctrRuta();
+
+                $tabla1 = 'usuarios';
+                $tabla2 = 'comentarios';
+                $tabla3 = 'compras';
+                $tabla4 = 'deseos';
+
+                $id = $_GET['id'];
+
+                if($_GET['foto'] != ""){
+
+                    unlink($_GET['foto']);
+                    rmdir('Vistas/img/usuarios/'.$_GET['id']);
+
+                }
+
+                $respuesta = 'ok';//ModeloUsuarios::mdlEliminarUsuario($tabla1,$id);
+                //ModeloUsuarios::mdlEliminarComentariosUsuario($tabla2,$id);
+                //ModeloUsuarios::mdlEliminarComprasUsuario($tabla3,$id);
+                //ModeloUsuarios::mdlEliminarListaDeseosUsuario($tabla4,$id);
+
+                if($respuesta == 'ok'){
+
+                    $titulo = "¡SU CUENTA HA SIDO BORRADA!";
+                    $mensaje = '¡Debe registrarse nuevamente si desea ingresar!';
+                    $tipo = "success";
+                    $retorno = "
+                                window.location = '".$url."salir';
+                                ";
+                    ControladorUsuarios::alerta($titulo,$mensaje,$tipo,$retorno);
+
+                }
+
+            }
+
+        }
+
     }

@@ -291,7 +291,7 @@ HEADER
 
                         <div class="col-12" id="carrito">
                             
-                                    <a href="#">
+                                    <a href="<?php echo htmlspecialchars($urlTienda); ?>carrito-de-compras">
 
                                         <button class="btn btn-default float-left backColor">
 
