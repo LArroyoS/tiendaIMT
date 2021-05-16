@@ -92,8 +92,7 @@ sesion perfil
             ========================================================-->
             <div class="tab-pane container fade" id="deseos">
 
-                <h3>Deseos</h3>
-                <p><p>
+                <?php include 'pestañaListaDeDeseos.php'; ?>
 
             </div>
             <!--======================================================

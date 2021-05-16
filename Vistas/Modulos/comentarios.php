@@ -28,11 +28,13 @@ COMENTARIOS NAVBAR
 
         <?php if($cantidad==0): ?>
 
+            <li class="mr-auto"></li>
             <li class="nav-item active">
 
-                Este Producto no tiene comentarios
+                <h1><small>Este Producto no tiene comentarios</small></h1>
 
             </li>
+            <li class="mr-auto"></li>
 
         <?php else: ?>
 
@@ -61,24 +63,24 @@ COMENTARIOS NAVBAR
 
             </li>
 
+            <li class="mr-auto"></li>
+
+            <li class="float-right">
+
+                <a class="text-muted" href="">
+
+                    PROMEDIO DE CALIFICACIÓN <?php echo htmlspecialchars($promedio); ?> |
+                    <i class="<?php echo ($promedio==0.5)? "fas fa-star-half-alt": "fas fa-star"; ?>" arial-hidden="true"></i>
+                    <i class="<?php echo ($promedio==1.5)? "fas fa-star-half-alt": (($promedio>=2)? "fas fa-star" : "far fa-star"); ?>" arial-hidden="true"></i>
+                    <i class="<?php echo ($promedio==2.5)? "fas fa-star-half-alt": (($promedio>=3)? "fas fa-star" : "far fa-star"); ?>" arial-hidden="true"></i>
+                    <i class="<?php echo ($promedio==3.5)? "fas fa-star-half-alt": (($promedio>=4)? "fas fa-star" : "far fa-star"); ?>" arial-hidden="true"></i>
+                    <i class="<?php echo ($promedio==5.5)? "fas fa-star-half-alt": (($promedio>=5)? "fas fa-star" : "far fa-star"); ?>" arial-hidden="true"></i>
+
+                </a>
+
+            </li>
+
         <?php endif; ?>
-
-        <li class="mr-auto"></li>
-
-        <li class="float-right">
-
-            <a class="text-muted" href="">
-
-                PROMEDIO DE CALIFICACIÓN <?php echo htmlspecialchars($promedio); ?> |
-                <i class="<?php echo ($promedio==0.5)? "fas fa-star-half-alt": "fas fa-star"; ?>" arial-hidden="true"></i>
-                <i class="<?php echo ($promedio==1.5)? "fas fa-star-half-alt": (($promedio>=2)? "fas fa-star" : "far fa-star"); ?>" arial-hidden="true"></i>
-                <i class="<?php echo ($promedio==2.5)? "fas fa-star-half-alt": (($promedio>=3)? "fas fa-star" : "far fa-star"); ?>" arial-hidden="true"></i>
-                <i class="<?php echo ($promedio==3.5)? "fas fa-star-half-alt": (($promedio>=4)? "fas fa-star" : "far fa-star"); ?>" arial-hidden="true"></i>
-                <i class="<?php echo ($promedio==5.5)? "fas fa-star-half-alt": (($promedio>=5)? "fas fa-star" : "far fa-star"); ?>" arial-hidden="true"></i>
-
-            </a>
-
-        </li>
 
     </ul>
 

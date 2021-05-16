@@ -17,7 +17,7 @@
 
             <div class="col-12 text-center error404">
 
-                <h1>¡Oops!</h1>
+                <h1><small>¡Oops!</small></h1>
                 <h2>Aún no tienes compras realizadas en esta tienda</h2>
 
             </div>

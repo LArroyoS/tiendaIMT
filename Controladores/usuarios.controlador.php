@@ -785,4 +785,43 @@
 
         }
 
+        /*====================================================
+        Agregar a lista de deseos
+        ====================================================*/
+        static public function ctrAgregarDeseo($datos){
+
+            $tabla = 'deseos';
+
+            $respuesta = ModeloUsuarios::mdlAgregarDeseo($tabla,$datos);
+
+            return $respuesta;
+
+        }
+
+        /*====================================================
+        Mostrar lista de deseos
+        ====================================================*/
+        static public function ctrMostrarListaDeseos($item){
+
+            $tabla = 'deseos';
+
+            $respuesta = ModeloUsuarios::mdlMostrarListaDeseos($tabla,$item);
+
+            return $respuesta;
+
+        }
+
+        /*====================================================
+        quitar de lista de deseos
+        ====================================================*/
+        static public function ctrQuitarListaDeseos($datos){
+
+            $tabla = 'deseos';
+
+            $respuesta = ModeloUsuarios::mdlQuitarListaDeseos($tabla,$datos);
+
+            return $respuesta;
+
+        }
+
     }

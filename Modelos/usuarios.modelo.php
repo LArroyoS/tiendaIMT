@@ -340,4 +340,110 @@
 
         }
 
+        /*====================================================
+        Agregar a lista de deseos
+        ====================================================*/
+        static public function mdlAgregarDeseo($tabla,$datos){
+
+            $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_usuario,id_producto)
+            VALUE (:id_usuario,:id_producto)");
+
+            $stmt->bindParam(":id_producto", $datos['id_producto'], PDO::PARAM_STR);
+            $stmt->bindParam(":id_usuario", $datos['id_usuario'], PDO::PARAM_STR);
+
+            try{
+
+                if($stmt->execute()){
+
+                    return "ok";
+
+                }
+                else{
+
+                    return "error";
+
+                }
+
+            }
+            catch(Exception $e){
+
+                return $e->getMessage();
+
+            }
+
+            $stmt->close();
+            $stmt = null;
+
+        }
+
+        /*====================================================
+        mostrar lista de deseos
+        ====================================================*/
+        static public function mdlMostrarListaDeseos($tabla,$item){
+
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla
+                WHERE id_usuario = :id_usuario ORDER BY id_usuario DESC");
+
+            $stmt->bindParam(":id_usuario", $item, PDO::PARAM_STR);
+
+            try{
+
+                if($stmt->execute()){
+
+                    return $stmt->fetchAll();
+
+                }
+                else{
+
+                    return false;
+
+                }
+
+            }
+            catch(Exception $e){
+
+                return false;
+
+            }
+
+            $stmt->close();
+            $stmt = null;
+
+        }
+
+        /*====================================================
+        quitar de lista de deseos
+        ====================================================*/
+        static public function mdlQuitarListaDeseos($tabla,$datos){
+
+            $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla
+                WHERE id = :id");
+
+            $stmt->bindParam(":id", $datos, PDO::PARAM_STR);
+
+            try{
+
+                if($stmt->execute()){
+
+                    return 'ok';
+
+                }
+                else{
+
+                    return 'error';
+
+                }
+
+            }
+            catch(Exception $e){
+
+                return $e->getMessage();
+
+            }
+
+            $stmt->close();
+            $stmt = null;
+
+        }
+
     }

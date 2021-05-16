@@ -99,8 +99,8 @@
 
             <hr>
             <!--==============================================
-                        VITRINA DE PRODUCTOS EN CUADRICULA
-                        ===============================================-->
+            VITRINA DE PRODUCTOS EN CUADRICULA
+            ===============================================-->
             <ul class="grid0 row">
 
                 <?php foreach($relacionados as $key => $value): ?>
