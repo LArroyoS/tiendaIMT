@@ -345,77 +345,37 @@ INFO PRODUCTOS
 
                                 <?php if($infoproducto['tipo'] == "fisico"): ?>
 
-                                    <?php if($detalles['Talla']!=null): ?>
+                                    <?php foreach($detalles as $key => $detalle): ?>
 
                                         <div class="col form-group">
 
-                                            <select class="form-control seleccionarDetalle" id="seleccionarTalla">
+                                            <?php if($detalle!=null): ?>
 
-                                                <option value="">Talla</option>
+                                                <select class="form-control seleccionarDetalle" detalle="<?php echo $key; ?>">
 
-                                                <?php foreach($detalles['Talla'] as $key => $value): ?>
+                                                    <option value="">
 
-                                                    <option value="<?php echo htmlspecialchars($key); ?>">
-
-                                                        <?php echo htmlspecialchars($value); ?>
+                                                        <?php echo $key; ?>
 
                                                     </option>
 
-                                                <?php endforeach; ?>
+                                                    <?php foreach($detalle as $key => $value): ?>
 
-                                            </select>
+                                                        <option value="<?php echo htmlspecialchars($value); ?>">
 
-                                        </div>
+                                                            <?php echo htmlspecialchars($value); ?>
 
-                                    <?php endif; ?>
+                                                        </option>
 
-                                    <?php if($detalles['Color']!=null): ?>
+                                                    <?php endforeach; ?>
 
-                                        <div class="col form-group">
+                                                </select>
 
-                                            <select class="form-control seleccionarDetalle" id="seleccionarColor">
-
-                                                <option value="">Color</option>
-
-                                                <?php foreach($detalles['Color'] as $key => $value): ?>
-
-                                                    <option value="<?php echo htmlspecialchars($key); ?>">
-
-                                                        <?php echo htmlspecialchars($value); ?>
-
-                                                    </option>
-
-                                                <?php endforeach; ?>
-
-                                            </select>
+                                            <?php endif; ?>
 
                                         </div>
 
-                                    <?php endif; ?>
-
-                                    <?php if($detalles['Marca']!=null): ?>
-
-                                        <div class="col form-group">
-
-                                            <select class="form-control seleccionarDetalle" id="seleccionarMarca">
-
-                                                <option value="">Marca</option>
-
-                                                <?php foreach($detalles['Marca'] as $key => $value): ?>
-
-                                                    <option value="<?php echo htmlspecialchars($key); ?>">
-
-                                                        <?php echo htmlspecialchars($value); ?>
-
-                                                    </option>
-
-                                                <?php endforeach; ?>
-
-                                            </select>
-
-                                        </div>
-
-                                    <?php endif; ?>
+                                    <?php endforeach;?>
 
                                 <?php else: ?>
 
@@ -574,13 +534,27 @@ INFO PRODUCTOS
 
                                 </div>
 
-                            <?php endif; ?>
-
-                            <?php if($infoproducto['precio'] > 0): ?>
+                            <?php else: ?>
 
                                 <div class="col">
 
-                                    <button class="btn btn-outline-warning btn-block">
+                                    <button class="btn backColor btn-block agregarCarrito"
+                                        idProducto="<?php echo htmlspecialchars($infoproducto['id']); ?>" 
+                                        imagen="<?php echo htmlspecialchars($urlServidor.$infoproducto['portada']); ?>"
+                                        titulo="<?php echo htmlspecialchars($infoproducto['titulo']); ?>"
+
+                                        <?php if($infoproducto['oferta'] != 0): ?>
+
+                                            precio="<?php echo htmlspecialchars($infoproducto['precioOferta']); ?>"
+
+                                        <?php else: ?>
+
+                                            precio="<?php echo htmlspecialchars($infoproducto['precio']); ?>"
+
+                                        <?php endif; ?>
+
+                                        tipo="<?php echo htmlspecialchars($infoproducto['tipo']); ?>"
+                                        peso="<?php echo htmlspecialchars($infoproducto['peso']); ?>">
 
                                         AÑADIR AL CARRO
                                         <i class="fa fa-shopping-cart"></i>
@@ -588,6 +562,8 @@ INFO PRODUCTOS
                                     </button>
 
                                 </div>
+
+
 
                             <?php endif; ?>
 

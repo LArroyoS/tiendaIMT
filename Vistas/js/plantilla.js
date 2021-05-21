@@ -2,6 +2,7 @@
 PLANTILLA
 ============================================*/
 $rutaOculta = $("#rutaOculta").val();
+$rutaOcultaServidor = $("#rutaServidor").val();
 
 $.ajax({
 

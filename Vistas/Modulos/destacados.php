@@ -63,7 +63,7 @@ PRODUCTOS
         BARRA PRODUCTOS
         ======================================================-->
 
-        <div class="col-12 card card-body bg-light barraProductos">
+        <div class="col-12 card card-body bg-light">
 
             <div class="container">
 
@@ -155,7 +155,7 @@ PRODUCTOS
             <!--==============================================
             VITRINA DE PRODUCTOS EN CUADRICULA
             ===============================================-->
-            <ul class="grid<?php echo htmlspecialchars($i); ?> row">
+            <ul class="grid<?php echo $i; ?> row col-12">
 
                 <?php foreach($modulo[$i] as $key => $value): ?>
 
@@ -175,7 +175,7 @@ PRODUCTOS
 
                         </figure>
 
-                            <!--==========================================-->
+                        <!--==========================================-->
                         <div class="row">
 
                             <!--==========================================-->
@@ -187,7 +187,6 @@ PRODUCTOS
                                         class="pixelProducto">
 
                                         <?php echo htmlspecialchars($value['titulo']); ?>
-
                                         <br>
 
                                         <span style="color: white !important;">-</span>
@@ -219,7 +218,6 @@ PRODUCTOS
                             </h4>
 
                             <!--==========================================-->
-
                             <div class="col-6 precio">
 
                                 <?php if($value["precio"]==0): ?>
@@ -277,9 +275,11 @@ PRODUCTOS
 
                                 <div class="btn-group">
 
-                                    <button type="button" class="btn btn-outline-secondary btn-xs deseos" 
+                                    <button type="button" 
+                                        class="btn btn-outline-secondary btn-xs deseos" 
                                         idProducto="<?php echo htmlspecialchars($value['id']); ?>"
-                                        data-toggle="tooltip" title="Agregar a mi lista de deseos">
+                                        data-toggle="tooltip" 
+                                        title="Agregar a mi lista de deseos">
 
                                         <i class="fa fa-heart" aria-hidden="true"></i>
 
@@ -303,9 +303,10 @@ PRODUCTOS
 
                                             <?php endif; ?>
 
-                                            tipo="'.$value['tipo'].'"
-                                            peso="'.$value['peso'].'"
-                                            data-toggle="tooltip" title="Agregar a carrito de compras">
+                                            tipo="<?php echo htmlspecialchars($value['tipo']); ?>"
+                                            peso="<?php echo htmlspecialchars($value['peso']); ?>"
+                                            data-toggle="tooltip" 
+                                            title="Agregar a carrito de compras">
 
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 
@@ -316,8 +317,9 @@ PRODUCTOS
                                     <a href="<?php echo htmlspecialchars($value['ruta']); ?>" 
                                         class="pixelProducto">
 
-                                        <button type="button" class="btn btn-outline-secondary btn-xs"
-                                            data-toggle="tooltip" title="Ver Producto">
+                                        <button type="button" 
+                                            class="btn btn-outline-secondary btn-xs"                                                data-toggle="tooltip" 
+                                            title="Ver Producto">
 
                                             <i class="fa fa-eye" aria-hidden="true"></i>
 
@@ -330,7 +332,6 @@ PRODUCTOS
                             </div>
 
                         </div>
-
                         <!--==========================================-->
 
                     </li>
@@ -343,9 +344,7 @@ PRODUCTOS
             VITRINA DE PRODUCTOS EN LISTA
             ===============================================-->
 
-            <ul class="list<?php echo htmlspecialchars($i); ?> 
-                row" 
-                style="display:none">
+            <ul class="list<?php echo $i; ?> row col-12" style="display:none">
 
                 <?php foreach($modulo[$i] as $key => $value): ?>
 
@@ -365,14 +364,13 @@ PRODUCTOS
                                         <img src="<?php echo htmlspecialchars($urlServidor.$value['portada']); ?>" 
                                             class="img-fluid">
 
-                                    </a>
+                                        </a>
 
                                 </figure>
 
                             </div>
 
                             <!--=========================================-->
-
                             <div class="col-lg-10 col-md-7 col-sm-8 col-xs-12">
 
                                 <h1>
@@ -388,7 +386,11 @@ PRODUCTOS
 
                                         <?php if($value['nuevo'] !=0): ?>
 
-                                            <span class="badge badge-warning">Nuevo</span>
+                                            <span class="badge badge-warning">
+
+                                                Nuevo
+
+                                            </span>
 
                                         <?php endif; ?>
 
@@ -396,7 +398,7 @@ PRODUCTOS
 
                                             <span class="badge badge-warning">
 
-                                                <?php echo htmlspecialchars($value['descuentoOferta']); ?>% Descuento 
+                                                <?php echo htmlspecialchars($value['descuentoOferta']); ?>% Descuento
 
                                             </span>
 
@@ -424,7 +426,7 @@ PRODUCTOS
 
                                     </h2>
 
-                                <? else: ?>
+                                <?php else: ?>
 
                                     <h2>
 
@@ -474,9 +476,11 @@ PRODUCTOS
 
                                     <?php if($value['tipo'] == "virtual"): ?>
 
-                                        <button type="button" class="btn btn-outline-secondary btn-xs agregarCarrito" idProducto="'.$value['id'].'" 
-                                            imagen="'.$urlServidor.$value['portada'].'"
-                                            titulo="'.$value['titulo'].'"';
+                                        <button type="button" 
+                                            class="btn btn-outline-secondary btn-xs agregarCarrito" 
+                                            idProducto="<?php echo htmlspecialchars($value['id']); ?>" 
+                                            imagen="<?php echo htmlspecialchars($urlServidor.$value['portada']); ?>"
+                                            titulo="<?php echo htmlspecialchars($value['titulo']); ?>"
 
                                             <?php if($value['oferta'] != 0): ?>
 

@@ -16,6 +16,16 @@
         </script>';
 
     }
+    else{
+
+        echo '
+        <script>
+
+            localStorage.removeItem("usuario");
+
+        </script>';
+
+    }
 
     /*=========================================================
     CREAR OBJETO DE API GOOGLE
