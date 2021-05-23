@@ -314,7 +314,7 @@ HEADER
                                     <p>
 
                                         TU CESTA 
-                                        <span class="cantidadCesta"></span>
+                                        <span class="cantidadCesta sumaSubTotal"></span>
                                         <br>
                                         MXN $ 
                                         <span class="sumaCesta"><span>

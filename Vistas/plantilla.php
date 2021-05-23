@@ -191,7 +191,7 @@ JAVASCRIPT PERSONALIZADOS
 <script src="<?php echo $url; ?>Vistas/js/infoproducto.js?1.1"></script>
 <script src="<?php echo $url; ?>Vistas/js/usuarios.js?1.2"></script>
 <script src="<?php echo $url; ?>Vistas/js/registroFacebook.js?1.4"></script>
-<script src="<?php echo $url; ?>Vistas/js/carrito_de_compras.js?1.6"></script>
+<script src="<?php echo $url; ?>Vistas/js/carrito_de_compras.js?1.3"></script>
 
 <!--============================================
 SCRIPTS
