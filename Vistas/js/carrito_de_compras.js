@@ -516,3 +516,57 @@ function cestaCarrito(cantidadProductos){
     }
 
 }
+
+/*==========================================================
+/*==========================================================
+/*==========================================================
+/*==========================================================
+/*==========================================================
+/*==========================================================
+/*==========================================================
+chehkout
+===========================================================*/
+$("#btnCheckout").click(function(){
+
+    var idUsuario = $(this).attr("idUsuario");
+    //console.log('idUsuario',idUsuario);
+    var peso = $(".cuerpoCarrito button.quitarItemCarrito");
+    var titulo = $(".cuerpoCarrito .tituloCarritoCompra");
+    var cantidad = $(".cuerpoCarrito .cantidadItem");
+    var subtotal = $(".cuerpoCarrito .subTotales span");
+
+    for(var i=0; i < peso.length; i++){
+
+        var pesoArray = $(peso[i]).attr("peso");
+        var tituloArray = $(titulo[i]).html();
+        var cantidadArray = $(cantidad[i]).val();
+        var subtotalArray = $(subtotal[i]).html();
+        //console.log('peso ',pesoArray);
+        //console.log('titulo ',tituloArray);
+        //console.log('cantidad ',cantidadArray);
+        //console.log('subtotal ',subtotalArray);
+
+        /* ===============================================================
+        Mostrar productos definitivos
+        ==================================================================*/
+
+        $(".listaProductos table.tablaProductos tbody").append(''+
+            '<tr>'+
+                '<td>'+
+                    tituloArray+
+                '</td>'+
+                '<td>'+
+                    cantidadArray+
+                '</td>'+
+                '<td>'+
+                    '$'+
+                    '<span>'+
+                        subtotalArray+
+                    '<span>'+
+                '</td>'+
+            '</tr>'
+        );
+
+    }
+
+});

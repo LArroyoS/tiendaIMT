@@ -50,7 +50,7 @@
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/productos.css?1.2">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/infoproducto.css?1.1">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/perfil.css?1.2">
-    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/carrito-de-compras.css?1.3">
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/carrito-de-compras.css?1.4">
 
     <!--============================================
     PLUGINS DE JAVASCRIPT

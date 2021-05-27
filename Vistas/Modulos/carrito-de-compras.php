@@ -112,9 +112,223 @@ tabla carrito de compras
             <!--==========================================================
             checkout
             ==============================================================-->
-            <div class="card-header cabeceraCheckout">
+            <div class="card-header cabeceraCheckout">  
 
-                <button class="btn backColor btn-lg float-right">REALIZAR PAGO</button>
+                <?php if(isset($_SESSION['validarSesion']) && $_SESSION['validarSesion']=='ok'):?>
+
+                    <a href="#modalCheckout" data-toggle="modal" data-target="#CheckOut">
+
+                        <button class="btn backColor btn-lg float-right" id="btnCheckout"
+                            idUsuario="<?php echo htmlspecialchars($_SESSION['id']); ?>">
+                            REALIZAR PAGO
+                        </button>
+
+                    </a>
+
+                <?php else: ?>
+
+                    <a href="#modalIngreso" data-toggle="modal" data-target="#Ingresar">
+
+                        <button class="btn backColor btn-lg float-right">REALIZAR PAGO</button>
+
+                    </a>
+
+                <?php endif; ?>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =================================================================================
+Ventana modal checkout
+=================================================================================== -->
+
+<!--===========================================================
+VENTANA MODAL OLVIDASTE CONTRSEÑA
+============================================================-->
+<div class="container">
+
+    <!-- The Modal -->
+    <div class="modal modalFormulario" id="CheckOut">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body modalTitulo">
+
+                    <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title backColor">REALIZAR PAGO</h3>
+
+                    <div class="contenidoCheckout">
+
+                        <div class="formEnvio row">
+
+                            <h4 class="text-center card card-body bg-light text-muted text-uppercase">
+
+                                Información de envío
+
+                            </h4>
+
+                            <div class="col-12 seleccionePais">
+
+                                <select class="form-control" id="seleccionePais" name="seleccionePais" required>
+
+                                    <option value=""> Seleccione el país</opton>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <br>
+
+                        <div class="formPago row">
+
+                            <h4 class="text-center card card-body bg-light text-muted text-uppercase">
+
+                                Elije la forma de pago
+
+                            </h4>
+
+                            <figure class="col-6">
+
+                                <center>
+
+                                    <input id="checkPaypal" type="radio" name="pago" value="paypal" checked>
+
+                                </center>
+
+                                <img src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img/plantilla/paypal.jpg" class="img-thumbnail">
+
+                            </figure>
+
+                            <figure class="col-6">
+
+                                <center>
+
+                                    <input id="checkPayu" type="radio" name="pago" value="payu">
+
+                                </center>
+
+                                <img src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img/plantilla/payu.jpg" class="img-thumbnail">
+
+                            </figure>
+
+                        </div>
+
+                        <br>
+
+                        <div class="listaProductos row">
+
+                            <h4 class="text-center card card-body bg-light text-muted text-uppercase">
+
+                                Productos a comprar
+
+                            </h4>
+
+                            <table class="table table-striped tablaProductos">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio</th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                </tbody>
+
+                            </table>
+
+                            <div class="col-12">
+
+                                <div class="col-sm-6 col-12 float-right">
+
+                                    <table class="table table-striped tablaTasas">
+
+                                        <tbody>
+
+                                            <tr>
+
+                                                <td>SubTotal</td>
+                                                <td>USD $20</td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td>Envio</td>
+                                                <td>USD $30</td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td>Impuesto</td>
+                                                <td>USD $20</td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td><strong>Total</strong></td>
+                                                <td><strong>USD $20</strong></td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                    <div class="divisa">
+
+                                        <select class="form-control" id="cambiarDivisa" name="divisa">
+
+                                            <option value="USD">USD</option>
+
+                                        </select>
+
+                                        <br>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <button class="btn btn-block btn-lg btn-primary backColor btnPagar">
+
+                            PAGAR
+
+                        </button>
+
+                    </div>
+
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+
+                    
+
+                </div>
 
             </div>
 
