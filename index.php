@@ -19,6 +19,12 @@
     require_once "Modelos/usuarios.modelo.php";
 
     /*=======================================
+    Carrito
+    ========================================*/
+    require_once "Controladores/carrito.controlador.php";
+    require_once "Modelos/carrito.modelo.php";
+
+    /*=======================================
     LIBRERIAS
     ========================================*/
     require_once "extensiones/PHPMailer/PHPMailerAutoload.php";

@@ -167,6 +167,12 @@ VENTANA MODAL OLVIDASTE CONTRSEÑA
 
                     <div class="contenidoCheckout">
 
+                        <?php 
+
+                            $respuesta = ControladorCarrito::ctrMostrarTarifas();
+
+                        ?>
+
                         <div class="formEnvio row">
 
                             <h4 class="text-center card card-body bg-light text-muted text-uppercase">

@@ -534,6 +534,7 @@ $("#btnCheckout").click(function(){
     var titulo = $(".cuerpoCarrito .tituloCarritoCompra");
     var cantidad = $(".cuerpoCarrito .cantidadItem");
     var subtotal = $(".cuerpoCarrito .subTotales span");
+    var tipoArray = [];
 
     for(var i=0; i < peso.length; i++){
 
@@ -566,6 +567,51 @@ $("#btnCheckout").click(function(){
                 '</td>'+
             '</tr>'
         );
+
+        /* ===============================================================
+        Seleccionar pais de envio si hay productos fisicos
+        ==================================================================*/
+        tipoArray.push($(cantidad[i]).attr("tipo"));
+        console.log(tipoArray);
+
+    }
+
+    /*Metodo que nos permite buscar un valor en los indices de un array */
+    /* find */
+
+    function checkTipo(tipo){
+
+        return tipo ==  "fisico";
+
+    }
+
+    var verificaTipo = tipoArray.find(checkTipo) == "fisico";
+    //console.log(verificaTipo);
+
+    if(verificaTipo==true){
+
+        $(".formEnvio").show();
+        $.ajax({
+            url: $rutaOculta+"Vistas/js/plugins/countries.json",
+            type: "GET",
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(respuesta){
+
+                //console.log("respuesta ", respuesta);
+                respuesta.forEach(seleccionarPais);
+
+                function seleccionarPais(item, index){
+
+                    var pais = item.name;
+                    var codPais = item.code;
+
+                    $("#seleccionePais").append('<option value="'+codPais+'"> '+pais+' </opton>');
+
+                }
+            }
+        });
 
     }
 
