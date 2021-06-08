@@ -242,7 +242,7 @@ PRODUCTOS
 
                                                 <strong class="oferta">
 
-                                                    USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                    MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                                 </strong>
 
@@ -250,7 +250,7 @@ PRODUCTOS
 
                                             <small>
 
-                                                $<?php echo htmlspecialchars($value['precioOferta']); ?>
+                                                $<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>
 
                                             </small>
 
@@ -258,7 +258,7 @@ PRODUCTOS
 
                                             <small>
 
-                                                USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                             </small>
 
@@ -295,11 +295,11 @@ PRODUCTOS
 
                                             <?php if($value['oferta'] != 0): ?>
 
-                                                precio="<?php echo htmlspecialchars($value['precioOferta']); ?>"
+                                                precio="<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>"
 
                                             <?php else: ?>
 
-                                                precio="<?php echo htmlspecialchars($value['precio']); ?>"
+                                                precio="<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>"
 
                                             <?php endif; ?>
 
@@ -436,7 +436,7 @@ PRODUCTOS
 
                                                 <strong class="oferta">
 
-                                                    USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                    MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                                 </strong>
 
@@ -444,7 +444,7 @@ PRODUCTOS
 
                                             <small>
 
-                                                $<?php echo htmlspecialchars($value['precioOferta']); ?>
+                                                $<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>
 
                                             </small>
 
@@ -452,7 +452,7 @@ PRODUCTOS
 
                                             <small>
 
-                                                USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                             </small>
 
@@ -484,11 +484,11 @@ PRODUCTOS
 
                                             <?php if($value['oferta'] != 0): ?>
 
-                                                precio="<?php echo htmlspecialchars($value['precioOferta']); ?>"
+                                                precio="<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>"
 
                                             <?php else: ?>
 
-                                                precio="<?php echo htmlspecialchars($value['precio']); ?>"
+                                                precio="<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>"
 
                                             <?php endif; ?>
 

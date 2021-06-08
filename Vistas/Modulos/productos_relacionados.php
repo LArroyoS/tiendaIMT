@@ -189,7 +189,7 @@
 
                                                 <strong class="oferta">
 
-                                                    USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                    MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                                 </strong>
 
@@ -197,7 +197,7 @@
 
                                             <small>
 
-                                                $<?php echo htmlspecialchars($value['precioOferta']); ?>
+                                                $<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>
 
                                             </small>
 
@@ -205,7 +205,7 @@
 
                                             <small>
 
-                                                USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                             </small>
 
@@ -237,8 +237,8 @@
                                             imagen="<?php echo htmlspecialchars($urlServidor.$value['portada']); ?>"
                                             titulo="<?php echo htmlspecialchars($value['titulo']); ?>"
                                             <?php if($value['oferta'] != 0): ?>
-                                            precio="<?php echo htmlspecialchars($value['precioOferta']); ?>" <?php else: ?>
-                                            precio="<?php echo htmlspecialchars($value['precio']); ?>" <?php endif; ?>
+                                            precio="<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>" <?php else: ?>
+                                            precio="<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>" <?php endif; ?>
                                             tipo="'.$value['tipo'].'" peso="'.$value['peso'].'" data-toggle="tooltip"
                                             title="Agregar a carrito de compras">
 

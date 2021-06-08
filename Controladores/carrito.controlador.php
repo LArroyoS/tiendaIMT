@@ -3,11 +3,14 @@
     class ControladorCarrito{
 
         /*===================================
-        LLAMAMOS LA PLANTILLA
+        Mostrar tarifas
         ====================================*/
         public function ctrMostrarTarifas(){
 
-            include "Vistas/plantilla.php";
+            $tabla = 'comercio';
+            $respuesta = ModeloCarrito::mdlMostrarTarifas($tabla);
+
+            return $respuesta;
 
         }
 

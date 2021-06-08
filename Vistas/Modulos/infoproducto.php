@@ -290,7 +290,7 @@ INFO PRODUCTOS
 
                             <?php if($infoproducto["oferta"] == 0): ?>
 
-                                USD $<?php echo htmlspecialchars($infoproducto["precio"]); ?>
+                                MXN $<?php echo htmlspecialchars(number_format($infoproducto["precio"],2)); ?>
 
                             <?php else: ?>
 
@@ -298,7 +298,7 @@ INFO PRODUCTOS
 
                                     <strong class="oferta">
 
-                                        USD $<?php echo htmlspecialchars($infoproducto["precio"]); ?>
+                                        MXN $<?php echo htmlspecialchars(number_format($infoproducto["precio"],2)); ?>
 
                                     </strong>
 
@@ -306,7 +306,7 @@ INFO PRODUCTOS
 
                                 <span>
 
-                                    $ <?php echo htmlspecialchars($infoproducto['precioOferta']); ?>
+                                    $ <?php echo htmlspecialchars(number_format($infoproducto['precioOferta'],2)); ?>
 
                                 </span>
 
@@ -467,7 +467,7 @@ INFO PRODUCTOS
 
                                     <i class="fa fa-eye"></i>
                                     Visto por 
-                                    <span class="vistas" precio="<?php echo htmlspecialchars($infoproducto['precio']); ?>">
+                                    <span class="vistas" precio="<?php echo htmlspecialchars(number_format($infoproducto['precio'],2)); ?>">
 
                                         <?php echo htmlspecialchars($infoproducto['vistasGratis']); ?> 
 
@@ -491,7 +491,7 @@ INFO PRODUCTOS
 
                                     <i class="fa fa-eye"></i>
                                     Visto por 
-                                    <span class="vistas" precio="<?php echo htmlspecialchars($infoproducto['precio']); ?>">
+                                    <span class="vistas" precio="<?php echo htmlspecialchars(number_format($infoproducto['precio'],2)); ?>">
 
                                         <?php echo htmlspecialchars($infoproducto['vistas']); ?> 
 
@@ -545,11 +545,11 @@ INFO PRODUCTOS
 
                                         <?php if($infoproducto['oferta'] != 0): ?>
 
-                                            precio="<?php echo htmlspecialchars($infoproducto['precioOferta']); ?>"
+                                            precio="<?php echo htmlspecialchars(number_format($infoproducto['precioOferta'],2)); ?>"
 
                                         <?php else: ?>
 
-                                            precio="<?php echo htmlspecialchars($infoproducto['precio']); ?>"
+                                            precio="<?php echo htmlspecialchars(number_format($infoproducto['precio'],2)); ?>"
 
                                         <?php endif; ?>
 

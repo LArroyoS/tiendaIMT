@@ -186,7 +186,7 @@
                                 <!--==========================================-->
                                 <figure>
 
-                                    <a href="<?php echo htmlspecialchars($value['ruta']); ?>" 
+                                    <a href="<?php echo htmlspecialchars($urlTienda.$value['ruta']); ?>" 
                                         class="pixelProducto">
 
                                         <img src="<?php echo htmlspecialchars($urlServidor.$value["portada"]); ?>" 
@@ -204,7 +204,7 @@
 
                                         <small>
 
-                                            <a href="<?php echo htmlspecialchars($value['ruta']); ?>" 
+                                            <a href="<?php echo htmlspecialchars($urlTienda.$value['ruta']); ?>" 
                                                 class="pixelProducto">
 
                                                 <?php echo htmlspecialchars($value['titulo']); ?>
@@ -264,7 +264,7 @@
 
                                                         <strong class="oferta">
 
-                                                            USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                            MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                                         </strong>
 
@@ -272,7 +272,7 @@
 
                                                     <small>
 
-                                                        $<?php echo htmlspecialchars($value['precioOferta']); ?>
+                                                        $<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>
 
                                                     </small>
 
@@ -280,7 +280,7 @@
 
                                                     <small>
 
-                                                        USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                        MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                                     </small>
 
@@ -317,11 +317,11 @@
                                     
                                                     <?php if($value['oferta'] != 0): ?>
 
-                                                        precio="<?php echo htmlspecialchars($value['precioOferta']); ?>"
+                                                        precio="<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>"
 
                                                     <?php else: ?>
 
-                                                        precio="<?php echo htmlspecialchars($value['precio']); ?>"
+                                                        precio="<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>"
 
                                                     <?php endif; ?>
 
@@ -336,7 +336,7 @@
 
                                             <?php endif; ?>
 
-                                            <a href="<?php echo htmlspecialchars($value['ruta']); ?>" 
+                                            <a href="<?php echo htmlspecialchars($urlTienda.$value['ruta']); ?>" 
                                                 class="pixelProducto">
 
                                                 <button type="button" 
@@ -400,7 +400,7 @@
 
                                             <small>
 
-                                                <a href="<?php echo htmlspecialchars($value['ruta']); ?>" 
+                                                <a href="<?php echo htmlspecialchars($urlTienda.$value['ruta']); ?>" 
                                                     class="pixelProducto">
 
                                                     <?php echo htmlspecialchars($value['titulo']); ?>
@@ -459,7 +459,7 @@
 
                                                         <strong class="oferta">
 
-                                                            USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                            MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                                         </strong>
 
@@ -467,7 +467,7 @@
 
                                                     <small>
 
-                                                        $<?php echo htmlspecialchars($value['precioOferta']); ?>
+                                                        $<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>
 
                                                     </small>
 
@@ -475,7 +475,7 @@
 
                                                     <small>
 
-                                                        USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                        MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                                     </small>
 
@@ -507,11 +507,11 @@
 
                                                     <?php if($value['oferta'] != 0): ?>
 
-                                                        precio="<?php echo htmlspecialchars($value['precioOferta']); ?>"
+                                                        precio="<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>"
 
                                                     <?php else: ?>
 
-                                                        precio="<?php echo htmlspecialchars($value['precio']); ?>"
+                                                        precio="<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>"
 
                                                     <?php endif; ?>
 
@@ -526,7 +526,7 @@
 
                                             <?php endif; ?>
 
-                                            <a href="<?php echo htmlspecialchars($value['ruta']); ?>" 
+                                            <a href="<?php echo htmlspecialchars($urlTienda.$value['ruta']); ?>" 
                                                 class="pixelProducto">
 
                                                 <button type="button" 

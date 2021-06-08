@@ -307,7 +307,7 @@ Banner
 
                                                         <strong class="oferta">
 
-                                                            USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                            MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                                         </strong>
 
@@ -315,7 +315,7 @@ Banner
 
                                                     <small>
 
-                                                        $<?php echo htmlspecialchars($value['precioOferta']); ?>
+                                                        $<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>
 
                                                     </small>
 
@@ -323,7 +323,7 @@ Banner
 
                                                     <small>
 
-                                                        USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                        MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                                     </small>
 
@@ -360,11 +360,11 @@ Banner
                                     
                                                     <?php if($value['oferta'] != 0): ?>
 
-                                                        precio="<?php echo htmlspecialchars($value['precioOferta']); ?>"
+                                                        precio="<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>"
 
                                                     <?php else: ?>
 
-                                                        precio="<?php echo htmlspecialchars($value['precio']); ?>"
+                                                        precio="<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>"
 
                                                     <?php endif; ?>
 
@@ -502,7 +502,7 @@ Banner
 
                                                         <strong class="oferta">
 
-                                                            USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                            MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                                         </strong>
 
@@ -510,7 +510,7 @@ Banner
 
                                                     <small>
 
-                                                        $<?php echo htmlspecialchars($value['precioOferta']); ?>
+                                                        $<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>
 
                                                     </small>
 
@@ -518,7 +518,7 @@ Banner
 
                                                     <small>
 
-                                                        USD $<?php echo htmlspecialchars($value['precio']); ?>
+                                                        MXN $<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>
 
                                                     </small>
 
@@ -550,11 +550,11 @@ Banner
 
                                                     <?php if($value['oferta'] != 0): ?>
 
-                                                        precio="<?php echo htmlspecialchars($value['precioOferta']); ?>"
+                                                        precio="<?php echo htmlspecialchars(number_format($value['precioOferta'],2)); ?>"
 
                                                     <?php else: ?>
 
-                                                        precio="<?php echo htmlspecialchars($value['precio']); ?>"
+                                                        precio="<?php echo htmlspecialchars(number_format($value['precio'],2)); ?>"
 
                                                     <?php endif; ?>
 

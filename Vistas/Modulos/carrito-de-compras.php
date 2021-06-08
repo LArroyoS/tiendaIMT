@@ -97,7 +97,7 @@ tabla carrito de compras
 
                             <h4 class="sumaSubTotal">
 
-                                <strong>USD $ <span class="sumaCesta"></span></strong>
+                                <strong>MXN $ <span class="sumaCesta"></span></strong>
 
                             </h4>
 
@@ -170,8 +170,16 @@ VENTANA MODAL OLVIDASTE CONTRSEÑA
                         <?php 
 
                             $respuesta = ControladorCarrito::ctrMostrarTarifas();
+                            //var_dump($respuesta);
 
                         ?>
+
+                        <input type="hidden" id="tasaImpuesto" value="<?php echo htmlspecialchars($respuesta['impuesto'])?>" >
+                        <input type="hidden" id="envioNacional" value="<?php echo htmlspecialchars($respuesta['envioNacional'])?>" >
+                        <input type="hidden" id="envioInternacional" value="<?php echo htmlspecialchars($respuesta['envioInternacional'])?>" >
+                        <input type="hidden" id="tasaMinimaNal" value="<?php echo htmlspecialchars($respuesta['tasaMinimaNal'])?>" >
+                        <input type="hidden" id="tasaMinimaInt" value="<?php echo htmlspecialchars($respuesta['tasaMinimaInt'])?>" >
+                        <input type="hidden" id="tasaPais" value="<?php echo htmlspecialchars($respuesta['pais'])?>" >
 
                         <div class="formEnvio row">
 
@@ -195,7 +203,7 @@ VENTANA MODAL OLVIDASTE CONTRSEÑA
 
                         <br>
 
-                        <div class="formPago row">
+                        <div class="formPago">
 
                             <h4 class="text-center card card-body bg-light text-muted text-uppercase">
 
@@ -203,29 +211,41 @@ VENTANA MODAL OLVIDASTE CONTRSEÑA
 
                             </h4>
 
-                            <figure class="col-6">
+                            <div class="row pt-3">
 
-                                <center>
+                                <figure class="col-6">
 
-                                    <input id="checkPaypal" type="radio" name="pago" value="paypal" checked>
+                                    <label for="checkPaypal" tipo="radioButton">
 
-                                </center>
+                                        <center class="d-none">
 
-                                <img src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img/plantilla/paypal.jpg" class="img-thumbnail">
+                                            <input id="checkPaypal" type="radio" name="pago" value="paypal" checked="true">
 
-                            </figure>
+                                        </center>
 
-                            <figure class="col-6">
+                                        <img src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img/plantilla/paypal.jpg" class="img-thumbnail">
 
-                                <center>
+                                    </label>
 
-                                    <input id="checkPayu" type="radio" name="pago" value="payu">
+                                </figure>
 
-                                </center>
+                                <figure class="col-6">
 
-                                <img src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img/plantilla/payu.jpg" class="img-thumbnail">
+                                    <label for="checkPayu" tipo="radioButton">
 
-                            </figure>
+                                        <center class="d-none">
+
+                                            <input id="checkPayu" type="radio" name="pago" value="payu">
+
+                                        </center>
+
+                                        <img src="<?php echo htmlspecialchars($urlServidor); ?>Vistas/img/plantilla/payu.jpg" class="img-thumbnail">
+
+                                    </label>
+
+                                </figure>
+
+                            </div>
 
                         </div>
 
@@ -270,28 +290,49 @@ VENTANA MODAL OLVIDASTE CONTRSEÑA
                                             <tr>
 
                                                 <td>SubTotal</td>
-                                                <td>USD $20</td>
+                                                <td>
+                                                    MXN $
+                                                    <span class="valorSubTotal">
+                                                        00
+                                                    </span>
+                                                </td>
 
                                             </tr>
 
                                             <tr>
 
                                                 <td>Envio</td>
-                                                <td>USD $30</td>
+                                                <td>MXN $
+                                                    <span class="valorTotalEnvio">
+                                                        00
+                                                    </span>
+                                                </td>
 
                                             </tr>
 
                                             <tr>
 
                                                 <td>Impuesto</td>
-                                                <td>USD $20</td>
+                                                <td>
+                                                    MXN $
+                                                    <span class="valorTotalImpuesto">
+                                                        00
+                                                    </span>
+                                                </td>
 
                                             </tr>
 
                                             <tr>
 
                                                 <td><strong>Total</strong></td>
-                                                <td><strong>USD $20</strong></td>
+                                                <td>
+                                                    <strong>
+                                                        MXN $
+                                                        <span class="valorTotalCompra">
+                                                            00
+                                                        </span>
+                                                    </strong>
+                                                </td>
 
                                             </tr>
 
@@ -302,8 +343,6 @@ VENTANA MODAL OLVIDASTE CONTRSEÑA
                                     <div class="divisa">
 
                                         <select class="form-control" id="cambiarDivisa" name="divisa">
-
-                                            <option value="USD">USD</option>
 
                                         </select>
 

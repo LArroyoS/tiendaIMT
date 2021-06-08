@@ -134,7 +134,7 @@
 
                                                 <strong class="oferta">
 
-                                                    USD $<?php echo htmlspecialchars($value2['precio']); ?>
+                                                    MXN $<?php echo htmlspecialchars(number_format($value2['precio'],2)); ?>
 
                                                 </strong>
 
@@ -142,7 +142,7 @@
 
                                             <small>
 
-                                                $<?php echo htmlspecialchars($value2['precioOferta']); ?>
+                                                $<?php echo htmlspecialchars(number_format($value2['precioOferta'],2)); ?>
 
                                             </small>
 
@@ -150,7 +150,7 @@
 
                                             <small>
 
-                                                USD $<?php echo htmlspecialchars($value2['precio']); ?>
+                                                MXN $<?php echo htmlspecialchars(number_format($value2['precio'],2)); ?>
 
                                             </small>
 
@@ -182,8 +182,8 @@
                                             imagen="<?php echo htmlspecialchars($urlServidor.$value2['portada']); ?>"
                                             titulo="<?php echo htmlspecialchars($value2['titulo']); ?>"
                                             <?php if($value2['oferta'] != 0): ?>
-                                            precio="<?php echo htmlspecialchars($value2['precioOferta']); ?>" <?php else: ?>
-                                            precio="<?php echo htmlspecialchars($value2['precio']); ?>" <?php endif; ?>
+                                            precio="<?php echo htmlspecialchars(number_format($value2['precioOferta'],2)); ?>" <?php else: ?>
+                                            precio="<?php echo htmlspecialchars(number_format($value2['precio'],2)); ?>" <?php endif; ?>
                                             tipo="'.$value2['tipo'].'" peso="'.$value2['peso'].'" data-toggle="tooltip"
                                             title="Agregar a carrito de compras">
 

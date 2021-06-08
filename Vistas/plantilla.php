@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/plugins/sweetalert.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
-    <link type="text/css" media="screen" href="<?php echo $url; ?>Vistas/css/plugins/flexslider.css" rel="stylesheet">
+    <link media="screen" href="<?php echo $url; ?>Vistas/css/plugins/flexslider.css" rel="stylesheet">
 
     <!--============================================
     ESTILOS PERSONALIZADOS
@@ -50,7 +50,7 @@
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/productos.css?1.2">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/infoproducto.css?1.1">
     <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/perfil.css?1.2">
-    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/carrito-de-compras.css?1.4">
+    <link rel="stylesheet" href="<?php echo $url; ?>Vistas/css/carrito-de-compras.css?1.5">
 
     <!--============================================
     PLUGINS DE JAVASCRIPT
@@ -191,7 +191,7 @@ JAVASCRIPT PERSONALIZADOS
 <script src="<?php echo $url; ?>Vistas/js/infoproducto.js?1.1"></script>
 <script src="<?php echo $url; ?>Vistas/js/usuarios.js?1.2"></script>
 <script src="<?php echo $url; ?>Vistas/js/registroFacebook.js?1.4"></script>
-<script src="<?php echo $url; ?>Vistas/js/carrito_de_compras.js?1.3"></script>
+<script src="<?php echo $url; ?>Vistas/js/carrito_de_compras.js?1.4"></script>
 
 <!--============================================
 SCRIPTS
