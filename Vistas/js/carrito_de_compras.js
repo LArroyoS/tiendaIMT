@@ -328,8 +328,9 @@ Quitar productos del carrito
 ===========================================================*/
 $('.quitarItemCarrito').click(function(){
 
+    //console.log($(this).parent().parent().parent());
     $(this).parent().parent().parent().remove();
-    
+
     actualizarLocalStotage();
 
 });
@@ -348,7 +349,7 @@ $(".cantidadItem").change(function(){
     var cantidad = $(this).val();
     var precio = $(this).attr('precio');
     var idProducto = $(this).attr('idProducto');
-    var cantidadItem= $(".cantidadItem");
+    var cantidadItem = $(".cantidadItem");
 
     var subTotal = (Number(cantidad)*Number(precio));
 
@@ -526,7 +527,7 @@ function cestaCarrito(cantidadProductos){
 /*==========================================================
 chehkout
 ===========================================================*/
-$("#btnCheckout").click(function(){
+$(".cabeceraCheckout").on("click","#btnCheckout",function(){
 
     $(".listaProductos table.tablaProductos tbody").empty();
 
@@ -547,7 +548,9 @@ $("#btnCheckout").click(function(){
     var impuestoTotal = Number(subTotal)*($("#tasaImpuesto").val()/100);
     //console.log('impuestoTotal', impuestoTotal);
     $(".valorTotalImpuesto").html(impuestoTotal.toFixed(2));
+    $(".valorTotalImpuesto").attr("valor",impuestoTotal.toFixed(2));
     $(".valorSubTotal").html(Number(subTotal).toFixed(2));
+    $(".valorSubTotal").attr('valor',Number(subTotal).toFixed(2));
     sumaTotalCompra();
 
     /*=======================================================================
@@ -580,7 +583,8 @@ $("#btnCheckout").click(function(){
                 '</td>'+
                 '<td>'+
                     '$'+
-                    '<span>'+
+                    '<span class="valorItem"'+ 
+                        'valor="'+Number(subtotalArray).toFixed(2)+'">'+
                         Number(subtotalArray).toFixed(2)+
                     '<span>'+
                 '</td>'+
@@ -607,7 +611,7 @@ $("#btnCheckout").click(function(){
     var sumatotalPeso = cantidadPeso.reduce(sumaArrayPeso);
     //console.log('sumatotalpeso', sumatotalPeso);
 
-    var pais = $("#seleccionePais").val();
+    var pais = ($("#seleccionePais").length)>0? $("#seleccionePais").val(): "";
     actualizarEnvio(pais,sumatotalPeso);
 
     /*Metodo que nos permite buscar un valor en los indices de un array */
@@ -628,6 +632,11 @@ $("#btnCheckout").click(function(){
     //console.log(verificaTipo);
 
     if(verificaTipo==true){
+
+        $(".seleccionePais").html(''+
+            '<select class="form-control" id="seleccionePais" name="seleccionePais" required>'+
+                '<option value=""> Seleccione el país</opton>'+
+            '</select>');
 
         $(".btnPagar").attr("tipo","fisico");
 
@@ -660,6 +669,7 @@ $("#btnCheckout").click(function(){
         =========================================================*/
         $("#seleccionePais").on('change',function(){
 
+            $("#cambiarDivisa").val("MXN").change();
             var pais = $(this).val();
             actualizarEnvio(pais,sumatotalPeso);
             sumaTotalCompra();
@@ -670,6 +680,8 @@ $("#btnCheckout").click(function(){
     }
     else{
 
+        $("#seleccionePais").remove();
+        $(".formEnvio").hide();
         $(".btnPagar").attr("tipo","virtual");
 
     }
@@ -695,6 +707,7 @@ function actualizarEnvio(pais,sumatotalPeso){
             }
 
             $(".valorTotalEnvio").html(Number(resultadoPeso).toFixed(2));
+            $(".valorTotalEnvio").attr("valor",Number(resultadoPeso).toFixed(2));
 
         }
         else{
@@ -709,6 +722,7 @@ function actualizarEnvio(pais,sumatotalPeso){
             }
 
             $(".valorTotalEnvio").html(Number(resultadoPeso).toFixed(2));
+            $(".valorTotalEnvio").attr("valor",Number(resultadoPeso).toFixed(2));
 
         }
 
@@ -716,6 +730,7 @@ function actualizarEnvio(pais,sumatotalPeso){
     else{
 
         $(".valorTotalEnvio").html("--");
+        $(".valorTotalEnvio").attr('valor',"--");
 
     }
 
@@ -733,18 +748,20 @@ Evaluar tasas de envio si el producto es fisico
 
 function sumaTotalCompra(){
 
-    var subtotal = $(".valorSubTotal").html();
+    var subtotal = $(".valorSubTotal").attr("valor");
     subtotal = $.isNumeric(subtotal)? Number(subtotal):00;
 
-    var impuesto = $(".valorTotalImpuesto").html();
+    var impuesto = $(".valorTotalImpuesto").attr("valor");
     impuesto = $.isNumeric(impuesto)? Number(impuesto):00;
 
-    var envio = $(".valorTotalEnvio").html();
+    var envio = $(".valorTotalEnvio").attr("valor");
     envio = $.isNumeric(envio)? Number(envio):00;
 
+    //console.log("t: "+subtotal+" i: "+impuesto+" e: "+envio)
     var sumaTotal = subtotal+impuesto+envio;
 
     $(".valorTotalCompra").html(sumaTotal.toFixed(2));
+    $(".valorTotalCompra").attr('valor',sumaTotal.toFixed(2));
 
 }
 
@@ -812,6 +829,8 @@ function divisas(metodoPago){
 
     }
 
+    $("#cambiarDivisa").val("MXN").change();
+
 }
 
 /*==========================================================
@@ -824,23 +843,80 @@ var apiKey = "9541037788919e4ada5c";
 
 $("#cambiarDivisa").change(function(){
 
-    var divisa = $(this).val();
+    $(".alert").remove();
+    if($("#seleccionePais").val()==""){
 
-    $.ajax({
+        $("#cambiarDivisa").after(''+
+            '<div class="alert alert-warning alert-dismissible fade show" role="alert">'+
+                'No ha seleccionado el país de envío.'+
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
+                    '<span aria-hidden="true">&times;</span>'+
+                '</button>'+
+            '</div>'
+        );
 
-        //https://free.currconv.com/api/v7/convert?q=USD_MXN&compact=ultra&apiKey=9541037788919e4ada5c
-        url: "https://free.currconv.com/api/v7/convert?q="+divisaBase+"_"+divisa+"&compact=ultra&apiKey="+apiKey,
-        type: "GET",
-        caches: false,
-        contentType: false,
-        processData: false,
-        dataType: "jsonp",
-        success: function(respuesta){
+        return false;
 
-            console.log('respuesta',respuesta);
+    }
+    else{
 
-        }
-    });
+        //console.log('cambio');
+        var divisa = $(this).val();
+
+        $.ajax({
+
+            //https://free.currconv.com/api/v7/convert?q=USD_MXN&compact=ultra&apiKey=9541037788919e4ada5c
+            url: "https://free.currconv.com/api/v7/convert?q="+divisaBase+"_"+divisa+"&compact=ultra&apiKey="+apiKey,
+            type: "GET",
+            caches: false,
+            contentType: false,
+            processData: false,
+            dataType: "jsonp",
+            success: function(respuesta){
+
+                var divisaString = JSON.stringify(respuesta);
+                var conversion = 1;
+                
+                if(divisa!="MXN"){
+
+                    conversion = divisaString.replace("\""+divisaBase+"_"+divisa+"\":","");
+                    conversion = conversion.replace("{","");
+                    conversion = conversion.replace("}","");
+
+                }
+
+                $(".cambioDivisa").html(divisa);
+                //console.log('respuesta',respuesta);
+                //console.log(divisaString);
+
+                var valorSubTotal = $(".valorSubTotal").attr("valor");
+                var valorTotalEnvio = $(".valorTotalEnvio").attr("valor");
+                var valorTotalImpuesto = $(".valorTotalImpuesto").attr("valor");
+                var valorTotalCompra = $(".valorTotalCompra").attr("valor");
+
+                if($.isNumeric(valorTotalEnvio)){
+
+                    $(".valorTotalEnvio").html((Number(conversion)*Number(valorTotalEnvio)).toFixed(2));
+
+                }
+
+                $(".valorSubTotal").html((Number(conversion)*Number(valorSubTotal)).toFixed(2));
+                $(".valorTotalImpuesto").html((Number(conversion)*Number(valorTotalImpuesto)).toFixed(2));
+                $(".valorTotalCompra").html((Number(conversion)*Number(valorTotalCompra)).toFixed(2));
+
+                var valorItem = $(".valorItem");
+                for(var i=0; i<valorItem.length; i++){
+
+                    var val = $(valorItem[i]).attr("valor");
+                    $(valorItem[i]).html((Number(conversion)*Number(val)).toFixed(2))
+
+                }
+
+            }
+
+        });
+
+    }
 
 });
 
@@ -856,6 +932,7 @@ Pagar
 $(".btnPagar").click(function(){
 
     var tipo = $(this).attr("tipo");
+    $(".alert").remove();
     if(tipo=="fisico" && $("#seleccionePais").val()==""){
 
         $(".btnPagar").before(''+

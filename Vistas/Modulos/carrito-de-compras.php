@@ -181,7 +181,7 @@ VENTANA MODAL OLVIDASTE CONTRSEÑA
                         <input type="hidden" id="tasaMinimaInt" value="<?php echo htmlspecialchars($respuesta['tasaMinimaInt'])?>" >
                         <input type="hidden" id="tasaPais" value="<?php echo htmlspecialchars($respuesta['pais'])?>" >
 
-                        <div class="formEnvio row">
+                        <div class="formEnvio row pt-3">
 
                             <h4 class="text-center card card-body bg-light text-muted text-uppercase">
 
@@ -190,12 +190,6 @@ VENTANA MODAL OLVIDASTE CONTRSEÑA
                             </h4>
 
                             <div class="col-12 seleccionePais">
-
-                                <select class="form-control" id="seleccionePais" name="seleccionePais" required>
-
-                                    <option value=""> Seleccione el país</opton>
-
-                                </select>
 
                             </div>
 
@@ -291,8 +285,8 @@ VENTANA MODAL OLVIDASTE CONTRSEÑA
 
                                                 <td>SubTotal</td>
                                                 <td>
-                                                    MXN $
-                                                    <span class="valorSubTotal">
+                                                    <span class="cambioDivisa">MXN</span> $
+                                                    <span class="valorSubTotal" valor="0">
                                                         00
                                                     </span>
                                                 </td>
@@ -302,8 +296,8 @@ VENTANA MODAL OLVIDASTE CONTRSEÑA
                                             <tr>
 
                                                 <td>Envio</td>
-                                                <td>MXN $
-                                                    <span class="valorTotalEnvio">
+                                                <td><span class="cambioDivisa">MXN</span> $
+                                                    <span class="valorTotalEnvio" valor="0">
                                                         00
                                                     </span>
                                                 </td>
@@ -314,8 +308,8 @@ VENTANA MODAL OLVIDASTE CONTRSEÑA
 
                                                 <td>Impuesto</td>
                                                 <td>
-                                                    MXN $
-                                                    <span class="valorTotalImpuesto">
+                                                    <span class="cambioDivisa">MXN</span> $
+                                                    <span class="valorTotalImpuesto" valor="0">
                                                         00
                                                     </span>
                                                 </td>
@@ -327,8 +321,8 @@ VENTANA MODAL OLVIDASTE CONTRSEÑA
                                                 <td><strong>Total</strong></td>
                                                 <td>
                                                     <strong>
-                                                        MXN $
-                                                        <span class="valorTotalCompra">
+                                                        <span class="cambioDivisa">MXN</span> $
+                                                        <span class="valorTotalCompra" valor="0">
                                                             00
                                                         </span>
                                                     </strong>
