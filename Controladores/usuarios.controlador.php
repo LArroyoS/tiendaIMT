@@ -847,7 +847,8 @@
 
                 }
 
-                $respuesta = 'ok';//ModeloUsuarios::mdlEliminarUsuario($tabla1,$id);
+                $respuesta = 'ok';
+                //ModeloUsuarios::mdlEliminarUsuario($tabla1,$id);
                 //ModeloUsuarios::mdlEliminarComentariosUsuario($tabla2,$id);
                 //ModeloUsuarios::mdlEliminarComprasUsuario($tabla3,$id);
                 //ModeloUsuarios::mdlEliminarListaDeseosUsuario($tabla4,$id);

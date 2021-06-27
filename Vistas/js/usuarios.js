@@ -248,6 +248,8 @@ CAMBIAR FOTO
 =============================================================*/
 $("#btnCambiarFoto").click(function (){
 
+    var texto = $(this).text();
+    $(this).html((texto=="Cancelar")? 'Cambiar Foto de perfil':'Cancelar');
     $("#datosImagen").val("");
     $("#preVisualizar").removeAttr('src');
     $("#imgPerfil").toggle();
